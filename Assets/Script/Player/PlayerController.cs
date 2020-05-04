@@ -14,17 +14,22 @@ public class PlayerController : MonoBehaviour
    [Header("속도")]
     public float speed;
     public float dash_move;
+    [Header("무기")]
+    public Transform weapon;
+    public GameObject enemy;
 
     bool isRun_flag;
+
     private void Start()
     {
+        Attack();
     }
 
     private void FixedUpdate()
     {
         joystic_localpos = joystic_foreground.GetComponent<RectTransform>().localPosition;
 
-        if(joystic_localpos != Vector2.zero)
+        if (joystic_localpos != Vector2.zero)
         {
             if (!dash_flag) // 대쉬중에는 막아둔다
             {
@@ -33,6 +38,7 @@ public class PlayerController : MonoBehaviour
                 this.transform.position.x + (joystic_localpos.x * Time.fixedDeltaTime * speed),
                 this.transform.position.y + (joystic_localpos.y * Time.fixedDeltaTime * speed));
             }
+
 
             if (!isRun_flag)   // 달리는 동작 
             {
@@ -60,30 +66,36 @@ public class PlayerController : MonoBehaviour
                 this.GetComponent<Animator>().SetBool("isRun", false);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Attack();
+        }
     }
 
     public void OnClick_Dash()
     {
-        if (joystic_localpos == Vector2.zero)
+        if (Mathf.Abs(joystic_localpos.x) < 45 && Mathf.Abs(joystic_localpos.y) < 45)
         {
             return;
         }
-
         StartCoroutine(DashCoroutine());
     }
+
     bool dash_flag;
     IEnumerator DashCoroutine()
     {
         dash_flag = true;
 
-        if (joystic_localpos.x > 0)
+        if (joystic_localpos.x > 45)
             this.transform.DOMoveX(this.transform.position.x + dash_move, 0.1f).SetEase(Ease.Linear);
-        else
+        if (joystic_localpos.x < -45)
             this.transform.DOMoveX(this.transform.position.x - dash_move, 0.1f).SetEase(Ease.Linear);
-        if (joystic_localpos.y > 0)
+        if (joystic_localpos.y > 45)
             this.transform.DOMoveY(this.transform.position.y + dash_move, 0.1f).SetEase(Ease.Linear);
-        else
+        if (joystic_localpos.y < -45)
             this.transform.DOMoveY(this.transform.position.y - dash_move, 0.1f).SetEase(Ease.Linear);
+
 
         for (int i = 0; i < 5; i++)
         {
@@ -100,5 +112,14 @@ public class PlayerController : MonoBehaviour
         }
 
         dash_flag = false;
+    }
+
+    void Attack()
+    {
+      //  Vector3 dir = enemy.transform.position - transform.position;
+        float angle = 90 - (Mathf.Sin(Vector2.Distance(enemy.transform.position , transform.position)));
+        weapon.rotation = Quaternion.Euler(weapon.rotation.x, weapon.rotation.y,  angle);
+
+        //weapon.DORotate(new Vector3(weapon.transform.rotation.x, weapon.transform.rotation.y, weapon.transform.rotation.z - 80), 0.1f);
     }
 }
