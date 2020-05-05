@@ -101,9 +101,11 @@
     <Compile Include="Assets\Script\Effect\Ghost.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\Manager\BackgroundManager.cs" />
     <Compile Include="Assets\Script\Manager\EnemyManager.cs" />
     <Compile Include="Assets\Script\Manager\ObjectPoolingManager.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
+    <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
     <None Include="Assets\Resources\Sepiroth\LICENSE.txt" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShader.shader" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShaderScrollView.shader" />

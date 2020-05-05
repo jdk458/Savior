@@ -11,6 +11,8 @@ public class ObjectPoolingManager : MonoBehaviour
     public Queue<GameObject> enemy_queue = new Queue<GameObject>();
     public GameObject ghost_prefab = null;
     public Queue<GameObject> ghost_queue = new Queue<GameObject>();
+    public GameObject skill_prefab = null;
+    public Queue<GameObject> skill_queue = new Queue<GameObject>();
 
     private void Awake()
     {
@@ -30,6 +32,13 @@ public class ObjectPoolingManager : MonoBehaviour
             ghost_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
+        // skill
+        for (int i = 0; i < 40; i++)
+        {
+            GameObject t_object = Instantiate(skill_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
     }
 
     // 사용한 오브젝트를 다시 큐에 집어 넣는 함수
@@ -41,6 +50,8 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.ghost)
             ghost_queue.Enqueue(p_object);
 
+        if (obj == ObjectKind.skill)
+            skill_queue.Enqueue(p_object);
 
         p_object.SetActive(false);
     }
@@ -56,6 +67,9 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.ghost)
             t_object = ghost_queue.Dequeue();
 
+        if (obj == ObjectKind.skill)
+            t_object = skill_queue.Dequeue();
+
         t_object.SetActive(true);
         return t_object;
     }
@@ -64,5 +78,6 @@ public class ObjectPoolingManager : MonoBehaviour
 public enum ObjectKind
 {
     enemy,
-    ghost
+    ghost,
+    skill
 }

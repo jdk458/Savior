@@ -36,8 +36,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -67,6 +69,8 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 49
+      Script: {instanceID: 0}
+    - Class: 50
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
@@ -141,11 +145,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14428}
     - Class: 114
-      Script: {instanceID: 18042}
+      Script: {instanceID: 26294}
     - Class: 114
-      Script: {instanceID: 18048}
+      Script: {instanceID: 26300}
     - Class: 114
-      Script: {instanceID: 18050}
+      Script: {instanceID: 26302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -359,7 +363,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 4e62733f53101cde0b5b5fe96d7bb633
+      Hash: c3932eee229e1b4a3b6cebb6f51d54b8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController

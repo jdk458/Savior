@@ -24,7 +24,7 @@ public class EnemyManager : MonoBehaviour
         enemy_obj.transform.position = enemy_spawn.GetChild(rand_pos_num).transform.position;
 
         Invoke("Spawn", spawn_time);
-        spawn_time -= 0.01f;
+       // spawn_time -= 0.01f;
     }
 
 }
