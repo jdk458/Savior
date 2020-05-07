@@ -6,6 +6,15 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("STATUS")]
+    [Range(1, 10)] public float atk;
+    [Range(3, 10)] public float range;
+    [Range(0.5f, 3f)] public float atkspeed;
+
+    /// <summary>
+    /// 
+    /// </summary>
+
     [Header("카메라")]
     public Transform theCam;
     [Header("조이스틱")]
@@ -20,42 +29,7 @@ public class PlayerController : MonoBehaviour
     List<Transform> enemy_transform_list = new List<Transform>();
 
     bool isRun_flag;
-    bool isAttack_flag;
 
-    private void Update()
-    {
-        if (!isAttack_flag)
-        {
-            // 주변에 적 찾기
-            RaycastHit2D[] hit_enemy = Physics2D.CircleCastAll(this.transform.position, 1.5f, Vector2.zero);
-            if (hit_enemy.Length > 0)
-            {
-                for (int i = 0; i < hit_enemy.Length; i++)
-                {
-                    if (hit_enemy[i] && hit_enemy[i].transform.tag == "Enemy")
-                    {
-                        enemy_transform_list.Add(hit_enemy[i].transform);
-                    }
-                }
-                if (enemy_transform_list.Count > 1)
-                {
-                    int min = 0;
-                    for (int i = 1; i < enemy_transform_list.Count; i++)
-                    {
-                        if (Vector2.Distance(this.transform.position, enemy_transform_list[min].position) > Vector2.Distance(this.transform.position, enemy_transform_list[i].position))
-                        {
-                            min = i;
-                        }
-                    }
-                    StartCoroutine(Attack_Coroutine(enemy_transform_list[min].gameObject));
-                }
-                else if(enemy_transform_list.Count == 1)
-                {
-                    StartCoroutine(Attack_Coroutine(enemy_transform_list[0].gameObject));
-                }
-            }
-        }
-    }
 
     private void FixedUpdate()
     {
@@ -143,19 +117,5 @@ public class PlayerController : MonoBehaviour
         dash_flag = false;
     }
 
-    IEnumerator Attack_Coroutine(GameObject enemy)
-    {
-        isAttack_flag = true;
-        enemy_transform_list.Clear();
-        slash.SetActive(true);
-        slash.transform.position = enemy.transform.position;
 
-        Vector3 dir = enemy.transform.position - this.transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        slash.transform.rotation = Quaternion.Euler(slash.transform.rotation.x, slash.transform.rotation.y, angle + 90);
-
-        yield return new WaitForSeconds(0.3f);
-        slash.SetActive(false);
-        isAttack_flag = false;
-    }
 }
