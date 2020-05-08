@@ -9,10 +9,10 @@ public class ObjectPoolingManager : MonoBehaviour
     public Transform instantiate_pos;  
     public GameObject enemy_prefab = null;
     public Queue<GameObject> enemy_queue = new Queue<GameObject>();
-    public GameObject ghost_prefab = null;
-    public Queue<GameObject> ghost_queue = new Queue<GameObject>();
     public GameObject ob_prefab = null;
     public Queue<GameObject> ob_queue = new Queue<GameObject>();
+    public GameObject ghost_prefab = null;
+    public Queue<GameObject> ghost_queue = new Queue<GameObject>();
 
     private void Awake()
     {
@@ -25,18 +25,18 @@ public class ObjectPoolingManager : MonoBehaviour
             enemy_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
-        // ghost  
-        for (int i = 0; i < 20; i++)
-        {
-            GameObject t_object = Instantiate(ghost_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
-            ghost_queue.Enqueue(t_object);
-            t_object.SetActive(false);
-        }
         // ob  
         for (int i = 0; i < 100; i++)
         {
             GameObject t_object = Instantiate(ob_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
             ob_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // ghost
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(ghost_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            ghost_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
     }
@@ -47,11 +47,11 @@ public class ObjectPoolingManager : MonoBehaviour
         if(obj == ObjectKind.enemy)
             enemy_queue.Enqueue(p_object);
 
-        if (obj == ObjectKind.ghost)
-            ghost_queue.Enqueue(p_object);
-
         if (obj == ObjectKind.ob)
             ob_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.ghost)
+            ghost_queue.Enqueue(p_object);
 
         p_object.SetActive(false);
     }
@@ -64,11 +64,11 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.enemy)
             t_object = enemy_queue.Dequeue();
 
-        if (obj == ObjectKind.ghost)
-            t_object = ghost_queue.Dequeue();
-
         if (obj == ObjectKind.ob)
             t_object = ob_queue.Dequeue();
+
+        if (obj == ObjectKind.ghost)
+            t_object = ghost_queue.Dequeue();
 
         t_object.SetActive(true);
         return t_object;
@@ -78,6 +78,6 @@ public class ObjectPoolingManager : MonoBehaviour
 public enum ObjectKind
 {
     enemy,
-    ghost,
-    ob
+    ob,
+    ghost
 }

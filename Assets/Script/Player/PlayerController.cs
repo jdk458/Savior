@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [Header("STATUS")]
     [Range(1, 10)] public float atk;
     [Range(3, 10)] public float range;
-    [Range(0.5f, 3f)] public float atkspeed;
+    [Range(0.1f, 3f)] public float atkspeed;
 
     /// <summary>
     /// 
@@ -23,13 +23,12 @@ public class PlayerController : MonoBehaviour
     [Header("속도")]
     public float speed;
     public float dash_move;
-    [Header("슬래쉬")]
-    public GameObject slash;
 
     List<Transform> enemy_transform_list = new List<Transform>();
 
     bool isRun_flag;
 
+    
 
     private void FixedUpdate()
     {
@@ -45,36 +44,42 @@ public class PlayerController : MonoBehaviour
                 this.transform.position.y + (joystic_localpos.y * Time.fixedDeltaTime * speed));
             }
 
+            Vector2 dir = Vector2.zero - joystic_localpos;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180f;
 
-            if (!isRun_flag)   // 달리는 동작 
+            this.GetComponent<Animator>().SetBool("isRun", true);
+
+            if (angle > 315 || angle <= 360 && angle > 0 || angle <= 45)
             {
-                isRun_flag = true;
-                this.GetComponent<Animator>().SetBool("isRun", true);
+                this.GetComponent<Animator>().SetFloat("angle", 0);
+            }
+            if (angle > 225 && angle <= 315)
+            {
+                this.GetComponent<Animator>().SetFloat("angle", .4f);
+            }
+            if (angle > 135 && angle <= 225)
+            {
+                this.GetComponent<Animator>().SetFloat("angle", .7f);
+            }
+            if (angle > 45 && angle <= 135)
+            {
+                this.GetComponent<Animator>().SetFloat("angle", 1f);
             }
 
-            if(joystic_localpos.x < 0)
-            {
-                this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, this.transform.rotation.z);
-            }
-            else
-            {
-                this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, this.transform.rotation.z);
-            }
 
             // 카메라 플레이어 따라가기 
             theCam.position = new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z);
+
         }
         else
         {
-            if (isRun_flag) // 달리는 동작 멈추기 
-            {
-                isRun_flag = false;
-                this.GetComponent<Animator>().SetBool("isRun", false);
-            }
+            this.GetComponent<Animator>().SetBool("isRun", false);
         }
 
-      
+
     }
+
+  
 
     public void OnClick_Dash()
     {
@@ -102,16 +107,11 @@ public class PlayerController : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            GameObject ghost_obj = ObjectPoolingManager.instance.GetQueue(ObjectKind.ghost);
-            ghost_obj.transform.position = this.transform.position;
-
-            if (joystic_localpos.x < 0)
-                ghost_obj.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180, this.transform.rotation.z);
-            else
-                ghost_obj.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0, this.transform.rotation.z);
+            GameObject ghost_temp = ObjectPoolingManager.instance.GetQueue(ObjectKind.ghost);
+            ghost_temp.transform.position = this.transform.position;
+            ghost_temp.GetComponent<SpriteRenderer>().sprite = this.GetComponent<SpriteRenderer>().sprite;
 
             yield return new WaitForSeconds(0.1f / 5);
-
         }
 
         dash_flag = false;

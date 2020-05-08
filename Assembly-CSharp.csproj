@@ -93,26 +93,20 @@
     <Compile Include="Assets\Resources\Cool Joystick\Assets\Scripts\Extensions\Singleton.cs" />
     <Compile Include="Assets\Resources\Cool Joystick\Assets\Scripts\Joystick.cs" />
     <Compile Include="Assets\Resources\Cool Joystick\Assets\Scripts\JoystickConfiguration.cs" />
-    <Compile Include="Assets\Resources\Sepiroth\Demo\Scripts\CharacterController2D.cs" />
-    <Compile Include="Assets\Resources\Sepiroth\Demo\Scripts\FlyingPlayerController.cs" />
-    <Compile Include="Assets\Resources\Sepiroth\Demo\Scripts\FollowCamera.cs" />
-    <Compile Include="Assets\Resources\Sepiroth\Demo\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Resources\Sepiroth\Demo\Scripts\SceneSelecter.cs" />
     <Compile Include="Assets\Script\Effect\Ghost.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyController.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Manager\BackgroundManager.cs" />
+    <Compile Include="Assets\Script\Manager\CountdownManager.cs" />
     <Compile Include="Assets\Script\Manager\EnemyManager.cs" />
     <Compile Include="Assets\Script\Manager\ObjectPoolingManager.cs" />
     <Compile Include="Assets\Script\Ob\Ob_nomal.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
     <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
-    <None Include="Assets\Resources\Sepiroth\LICENSE.txt" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShader.shader" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShaderScrollView.shader" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShaderLight.shader" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
-    <None Include="Assets\Resources\Sepiroth\README.txt" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1OneShaderFunctions.cginc" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/UnityWarkspace/MasicServiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
