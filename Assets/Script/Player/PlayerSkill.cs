@@ -6,8 +6,6 @@ using System;
 
 public class PlayerSkill : MonoBehaviour
 {
-   
-
 
     private void Start()
     {
@@ -60,6 +58,7 @@ public class PlayerSkill : MonoBehaviour
                 GameObject ob = ObjectPoolingManager.instance.GetQueue(ObjectKind.ob);
                 ob.transform.position = this.transform.position;
                 ob.transform.rotation = Quaternion.Euler(0, 0, angle);
+                ob.GetComponent<Ob_nomal>().player_status = this.GetComponent<PlayerController>();
             }
            
         }

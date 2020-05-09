@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_transform: {fileID: 0}
   speed: 0.035
+  max_hp: 40
 --- !u!61 &7458057575091645733
 BoxCollider2D:
   m_ObjectHideFlags: 0

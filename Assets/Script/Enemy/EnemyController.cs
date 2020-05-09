@@ -8,17 +8,20 @@ public class EnemyController : MonoBehaviour
     public Transform player_transform;
     [Header("속도")]
     public float speed = 0.035f;
+    [Header("체력")] public int max_hp;
+    int current_hp;
 
     Rigidbody2D rigidbody2D;
 
     private void OnEnable()
     {
+        current_hp = max_hp;
         rigidbody2D = this.GetComponent<Rigidbody2D>();
      
     }
     private void FixedUpdate()
     {
-        if (!damage_flag)
+        if (!hit_flag)
         {
             this.transform.position = Vector2.MoveTowards(this.transform.position, player_transform.position, speed);
         }
@@ -31,62 +34,50 @@ public class EnemyController : MonoBehaviour
 
     private void OnDisable()
     {
-        damage_flag = false;
+        hit_flag = false;
         this.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
-    public void Damage(GameObject target)
+    bool hit_flag;
+    public void Hit(int damage, bool isCritical = false)
     {
-        StartCoroutine(Damage_Coroutine(target));
-    }
-    bool damage_flag;
-    IEnumerator Damage_Coroutine(GameObject target)
-    {
-        damage_flag = true;
+        if (hit_flag)
+            return;
 
-        Vector3 dir = player_transform.position - this.transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180f;
-     
-
-        this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 150);
-        yield return new WaitForSeconds(0.2f);
-        this.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
-
-        float draft = 5f;
-       
-        if (target.tag.Contains("Draft"))
+        hit_flag = true;
+        current_hp -= damage;
+        if (current_hp <= 0)
         {
-            if (337.5f < angle || angle <= 22.5) // right   
-                rigidbody2D.velocity = new Vector2(draft, 0);
-            if (22.5f < angle || angle <= 67.5f) // under_right   
-                rigidbody2D.velocity = new Vector2(draft, -draft);
-            if (67.5f < angle || angle <= 112.5f) // under
-                rigidbody2D.velocity = new Vector2(0, -draft);
-            if (112.5f < angle || angle <= 157.5f) // under_left
-                rigidbody2D.velocity = new Vector2(-draft, -draft);
-            if (157.5f < angle || angle <= 202.5f) // left
-                rigidbody2D.velocity = new Vector2(-draft, 0);
-            if (202.5f < angle || angle <= 247.5f) // up_left
-                rigidbody2D.velocity = new Vector2(-draft, draft);
-            if (247.5f < angle || angle <= 292.5f) // up
-                rigidbody2D.velocity = new Vector2(0, draft);
-            if (292.5f < angle || angle <= 337.5f) // up_right
-                rigidbody2D.velocity = new Vector2(draft, draft);
+            GameObject smoke = ObjectPoolingManager.instance.GetQueue(ObjectKind.smoke);
+            smoke.transform.position = this.transform.position;
+            ObjectPoolingManager.instance.InsertQueue(this.gameObject, ObjectKind.enemy);
         }
-        yield return new WaitForSeconds(0.2f);
-        rigidbody2D.velocity = Vector2.zero;
-        damage_flag = false;
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag.Contains("Attack"))
+        else
         {
-            Damage(collision.gameObject);
+            if (!isCritical)
+            {
+                GameObject damage_obj = ObjectPoolingManager.instance.GetQueue(ObjectKind.nomal_damage);
+                damage_obj.transform.position = this.transform.position;
+                damage_obj.GetComponent<Damage>().DamageSet(damage, isCritical);
+            }
+            else
+            {
+                GameObject damage_obj = ObjectPoolingManager.instance.GetQueue(ObjectKind.critical_damage);
+                damage_obj.transform.position = this.transform.position;
+                damage_obj.GetComponent<Damage>().DamageSet(damage, isCritical);
+            }
+            StartCoroutine(Hit_Coroutine());
         }
     }
+    IEnumerator Hit_Coroutine()
+    {
+        hit_flag = true;
+        yield return new WaitForSeconds(0.2f);
+        hit_flag = false;
+    }
+
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -94,5 +85,12 @@ public class EnemyController : MonoBehaviour
         {
             rigidbody2D.velocity = Vector2.zero;
         }
+
+        if (collision.transform.tag.Contains("Player"))
+        {
+            collision.transform.GetComponent<PlayerController>().Hit(5, gameObject);
+            rigidbody2D.velocity = Vector2.zero;
+        }
     }
+
 }

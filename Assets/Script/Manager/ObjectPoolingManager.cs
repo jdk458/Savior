@@ -13,6 +13,12 @@ public class ObjectPoolingManager : MonoBehaviour
     public Queue<GameObject> ob_queue = new Queue<GameObject>();
     public GameObject ghost_prefab = null;
     public Queue<GameObject> ghost_queue = new Queue<GameObject>();
+    public GameObject smoke_prefab = null;
+    public Queue<GameObject> smoke_queue = new Queue<GameObject>();
+    public GameObject nomal_damage_prefab = null;
+    public Queue<GameObject> nomal_damage_queue = new Queue<GameObject>();
+    public GameObject critical_damage_prefab = null;
+    public Queue<GameObject> critical_damage_queue = new Queue<GameObject>();
 
     private void Awake()
     {
@@ -39,6 +45,27 @@ public class ObjectPoolingManager : MonoBehaviour
             ghost_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
+        // smoke
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(smoke_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            smoke_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // nomal_damage
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(nomal_damage_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            nomal_damage_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // critical_damage
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(critical_damage_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            critical_damage_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
     }
 
     // 사용한 오브젝트를 다시 큐에 집어 넣는 함수
@@ -52,6 +79,15 @@ public class ObjectPoolingManager : MonoBehaviour
 
         if (obj == ObjectKind.ghost)
             ghost_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.smoke)
+            smoke_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.nomal_damage)
+            nomal_damage_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.critical_damage)
+            critical_damage_queue.Enqueue(p_object);
 
         p_object.SetActive(false);
     }
@@ -70,6 +106,15 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.ghost)
             t_object = ghost_queue.Dequeue();
 
+        if (obj == ObjectKind.smoke)
+            t_object = smoke_queue.Dequeue();
+
+        if (obj == ObjectKind.nomal_damage)
+            t_object = nomal_damage_queue.Dequeue();
+
+        if (obj == ObjectKind.critical_damage)
+            t_object = critical_damage_queue.Dequeue();
+
         t_object.SetActive(true);
         return t_object;
     }
@@ -79,5 +124,8 @@ public enum ObjectKind
 {
     enemy,
     ob,
-    ghost
+    ghost,
+    smoke,
+    nomal_damage,
+    critical_damage
 }

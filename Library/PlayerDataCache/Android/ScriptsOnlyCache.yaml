@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AllIn1Shader
     - BackgroundManager
+    - CameraResolution
     - CoolJoystick.AddRotationByDelta
     - CoolJoystick.Arrow
     - CoolJoystick.ChangeOutlineColorByDelta
@@ -16,18 +17,23 @@ ScriptsOnlyBuild:
     - CoolJoystick.SpeedometerArrow
     - CoolJoystick.SpeedometerIndicator
     - CountdownManager
+    - Damage
     - EnemyController
     - EnemyManager
     - GameManager
     - Ghost
     - Ob_nomal
     - ObjectPoolingManager
+    - Obstacle
     - PlayerController
     - PlayerSkill
+    - Smoke
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
+    Unity.2D.SpriteShape.Editor.dll:
+    - UnityEditor.U2D.SpriteShapeEditorAnalytics
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -107,63 +113,71 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11566}
     - Class: 114
-      Script: {instanceID: 11742}
+      Script: {instanceID: 11744}
     - Class: 114
-      Script: {instanceID: 11840}
+      Script: {instanceID: 11842}
     - Class: 114
-      Script: {instanceID: 12016}
+      Script: {instanceID: 12018}
     - Class: 114
-      Script: {instanceID: 12108}
+      Script: {instanceID: 12110}
     - Class: 114
-      Script: {instanceID: 12212}
+      Script: {instanceID: 12214}
     - Class: 114
-      Script: {instanceID: 12232}
+      Script: {instanceID: 12234}
     - Class: 114
-      Script: {instanceID: 12280}
+      Script: {instanceID: 12282}
     - Class: 114
-      Script: {instanceID: 12368}
+      Script: {instanceID: 12340}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 12358}
     - Class: 114
-      Script: {instanceID: 12884}
+      Script: {instanceID: 12374}
     - Class: 114
-      Script: {instanceID: 12952}
+      Script: {instanceID: 12810}
     - Class: 114
-      Script: {instanceID: 13108}
+      Script: {instanceID: 12890}
     - Class: 114
-      Script: {instanceID: 13260}
+      Script: {instanceID: 12958}
     - Class: 114
-      Script: {instanceID: 13402}
+      Script: {instanceID: 13114}
+    - Class: 114
+      Script: {instanceID: 13266}
     - Class: 114
       Script: {instanceID: 13410}
     - Class: 114
-      Script: {instanceID: 13458}
+      Script: {instanceID: 13418}
     - Class: 114
-      Script: {instanceID: 13714}
+      Script: {instanceID: 13466}
     - Class: 114
-      Script: {instanceID: 13726}
+      Script: {instanceID: 13722}
     - Class: 114
-      Script: {instanceID: 13864}
+      Script: {instanceID: 13734}
     - Class: 114
-      Script: {instanceID: 14008}
+      Script: {instanceID: 13872}
     - Class: 114
-      Script: {instanceID: 14248}
+      Script: {instanceID: 14016}
     - Class: 114
-      Script: {instanceID: 14252}
+      Script: {instanceID: 14256}
     - Class: 114
-      Script: {instanceID: 14264}
+      Script: {instanceID: 14260}
     - Class: 114
-      Script: {instanceID: 14354}
+      Script: {instanceID: 14272}
     - Class: 114
-      Script: {instanceID: 14412}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14426}
+      Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 23340}
+      Script: {instanceID: 14434}
     - Class: 114
-      Script: {instanceID: 23346}
+      Script: {instanceID: 19084}
     - Class: 114
-      Script: {instanceID: 23348}
+      Script: {instanceID: 36750}
+    - Class: 114
+      Script: {instanceID: 38000}
+    - Class: 114
+      Script: {instanceID: 38006}
+    - Class: 114
+      Script: {instanceID: 38008}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -231,7 +245,7 @@ ScriptsOnlyBuild:
     className: JoystickRotationEffect
   - hash:
       serializedVersion: 2
-      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+      Hash: a7c005dd8273e10955a6a03024aed709
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Ob_nomal
@@ -255,7 +269,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 4ca5b3e0b9aa934f088cd44f58ea422a
+      Hash: 12007b039e7278d4a07f237e00e9a082
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyController
@@ -327,6 +341,12 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
+      Hash: 8c4bbe4bba3544f192892449cfea183d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Hp_Recovery
+  - hash:
+      serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -381,7 +401,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 992489555d4d220f216b557b074eeddb
+      Hash: abf6b688981db9ffb6d8365381448367
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -513,7 +533,19 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: c7b15720cdbbf3005d24e446a7b2de46
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Smoke
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraResolution
+  - hash:
+      serializedVersion: 2
+      Hash: 186310518c8f9183ab5ee67e81586719
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ObjectPoolingManager
@@ -667,6 +699,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: Physics2DRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 65b3a3b9a7779d539ec75a3ceddebdba
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Item
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -895,6 +933,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 613550bfbb4d88c9a6f0109e46618956
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Damage
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Obstacle
   platform: 13
   scenePathNames:
   - Assets/Scenes/Battle.unity

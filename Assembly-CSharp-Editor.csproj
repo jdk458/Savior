@@ -66,9 +66,9 @@
     <Compile Include="Assets\Resources\AllIn1SpriteShader\Editor\AllIn1SpriteShader.cs" />
     <Compile Include="Assets\Resources\AllIn1SpriteShader\Editor\AllIn1SpriteShaderLight.cs" />
     <Compile Include="Assets\Resources\AllIn1SpriteShader\Editor\AllIn1SpriteShaderStencil.cs" />
-    <Compile Include="Assets\Resources\Cool Joystick\Assets\Scripts\Editor\AddJoystickLogo.cs" />
-    <Compile Include="Assets\Resources\Cool Joystick\Assets\Scripts\Editor\JoystickConfigurationEditor.cs" />
-    <Compile Include="Assets\Resources\Cool Joystick\Assets\Scripts\Editor\JoystickEditor.cs" />
+    <Compile Include="Assets\Resources\Joystic\Cool Joystick\Assets\Scripts\Editor\AddJoystickLogo.cs" />
+    <Compile Include="Assets\Resources\Joystic\Cool Joystick\Assets\Scripts\Editor\JoystickConfigurationEditor.cs" />
+    <Compile Include="Assets\Resources\Joystic\Cool Joystick\Assets\Scripts\Editor\JoystickEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/UnityWarkspace/MasicServiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
