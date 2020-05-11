@@ -42,10 +42,7 @@ public class EnemyController : MonoBehaviour
     bool hit_flag;
     public void Hit(int damage, bool isCritical = false)
     {
-        if (hit_flag)
-            return;
-
-        hit_flag = true;
+     
         current_hp -= damage;
         if (current_hp <= 0)
         {
@@ -69,11 +66,13 @@ public class EnemyController : MonoBehaviour
             }
             StartCoroutine(Hit_Coroutine());
         }
+
+
     }
     IEnumerator Hit_Coroutine()
     {
         hit_flag = true;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.05f);
         hit_flag = false;
     }
 

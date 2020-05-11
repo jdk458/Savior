@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public void ObstacleHit(float time)
+    public void ObstacleHit()
     {
-        StartCoroutine(HitCoroutine(time));
+        StartCoroutine(HitCoroutine());
     }
 
-    IEnumerator HitCoroutine(float time)
+    IEnumerator HitCoroutine()
     {
-        yield return new WaitForSeconds(time);
+        this.GetComponent<Animator>().SetBool("obstacle", true);
+        yield return new WaitForSeconds(0.7f);
+        this.GetComponent<Animator>().SetBool("obstacle", false);
         this.gameObject.SetActive(false);
     }
 }

@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ActiveSkill
     - AllIn1Shader
     - BackgroundManager
     - CameraResolution
@@ -32,8 +33,6 @@ ScriptsOnlyBuild:
     - DG.Tweening.Core.DOTweenSettings
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
-    Unity.2D.SpriteShape.Editor.dll:
-    - UnityEditor.U2D.SpriteShapeEditorAnalytics
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -45,6 +44,7 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnimatorStateTransitionInspector
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
@@ -133,51 +133,53 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12374}
     - Class: 114
-      Script: {instanceID: 12810}
+      Script: {instanceID: 12420}
     - Class: 114
-      Script: {instanceID: 12890}
+      Script: {instanceID: 12812}
     - Class: 114
-      Script: {instanceID: 12958}
+      Script: {instanceID: 12816}
     - Class: 114
-      Script: {instanceID: 13114}
+      Script: {instanceID: 12894}
     - Class: 114
-      Script: {instanceID: 13266}
+      Script: {instanceID: 12962}
     - Class: 114
-      Script: {instanceID: 13410}
+      Script: {instanceID: 13118}
     - Class: 114
-      Script: {instanceID: 13418}
+      Script: {instanceID: 13270}
     - Class: 114
-      Script: {instanceID: 13466}
+      Script: {instanceID: 13414}
     - Class: 114
-      Script: {instanceID: 13722}
+      Script: {instanceID: 13422}
     - Class: 114
-      Script: {instanceID: 13734}
+      Script: {instanceID: 13470}
     - Class: 114
-      Script: {instanceID: 13872}
+      Script: {instanceID: 13726}
     - Class: 114
-      Script: {instanceID: 14016}
+      Script: {instanceID: 13738}
     - Class: 114
-      Script: {instanceID: 14256}
+      Script: {instanceID: 13876}
+    - Class: 114
+      Script: {instanceID: 14020}
     - Class: 114
       Script: {instanceID: 14260}
     - Class: 114
-      Script: {instanceID: 14272}
+      Script: {instanceID: 14264}
     - Class: 114
-      Script: {instanceID: 14362}
+      Script: {instanceID: 14276}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14366}
     - Class: 114
-      Script: {instanceID: 14434}
+      Script: {instanceID: 14424}
     - Class: 114
-      Script: {instanceID: 19084}
+      Script: {instanceID: 14438}
     - Class: 114
-      Script: {instanceID: 36750}
+      Script: {instanceID: 20180}
     - Class: 114
-      Script: {instanceID: 38000}
+      Script: {instanceID: 25996}
     - Class: 114
-      Script: {instanceID: 38006}
+      Script: {instanceID: 26002}
     - Class: 114
-      Script: {instanceID: 38008}
+      Script: {instanceID: 26004}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -551,6 +553,12 @@ ScriptsOnlyBuild:
     className: ObjectPoolingManager
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Obstacle
+  - hash:
+      serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -599,13 +607,19 @@ ScriptsOnlyBuild:
     className: DOTweenSettings
   - hash:
       serializedVersion: 2
+      Hash: 613550bfbb4d88c9a6f0109e46618956
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Damage
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: eb29714e03a8a86c243c8c37711b6c94
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerSkill
@@ -935,16 +949,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 613550bfbb4d88c9a6f0109e46618956
+      Hash: c3b5dc6ccfb02ef126b937f2d9060008
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Damage
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Obstacle
+    className: ActiveSkill
   platform: 13
   scenePathNames:
   - Assets/Scenes/Battle.unity

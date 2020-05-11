@@ -144,8 +144,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator Obstacle_Coroutine()
     {
         obstacle_flag = true;
-        obstacle_obj.GetComponent<Obstacle>().ObstacleHit(1f);
-        yield return new WaitForSeconds(1f);
+        obstacle_obj.GetComponent<Obstacle>().ObstacleHit();
+        yield return new WaitForSeconds(0.7f);
         obstacle_flag = false;
     }
 
@@ -179,9 +179,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator HitCoroutine()
     {
         hit_flag = true;
+        this.GetComponent<Animator>().SetTrigger("hit");
         yield return new WaitForSeconds(0.15f);
         rigidbody2D.velocity = Vector2.zero;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.15f);
         hit_flag = false;
     }
 

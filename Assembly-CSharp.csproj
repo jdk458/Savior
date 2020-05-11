@@ -106,9 +106,10 @@
     <Compile Include="Assets\Script\Manager\CountdownManager.cs" />
     <Compile Include="Assets\Script\Manager\EnemyManager.cs" />
     <Compile Include="Assets\Script\Manager\ObjectPoolingManager.cs" />
-    <Compile Include="Assets\Script\Ob\Ob_nomal.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
     <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
+    <Compile Include="Assets\Script\atk_skill\ActiveSkill.cs" />
+    <Compile Include="Assets\Script\atk_skill\Ob_nomal.cs" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShader.shader" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShaderScrollView.shader" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShaderLight.shader" />
