@@ -109,6 +109,7 @@
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
     <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
     <Compile Include="Assets\Script\Player\Test.cs" />
+    <Compile Include="Assets\Script\Player\sddfsdf.cs" />
     <Compile Include="Assets\Script\atk_skill\ActiveSkill.cs" />
     <Compile Include="Assets\Script\atk_skill\Ob_nomal.cs" />
     <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShader.shader" />
