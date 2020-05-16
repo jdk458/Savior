@@ -105,10 +105,12 @@
     <Compile Include="Assets\Script\Item\Obstacle.cs" />
     <Compile Include="Assets\Script\MainScene\MainSceneManager.cs" />
     <Compile Include="Assets\Script\MainScene\Research.cs" />
+    <Compile Include="Assets\Script\MainScene\ResearchManager.cs" />
     <Compile Include="Assets\Script\Manager\BackgroundManager.cs" />
     <Compile Include="Assets\Script\Manager\CountdownManager.cs" />
     <Compile Include="Assets\Script\Manager\EnemyManager.cs" />
     <Compile Include="Assets\Script\Manager\ObjectPoolingManager.cs" />
+    <Compile Include="Assets\Script\Manager\UserInfoManager.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
     <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
     <Compile Include="Assets\Script\Player\Test.cs" />
