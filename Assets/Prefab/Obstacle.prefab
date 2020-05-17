@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &3036229517617855765
@@ -101,8 +101,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3355556, y: 1.5}
-    newSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 3.3133335, y: 3.71294}
+    newSize: {x: 3.3133335, y: 3.71294}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032f97b5d048dab478874e41b3d328f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill_marble: {fileID: 0}

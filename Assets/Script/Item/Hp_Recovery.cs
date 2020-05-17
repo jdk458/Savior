@@ -11,6 +11,7 @@ public class Hp_Recovery : MonoBehaviour
         if (collision.tag.Contains("Player"))
         {
             collision.GetComponent<PlayerController>().Hp_Recovery(recovery_amount);
+            ObjectPoolingManager.instance.InsertQueue(this.gameObject, ObjectKind.hp_marble);
             Destroy(this.gameObject);
         }
     }

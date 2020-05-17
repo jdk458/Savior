@@ -19,7 +19,19 @@ public class ObjectPoolingManager : MonoBehaviour
     public Queue<GameObject> nomal_damage_queue = new Queue<GameObject>();
     public GameObject critical_damage_prefab = null;
     public Queue<GameObject> critical_damage_queue = new Queue<GameObject>();
-
+    public GameObject exp_marble_prefab = null;
+    public Queue<GameObject> exp_marble_queue = new Queue<GameObject>();
+    public GameObject hp_marble_prefab = null;
+    public Queue<GameObject> hp_marble_queue = new Queue<GameObject>();
+    public GameObject skill_marble_prefab = null;
+    public Queue<GameObject> skill_marble_queue = new Queue<GameObject>();
+       
+    //나중에 테이블에서 구슬 최대값 받아오기
+    [HideInInspector]
+    public int exp_marble_num;
+    public int hp_marble_num;
+    public int skill_marble_num;
+  
     private void Awake()
     {
         instance = this;
@@ -66,6 +78,27 @@ public class ObjectPoolingManager : MonoBehaviour
             critical_damage_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
+        // exp_marble
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject t_object = Instantiate(exp_marble_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            exp_marble_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // hp_marble
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject t_object = Instantiate(hp_marble_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            hp_marble_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
     }
 
     // 사용한 오브젝트를 다시 큐에 집어 넣는 함수
@@ -88,6 +121,15 @@ public class ObjectPoolingManager : MonoBehaviour
 
         if (obj == ObjectKind.critical_damage)
             critical_damage_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.exp_marble)
+            exp_marble_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.hp_marble)
+            hp_marble_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble)
+           skill_marble_queue.Enqueue(p_object);
 
         p_object.SetActive(false);
     }
@@ -115,6 +157,15 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.critical_damage)
             t_object = critical_damage_queue.Dequeue();
 
+        if (obj == ObjectKind.exp_marble)
+            t_object = exp_marble_queue.Dequeue();
+
+        if (obj == ObjectKind.hp_marble)
+            t_object = hp_marble_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble)
+            t_object = skill_marble_queue.Dequeue();
+
         t_object.SetActive(true);
         return t_object;
     }
@@ -127,5 +178,8 @@ public enum ObjectKind
     ghost,
     smoke,
     nomal_damage,
-    critical_damage
+    critical_damage,
+    exp_marble,
+    skill_marble,
+    hp_marble
 }

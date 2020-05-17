@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     [Range(1.5f, 3f)] public float dash_move;
     [Range(1f, 5f)] public float item_range;
 
-    int current_hp;
+    [HideInInspector]
+    public int current_hp;
 
     [Header("카메라")]
     public Transform theCam;
@@ -24,22 +25,47 @@ public class PlayerController : MonoBehaviour
     Vector2 joystic_localpos;
     [Header("체력 이미지")]
     public Image hp_image;
-    [Header("대쉬 및 장애물 버튼")]
+    [Header("대쉬, 장애물, 스킬아이템 버튼")]
     public GameObject dash_btn;
     public GameObject obstacle_btn;
+    public GameObject skill_item_btn;
     GameObject obstacle_obj;
+    GameObject skill_item_obj;
 
+    public GameObject ui_canvas;
+
+    [Header("게임오버플레이어위치")] public Transform gameovertransform;
+    [Header("게임오버패널")] public GameObject GameOverPanel;
+
+    //플레이어 레벨 업 변수 정보
+    [HideInInspector] public int character_lv_speed;
+    [HideInInspector] public int character_lv_exp;
+    [HideInInspector] public int character_lv_hp;
+
+    [HideInInspector] public int attack_lv_atk;
+    [HideInInspector] public int attack_lv_speed;
+    [HideInInspector] public int attack_lv_count;
+
+    [HideInInspector] public int skill_lv_atk;
+    [HideInInspector] public int skill_lv_cooltime;
+    [HideInInspector] public int skill_lv_getcount;
 
     Rigidbody2D rigidbody2D;
     List<Transform> enemy_transform_list = new List<Transform>();
 
     bool isRun_flag;
 
+    [HideInInspector]
+    public int player_exp = 99;
+
+    [HideInInspector]
+    public int player_lv;
     private void Start()
     {
         current_hp = max_hp;
         hp_image.fillAmount = current_hp / max_hp;
         rigidbody2D = GetComponent<Rigidbody2D>();
+        player_exp = 99;
     }
 
     private void FixedUpdate()
@@ -159,6 +185,11 @@ public class PlayerController : MonoBehaviour
         current_hp -= damage;
         hp_image.fillAmount = (float)current_hp / max_hp;
 
+        //죽음
+        if(current_hp <= 0)
+        {
+            Game_Over();
+        }
         Vector3 dir = enemy.transform.position - this.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180f;
 
@@ -179,10 +210,22 @@ public class PlayerController : MonoBehaviour
     IEnumerator HitCoroutine()
     {
         hit_flag = true;
+        int countTime = 0;
         this.GetComponent<Animator>().SetTrigger("hit");
         yield return new WaitForSeconds(0.15f);
         rigidbody2D.velocity = Vector2.zero;
         yield return new WaitForSeconds(0.15f);
+        while (countTime < 3)
+        {
+            if (countTime % 2 == 0)
+                this.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
+            else
+                this.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 180);
+            yield return new WaitForSeconds(0.2f);
+            countTime++;
+        }
+        this.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+
         hit_flag = false;
     }
 
@@ -192,6 +235,35 @@ public class PlayerController : MonoBehaviour
         if (max_hp < current_hp)
             current_hp = max_hp;
         hp_image.fillAmount = (float)current_hp / max_hp;
+        hp_image.fillAmount = (float)current_hp / max_hp;
+    }
+
+    public void Exp_Up(int up)
+    {
+        player_exp += up;
+        if (player_exp >= 100)
+        {
+            ui_canvas.GetComponent<Level_Up>().Panel_Pop();
+            player_exp = 0;
+            player_lv++;
+        }
+    }
+
+    bool skill_item_flag = false;
+    public void OnClick_SkillItem()
+    {
+        if (skill_item_flag)
+            return;
+
+        StartCoroutine(Skill_item_Coroutine());
+
+    }
+    IEnumerator Skill_item_Coroutine()
+    {
+        skill_item_flag = true;
+        skill_item_obj.GetComponent<Skill_Get>().Get(skill_item_obj);
+        yield return new WaitForSeconds(0.7f);
+        skill_item_flag = false;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -203,6 +275,16 @@ public class PlayerController : MonoBehaviour
             obstacle_btn.SetActive(true);
         }
     }
+    //스킬구슬 충돌
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag.Contains("Skill_Item"))
+        {
+            dash_btn.SetActive(false);
+            skill_item_btn.SetActive(true);
+            skill_item_obj = collision.gameObject;
+        }
+    }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -211,5 +293,21 @@ public class PlayerController : MonoBehaviour
             dash_btn.SetActive(true);
             obstacle_btn.SetActive(false);
         }
+
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.tag.Contains("Skill_Item"))
+        {
+            dash_btn.SetActive(true);
+            skill_item_btn.SetActive(false);
+        }
+    }
+    void Game_Over()
+    {
+        GameObject smoke = ObjectPoolingManager.instance.GetQueue(ObjectKind.smoke);
+        smoke.transform.position = this.transform.position;
+        GameOverPanel.GetComponent<GameOver>().Show();
     }
 }
