@@ -116,6 +116,7 @@
     <Compile Include="Assets\Script\Manager\UserInfoManager.cs" />
     <Compile Include="Assets\Script\Panel\GameOver.cs" />
     <Compile Include="Assets\Script\Panel\Level_Up.cs" />
+    <Compile Include="Assets\Script\Panel\Stop_Panel.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
     <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
     <Compile Include="Assets\Script\atk_skill\ActiveSkill.cs" />
