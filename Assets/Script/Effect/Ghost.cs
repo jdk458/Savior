@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    public float time = 1f;
-
+    public ObjectKind ob_kind;
     private void OnEnable()
     {
-        Invoke("Destroy", time);
+        StartCoroutine(Destroy_Coroutine());
     }
 
-    void Destroy()
+    IEnumerator Destroy_Coroutine()
     {
-        ObjectPoolingManager.instance.InsertQueue(this.gameObject, ObjectKind.ghost);
+        yield return new WaitForSeconds(.6f);
+        ObjectPoolingManager.instance.InsertQueue(this.gameObject, ob_kind);
     }
 }

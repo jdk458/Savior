@@ -1,0 +1,111 @@
+
+Character001_upRL.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armL
+  rotate: true
+  xy: 98, 43
+  size: 46, 40
+  orig: 46, 40
+  offset: 0, 0
+  index: -1
+armR
+  rotate: true
+  xy: 65, 109
+  size: 47, 40
+  orig: 47, 40
+  offset: 0, 0
+  index: -1
+cape_acc1
+  rotate: false
+  xy: 2, 27
+  size: 49, 51
+  orig: 49, 51
+  offset: 0, 0
+  index: -1
+cape_acc2
+  rotate: false
+  xy: 105, 13
+  size: 48, 28
+  orig: 48, 28
+  offset: 0, 0
+  index: -1
+cape_down
+  rotate: false
+  xy: 2, 497
+  size: 105, 173
+  orig: 105, 173
+  offset: 0, 0
+  index: -1
+cape_up
+  rotate: false
+  xy: 2, 820
+  size: 171, 194
+  orig: 171, 194
+  offset: 0, 0
+  index: -1
+circle
+  rotate: false
+  xy: 53, 34
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1
+hair
+  rotate: true
+  xy: 2, 2
+  size: 23, 101
+  orig: 23, 101
+  offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 2, 672
+  size: 144, 146
+  orig: 144, 146
+  offset: 0, 0
+  index: -1
+hat_acc
+  rotate: true
+  xy: 65, 91
+  size: 16, 38
+  orig: 16, 38
+  offset: 0, 0
+  index: -1
+sleeveL_down
+  rotate: false
+  xy: 2, 158
+  size: 66, 116
+  orig: 66, 116
+  offset: 0, 0
+  index: -1
+sleeveR_down
+  rotate: false
+  xy: 2, 158
+  size: 66, 116
+  orig: 66, 116
+  offset: 0, 0
+  index: -1
+sleeveL_up
+  rotate: false
+  xy: 2, 80
+  size: 61, 76
+  orig: 61, 76
+  offset: 0, 0
+  index: -1
+sleeveR_up
+  rotate: false
+  xy: 2, 80
+  size: 61, 76
+  orig: 61, 76
+  offset: 0, 0
+  index: -1
+wand
+  rotate: false
+  xy: 2, 276
+  size: 75, 219
+  orig: 75, 219
+  offset: 0, 0
+  index: -1

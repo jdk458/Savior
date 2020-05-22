@@ -6,13 +6,12 @@ public class ObjectPoolingManager : MonoBehaviour
 {
     public static ObjectPoolingManager instance;
 
+    [Header("아이템")]
     public Transform instantiate_pos;  
     public GameObject enemy_prefab = null;
     public Queue<GameObject> enemy_queue = new Queue<GameObject>();
     public GameObject ob_prefab = null;
     public Queue<GameObject> ob_queue = new Queue<GameObject>();
-    public GameObject ghost_prefab = null;
-    public Queue<GameObject> ghost_queue = new Queue<GameObject>();
     public GameObject smoke_prefab = null;
     public Queue<GameObject> smoke_queue = new Queue<GameObject>();
     public GameObject nomal_damage_prefab = null;
@@ -24,14 +23,20 @@ public class ObjectPoolingManager : MonoBehaviour
     public GameObject hp_marble_prefab = null;
     public Queue<GameObject> hp_marble_queue = new Queue<GameObject>();
     public GameObject skill_marble_prefab = null;
-    public Queue<GameObject> skill_marble_queue = new Queue<GameObject>();
-       
-    //나중에 테이블에서 구슬 최대값 받아오기
-    [HideInInspector]
-    public int exp_marble_num;
-    public int hp_marble_num;
-    public int skill_marble_num;
+    public Queue<GameObject> skill_marble_queue = new Queue<GameObject>();  
   
+    [Header("캐릭터대쉬")]
+    public GameObject idle_down = null;
+    public Queue<GameObject> idle_queue = new Queue<GameObject>();
+    public GameObject down_ver = null;
+    public Queue<GameObject> down_ver_queue = new Queue<GameObject>();
+    public GameObject ver = null;
+    public Queue<GameObject> ver_queue = new Queue<GameObject>();
+    public GameObject up = null;
+    public Queue<GameObject> up_queue = new Queue<GameObject>();
+    public GameObject up_ver = null;
+    public Queue<GameObject> up_ver_queue = new Queue<GameObject>();
+
     private void Awake()
     {
         instance = this;
@@ -48,13 +53,6 @@ public class ObjectPoolingManager : MonoBehaviour
         {
             GameObject t_object = Instantiate(ob_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
             ob_queue.Enqueue(t_object);
-            t_object.SetActive(false);
-        }
-        // ghost
-        for (int i = 0; i < 20; i++)
-        {
-            GameObject t_object = Instantiate(ghost_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
-            ghost_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
         // smoke
@@ -79,24 +77,59 @@ public class ObjectPoolingManager : MonoBehaviour
             t_object.SetActive(false);
         }
         // exp_marble
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 100; i++)
         {
             GameObject t_object = Instantiate(exp_marble_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
             exp_marble_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
         // hp_marble
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 100; i++)
         {
             GameObject t_object = Instantiate(hp_marble_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
             hp_marble_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
         // skill_marble
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 50; i++)
         {
             GameObject t_object = Instantiate(skill_marble_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
             skill_marble_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // idle_down
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(idle_down, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            idle_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // down_ver
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(down_ver, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            down_ver_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // ver
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(ver, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            ver_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // up
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(up, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            up_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // up_ver
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject t_object = Instantiate(up_ver, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            up_ver_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
     }
@@ -109,9 +142,6 @@ public class ObjectPoolingManager : MonoBehaviour
 
         if (obj == ObjectKind.ob)
             ob_queue.Enqueue(p_object);
-
-        if (obj == ObjectKind.ghost)
-            ghost_queue.Enqueue(p_object);
 
         if (obj == ObjectKind.smoke)
             smoke_queue.Enqueue(p_object);
@@ -131,6 +161,21 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.skill_marble)
            skill_marble_queue.Enqueue(p_object);
 
+        if (obj == ObjectKind.idle_down)
+            idle_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.down_ver)
+            down_ver_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.ver)
+           ver_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.up)
+           up_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.up_ver)
+            up_ver_queue.Enqueue(p_object);
+
         p_object.SetActive(false);
     }
 
@@ -144,9 +189,6 @@ public class ObjectPoolingManager : MonoBehaviour
 
         if (obj == ObjectKind.ob)
             t_object = ob_queue.Dequeue();
-
-        if (obj == ObjectKind.ghost)
-            t_object = ghost_queue.Dequeue();
 
         if (obj == ObjectKind.smoke)
             t_object = smoke_queue.Dequeue();
@@ -166,6 +208,21 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.skill_marble)
             t_object = skill_marble_queue.Dequeue();
 
+        if (obj == ObjectKind.idle_down)
+            t_object = idle_queue.Dequeue();
+
+        if (obj == ObjectKind.down_ver)
+            t_object = down_ver_queue.Dequeue();
+
+        if (obj == ObjectKind.ver)
+            t_object = ver_queue.Dequeue();
+
+        if (obj == ObjectKind.up)
+            t_object = up_queue.Dequeue();
+
+        if (obj == ObjectKind.up_ver)
+            t_object = up_ver_queue.Dequeue();
+
         t_object.SetActive(true);
         return t_object;
     }
@@ -175,11 +232,15 @@ public enum ObjectKind
 {
     enemy,
     ob,
-    ghost,
     smoke,
     nomal_damage,
     critical_damage,
     exp_marble,
     skill_marble,
-    hp_marble
+    hp_marble,
+    idle_down,
+    down_ver,
+    ver,
+    up,
+    up_ver
 }

@@ -1,0 +1,160 @@
+
+Character001_down.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+capeL
+  rotate: false
+  xy: 2, 103
+  size: 76, 184
+  orig: 76, 184
+  offset: 0, 0
+  index: -1
+capeR
+  rotate: false
+  xy: 79, 327
+  size: 73, 181
+  orig: 73, 181
+  offset: 0, 0
+  index: -1
+cape_accL
+  rotate: true
+  xy: 79, 293
+  size: 32, 47
+  orig: 32, 47
+  offset: 0, 0
+  index: -1
+cape_accR
+  rotate: true
+  xy: 128, 293
+  size: 32, 47
+  orig: 32, 47
+  offset: 0, 0
+  index: -1
+circle
+  rotate: false
+  xy: 272, 346
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1
+clothes_down
+  rotate: true
+  xy: 288, 400
+  size: 108, 75
+  orig: 108, 75
+  offset: 0, 0
+  index: -1
+clothes_up
+  rotate: false
+  xy: 159, 163
+  size: 105, 128
+  orig: 105, 128
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 199, 305
+  size: 83, 21
+  orig: 83, 21
+  offset: 0, 0
+  index: -1
+face
+  rotate: true
+  xy: 172, 2
+  size: 102, 88
+  orig: 102, 88
+  offset: 0, 0
+  index: -1
+hairL
+  rotate: true
+  xy: 154, 328
+  size: 51, 116
+  orig: 51, 116
+  offset: 0, 0
+  index: -1
+hairR
+  rotate: false
+  xy: 233, 392
+  size: 53, 116
+  orig: 53, 116
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 177, 302
+  size: 20, 24
+  orig: 20, 24
+  offset: 0, 0
+  index: -1
+hat_accL
+  rotate: false
+  xy: 113, 105
+  size: 16, 38
+  orig: 16, 38
+  offset: 0, 0
+  index: -1
+hat_accR
+  rotate: false
+  xy: 131, 105
+  size: 15, 38
+  orig: 15, 38
+  offset: 0, 0
+  index: -1
+hat_down
+  rotate: true
+  xy: 80, 145
+  size: 146, 77
+  orig: 146, 77
+  offset: 0, 0
+  index: -1
+hat_up
+  rotate: false
+  xy: 2, 4
+  size: 168, 97
+  orig: 168, 97
+  offset: 0, 0
+  index: -1
+mask
+  rotate: true
+  xy: 262, 12
+  size: 93, 57
+  orig: 93, 57
+  offset: 0, 0
+  index: -1
+pandent
+  rotate: true
+  xy: 181, 107
+  size: 54, 95
+  orig: 54, 95
+  offset: 0, 0
+  index: -1
+shoseL
+  rotate: true
+  xy: 148, 106
+  size: 37, 31
+  orig: 37, 31
+  offset: 0, 0
+  index: -1
+shoseR
+  rotate: true
+  xy: 80, 104
+  size: 39, 31
+  orig: 39, 31
+  offset: 0, 0
+  index: -1
+sleeve
+  rotate: false
+  xy: 154, 381
+  size: 77, 127
+  orig: 77, 127
+  offset: 0, 0
+  index: -1
+wand
+  rotate: false
+  xy: 2, 289
+  size: 75, 219
+  orig: 75, 219
+  offset: 0, 0
+  index: -1

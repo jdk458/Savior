@@ -50,6 +50,7 @@ public class EnemyController : MonoBehaviour
             smoke.transform.position = this.transform.position;
             ObjectPoolingManager.instance.InsertQueue(this.gameObject, ObjectKind.enemy);
         }
+
         else
         {
             if (!isCritical)

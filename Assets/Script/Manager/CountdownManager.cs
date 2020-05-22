@@ -14,7 +14,7 @@ public class CountdownManager : MonoBehaviour
         float remainTime = time - tempTime;
         string minuteString = ((int)remainTime / 60).ToString("00");
         string secondString = ((int)remainTime % 60).ToString("00");
-        this.GetComponent<Text>().text = minuteString + ":" + secondString;
+        this.GetComponent<Text>().text = minuteString + " : " + secondString;
         if (tempTime >= time)
         {
             Debug.Log("타임셋");

@@ -10,7 +10,7 @@ public class Ob_nomal : MonoBehaviour
 
     [HideInInspector]
     public PlayerController player_status;
- 
+
     private void FixedUpdate()
     {
         this.transform.Translate(Vector2.up * Time.deltaTime * speed);

@@ -1,0 +1,132 @@
+
+Character001_RL.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+armL
+  rotate: true
+  xy: 2, 2
+  size: 111, 114
+  orig: 111, 114
+  offset: 0, 0
+  index: -1
+armR
+  rotate: true
+  xy: 191, 179
+  size: 120, 119
+  orig: 120, 119
+  offset: 0, 0
+  index: -1
+capeL
+  rotate: false
+  xy: 148, 162
+  size: 41, 137
+  orig: 41, 137
+  offset: 0, 0
+  index: -1
+capeR
+  rotate: false
+  xy: 2, 115
+  size: 144, 173
+  orig: 144, 173
+  offset: 0, 0
+  index: -1
+cape_acc
+  rotate: true
+  xy: 143, 301
+  size: 57, 76
+  orig: 57, 76
+  offset: 0, 0
+  index: -1
+circle
+  rotate: false
+  xy: 148, 116
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1
+clothes_down
+  rotate: true
+  xy: 240, 102
+  size: 75, 74
+  orig: 75, 74
+  offset: 0, 0
+  index: -1
+clothes_up
+  rotate: false
+  xy: 79, 360
+  size: 100, 149
+  orig: 100, 149
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 221, 301
+  size: 23, 18
+  orig: 23, 18
+  offset: 0, 0
+  index: -1
+face
+  rotate: false
+  xy: 166, 33
+  size: 72, 81
+  orig: 72, 81
+  offset: 0, 0
+  index: -1
+footL
+  rotate: false
+  xy: 209, 5
+  size: 33, 26
+  orig: 33, 26
+  offset: 0, 0
+  index: -1
+footR
+  rotate: false
+  xy: 166, 2
+  size: 41, 29
+  orig: 41, 29
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 118, 2
+  size: 46, 111
+  orig: 46, 111
+  offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 181, 372
+  size: 126, 137
+  orig: 126, 137
+  offset: 0, 0
+  index: -1
+hat_acc
+  rotate: true
+  xy: 191, 162
+  size: 15, 36
+  orig: 15, 36
+  offset: 0, 0
+  index: -1
+mask
+  rotate: true
+  xy: 79, 291
+  size: 67, 62
+  orig: 67, 62
+  offset: 0, 0
+  index: -1
+pendant
+  rotate: true
+  xy: 221, 321
+  size: 49, 86
+  orig: 49, 86
+  offset: 0, 0
+  index: -1
+wand
+  rotate: false
+  xy: 2, 290
+  size: 75, 219
+  orig: 75, 219
+  offset: 0, 0
+  index: -1

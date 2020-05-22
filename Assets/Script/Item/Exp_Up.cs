@@ -13,7 +13,6 @@ public class Exp_Up : MonoBehaviour
         {
             collision.GetComponent<PlayerController>().Exp_Up(exp_amount);
             ObjectPoolingManager.instance.InsertQueue(this.gameObject, ObjectKind.exp_marble);
-            Destroy(this.gameObject);
         }
     }
 }

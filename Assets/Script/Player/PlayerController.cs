@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Spine.Unity;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,15 +33,29 @@ public class PlayerController : MonoBehaviour
     GameObject obstacle_obj;
     GameObject skill_item_obj;
 
+    [Header("UI")]
     public GameObject ui_canvas;
+    public Text lv_up;
+    public Image exp_full;
+    [Header("UI2")]
+    public UI2_Manager uI2_Manager;
 
-    [Header("게임오버플레이어위치")] public Transform gameovertransform;
-    [Header("게임오버패널")] public GameObject GameOverPanel;
+
+    /// <summary>
+    ///  스파인
+    /// </summary>
+    [Header("스파인")]
+    public GameObject idle_down;
+    public GameObject down_ver;
+    public GameObject ver;
+    public GameObject up;
+    public GameObject up_ver;
+
 
     //플레이어 레벨 업 변수 정보
+    [HideInInspector] public int character_lv_hp;
     [HideInInspector] public int character_lv_speed;
     [HideInInspector] public int character_lv_exp;
-    [HideInInspector] public int character_lv_hp;
 
     [HideInInspector] public int attack_lv_atk;
     [HideInInspector] public int attack_lv_speed;
@@ -56,16 +71,17 @@ public class PlayerController : MonoBehaviour
     bool isRun_flag;
 
     [HideInInspector]
-    public int player_exp = 99;
+    public int player_exp;
 
     [HideInInspector]
     public int player_lv;
     private void Start()
     {
         current_hp = max_hp;
+        lv_up.text = "LV"+ player_lv;
         hp_image.fillAmount = current_hp / max_hp;
         rigidbody2D = GetComponent<Rigidbody2D>();
-        player_exp = 99;
+        exp_full.fillAmount = (float)player_exp/10;
     }
 
     private void FixedUpdate()
@@ -89,36 +105,169 @@ public class PlayerController : MonoBehaviour
                 Vector2 dir = Vector2.zero - joystic_localpos;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180f;
 
-                this.GetComponent<Animator>().SetBool("isRun", true);
-
-                if (angle > 315 || angle <= 360 && angle > 0 || angle <= 45)
-                {
-                    this.GetComponent<Animator>().SetFloat("angle", 0);
-                }
-                if (angle > 225 && angle <= 315)
-                {
-                    this.GetComponent<Animator>().SetFloat("angle", .4f);
-                }
-                if (angle > 135 && angle <= 225)
-                {
-                    this.GetComponent<Animator>().SetFloat("angle", .7f);
-                }
-                if (angle > 45 && angle <= 135)
-                {
-                    this.GetComponent<Animator>().SetFloat("angle", 1f);
-                }
+                if (angle > 337.5f && angle <= 360 || angle > 0 && angle <= 22.5f) // 오
+                    Spine_Ani(AniKind.right);
+                if (angle > 22.5f && angle <= 67.5f) // 위_왼
+                    Spine_Ani(AniKind.up_left);
+                if (angle > 67.5f && angle <= 112.5f) // 위
+                    Spine_Ani(AniKind.up);
+                if (angle > 112.5f && angle <= 157.5f) // 위_오
+                    Spine_Ani(AniKind.up_right);
+                if (angle > 157.5f && angle <= 202.5f) // 왼 
+                    Spine_Ani(AniKind.left);
+                if (angle > 202.5f && angle <= 247.5f) // 아래_오른쪽
+                    Spine_Ani(AniKind.down_right);
+                if (angle > 247.5f && angle <= 292.5f) // 아래 
+                    Spine_Ani(AniKind.down);
+                if (angle > 292.5f && angle <= 337.5f) // 아래_왼쪽 
+                    Spine_Ani(AniKind.down_left);
             }
         }
         else
         {
-            this.GetComponent<Animator>().SetBool("isRun", false);
+            // idle
+            Spine_Ani(AniKind.idle);
         }
         //new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z);
         // 카메라 플레이어 따라가기 
         theCam.position = Vector3.SmoothDamp(theCam.position, new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z), ref velocity, 0.3f);
     }
     Vector3 velocity = Vector3.zero;
-  
+
+    string currentAniName;
+   
+    void Spine_Ani(AniKind ani)
+    {
+        string aniName = "";
+        switch (ani)
+        {
+            case AniKind.idle:
+                aniName = "character001_idle_down";
+                if (aniName == currentAniName)
+                    return;
+                idle_down.transform.localPosition = Vector2.zero; down_ver.transform.localPosition = new Vector2(2000, 2000); ver.transform.localPosition = new Vector2(2000, 2000); up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = new Vector2(2000, 2000);
+                idle_down.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0, "character001_idle_down", true);
+                currentAniName = "character001_idle_down";
+
+                idle_down.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+                break;
+            case AniKind.up:
+                aniName = "character001_move_up";
+                if (aniName == currentAniName)
+                    return;
+                idle_down.transform.localPosition = new Vector2(2000, 2000); down_ver.transform.localPosition = new Vector2(2000, 2000); ver.transform.localPosition = new Vector2(2000, 2000); up.transform.localPosition = Vector2.zero; up_ver.transform.localPosition = new Vector2(2000, 2000);
+
+                up.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0, "character001_move_up", true);
+                currentAniName = "character001_move_up";
+
+                up.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+                break;
+            case AniKind.up_left:
+                aniName = "character001_move_upL";
+                if (aniName == currentAniName)
+                    return;
+                idle_down.transform.localPosition = new Vector2(2000, 2000); down_ver.transform.localPosition = new Vector2(2000, 2000); ver.transform.localPosition = new Vector2(2000, 2000); up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = Vector2.zero;
+
+                up_ver.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0,"character001_move_upL", true);
+                currentAniName = "character001_move_upL";
+
+                up_ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
+                break;
+            case AniKind.up_right:
+                aniName = "character001_move_upR";
+                if (aniName == currentAniName)
+                    return;
+                idle_down.transform.localPosition = new Vector2(2000, 2000); down_ver.transform.localPosition = new Vector2(2000, 2000); ver.transform.localPosition = new Vector2(2000, 2000); up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = Vector2.zero;
+
+                up_ver.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0, "character001_move_upR", true);
+                currentAniName = "character001_move_upR";
+
+                up_ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+                break;
+            case AniKind.left:
+                aniName = "character001_move_left";
+                if (aniName == currentAniName)
+                    return;
+                idle_down.transform.localPosition = new Vector2(2000, 2000); down_ver.transform.localPosition = new Vector2(2000, 2000); ver.transform.localPosition = Vector2.zero; up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = new Vector2(2000, 2000);
+
+                ver.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0, "character001_move_left", true);
+                currentAniName = "character001_move_left";
+
+                ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
+                break;
+            case AniKind.right:
+                aniName = "character001_move_right";
+                if (aniName == currentAniName)
+                    return;
+                idle_down.transform.localPosition = new Vector2(2000, 2000); down_ver.transform.localPosition = new Vector2(2000, 2000); ver.transform.localPosition = Vector2.zero; up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = new Vector2(2000, 2000);
+
+                ver.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0, "character001_move_right", true);
+                currentAniName = "character001_move_right";
+
+                ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+                break;
+            case AniKind.down:
+                aniName = "character001_move_down";
+                if (aniName == currentAniName)
+                    return;
+                idle_down.transform.localPosition = Vector2.zero; down_ver.transform.localPosition = new Vector2(2000, 2000); ver.transform.localPosition = new Vector2(2000, 2000); up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = new Vector2(2000, 2000);
+
+                idle_down.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0, "character001_move_down", true);
+                currentAniName = "character001_move_down";
+
+                idle_down.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+                break;
+            case AniKind.down_left:
+                aniName = "character001_move_downleft";
+                if (aniName == currentAniName)
+                    return;
+                idle_down.transform.localPosition = new Vector2(2000, 2000); down_ver.transform.localPosition = Vector2.zero; ver.transform.localPosition = new Vector2(2000, 2000); up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = new Vector2(2000, 2000);
+
+                down_ver.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0, "character001_move_downleft", true);
+                currentAniName = "character001_move_downleft";
+
+                down_ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+                break;
+            case AniKind.down_right:
+                aniName = "character001_move_downright";
+                if (aniName == currentAniName)
+                    return;
+                idle_down.transform.localPosition = new Vector2(2000, 2000); down_ver.transform.localPosition = Vector2.zero; ver.transform.localPosition = new Vector2(2000, 2000); up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = new Vector2(2000, 2000);
+
+                down_ver.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0, "character001_move_downright", true);
+                currentAniName = "character001_move_downright";
+
+                down_ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
+                break;
+            case AniKind.hit:
+                idle_down.SetActive(false); down_ver.SetActive(false); ver.SetActive(false); up.SetActive(false); up_ver.SetActive(false);
+                break;
+            case AniKind.item:
+                idle_down.SetActive(false); down_ver.SetActive(false); ver.SetActive(false); up.SetActive(false); up_ver.SetActive(false);
+                break;
+            case AniKind.dead:
+                idle_down.SetActive(false); down_ver.SetActive(false); ver.SetActive(false); up.SetActive(false); up_ver.SetActive(false);
+                break;
+            default:
+                break;
+        }
+    }
+
+    enum AniKind
+    {
+        idle,
+        up,
+        up_left,
+        up_right,
+        left,
+        right,
+        down,
+        down_left,
+        down_right,
+        hit,
+        item,
+        dead
+    }
 
     public void OnClick_Dash()
     {
@@ -144,13 +293,51 @@ public class PlayerController : MonoBehaviour
         if (joystic_localpos.y < -45)
             this.transform.DOMoveY(this.transform.position.y - dash_move, 0.1f).SetEase(Ease.Linear);
 
+        GameObject player_dash = null;
+
 
         for (int i = 0; i < 5; i++)
         {
-            GameObject ghost_temp = ObjectPoolingManager.instance.GetQueue(ObjectKind.ghost);
-            ghost_temp.transform.position = this.transform.position;
-            ghost_temp.GetComponent<SpriteRenderer>().sprite = this.GetComponent<SpriteRenderer>().sprite;
 
+            Vector2 dir = Vector2.zero - joystic_localpos;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180f;
+
+            if (angle > 337.5f && angle <= 360 || angle > 0 && angle <= 22.5f) // 오
+            {
+                player_dash = ObjectPoolingManager.instance.GetQueue(ObjectKind.ver);
+                player_dash.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+            }
+            if (angle > 22.5f && angle <= 67.5f) // 위_왼
+            {
+                player_dash = ObjectPoolingManager.instance.GetQueue(ObjectKind.up_ver);
+                player_dash.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
+            }
+            if (angle > 67.5f && angle <= 112.5f) // 위
+                player_dash = ObjectPoolingManager.instance.GetQueue(ObjectKind.up);
+            if (angle > 112.5f && angle <= 157.5f) // 위_오
+            {
+                player_dash = ObjectPoolingManager.instance.GetQueue(ObjectKind.up_ver);
+                player_dash.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+            }
+            if (angle > 157.5f && angle <= 202.5f) // 왼
+            {
+                player_dash = ObjectPoolingManager.instance.GetQueue(ObjectKind.ver);
+                player_dash.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
+            }
+            if (angle > 202.5f && angle <= 247.5f) //아래_오른쪽
+            {
+                player_dash = ObjectPoolingManager.instance.GetQueue(ObjectKind.down_ver);
+                player_dash.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
+            }
+            if (angle > 247.5f && angle <= 292.5f) // 아래 
+                player_dash = ObjectPoolingManager.instance.GetQueue(ObjectKind.idle_down);
+            if (angle > 292.5f && angle <= 337.5f) // 아래_왼쪽
+            {
+                player_dash = ObjectPoolingManager.instance.GetQueue(ObjectKind.down_ver);
+                player_dash.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+            }
+            //ghost_temp.GetComponent<SpriteRenderer>().sprite = this.GetComponent<SpriteRenderer>().sprite;
+            player_dash.transform.position = this.transform.Find("Spine_Ani").position;
             yield return new WaitForSeconds(0.1f / 5);
         }
 
@@ -188,7 +375,7 @@ public class PlayerController : MonoBehaviour
         //죽음
         if(current_hp <= 0)
         {
-            Game_Over();
+           // Game_Over();
         }
         Vector3 dir = enemy.transform.position - this.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180f;
@@ -211,21 +398,19 @@ public class PlayerController : MonoBehaviour
     {
         hit_flag = true;
         int countTime = 0;
-        this.GetComponent<Animator>().SetTrigger("hit");
+        idle_down.GetComponent<Animator>().SetBool("hit", true);
+        down_ver.GetComponent<Animator>().SetBool("hit", true);
+        ver.GetComponent<Animator>().SetBool("hit", true);
+        up.GetComponent<Animator>().SetBool("hit", true);
+        up_ver.GetComponent<Animator>().SetBool("hit", true);
         yield return new WaitForSeconds(0.15f);
         rigidbody2D.velocity = Vector2.zero;
-        yield return new WaitForSeconds(0.15f);
-        while (countTime < 3)
-        {
-            if (countTime % 2 == 0)
-                this.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 90);
-            else
-                this.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 180);
-            yield return new WaitForSeconds(0.2f);
-            countTime++;
-        }
-        this.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
-
+        yield return new WaitForSeconds(1f);
+        idle_down.GetComponent<Animator>().SetBool("hit", false);
+        down_ver.GetComponent<Animator>().SetBool("hit", false);
+        ver.GetComponent<Animator>().SetBool("hit", false);
+        up.GetComponent<Animator>().SetBool("hit", false);
+        up_ver.GetComponent<Animator>().SetBool("hit", false);
         hit_flag = false;
     }
 
@@ -241,12 +426,14 @@ public class PlayerController : MonoBehaviour
     public void Exp_Up(int up)
     {
         player_exp += up;
-        if (player_exp >= 100)
+        if (player_exp >= 10)
         {
-            ui_canvas.GetComponent<Level_Up>().Panel_Pop();
+            uI2_Manager.SkillSelect();
             player_exp = 0;
             player_lv++;
+            lv_up.text = "LV" + player_lv;
         }
+        exp_full.fillAmount = (float)player_exp / 100;
     }
 
     bool skill_item_flag = false;
@@ -261,7 +448,9 @@ public class PlayerController : MonoBehaviour
     IEnumerator Skill_item_Coroutine()
     {
         skill_item_flag = true;
-        skill_item_obj.GetComponent<Skill_Get>().Get(skill_item_obj);
+        string skill_name = skill_item_obj.GetComponent<Skill_Item>().skillname;
+        this.GetComponent<PlayerSkill>().Get(skill_name);
+        ObjectPoolingManager.instance.InsertQueue(skill_item_obj,ObjectKind.skill_marble);
         yield return new WaitForSeconds(0.7f);
         skill_item_flag = false;
     }
@@ -304,10 +493,5 @@ public class PlayerController : MonoBehaviour
             skill_item_btn.SetActive(false);
         }
     }
-    void Game_Over()
-    {
-        GameObject smoke = ObjectPoolingManager.instance.GetQueue(ObjectKind.smoke);
-        smoke.transform.position = this.transform.position;
-        GameOverPanel.GetComponent<GameOver>().Show();
-    }
+
 }

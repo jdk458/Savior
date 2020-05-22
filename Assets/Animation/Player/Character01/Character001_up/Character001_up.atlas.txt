@@ -1,0 +1,104 @@
+
+Character001_up.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cape_accL
+  rotate: true
+  xy: 443, 454
+  size: 40, 45
+  orig: 40, 45
+  offset: 0, 0
+  index: -1
+cape_accR
+  rotate: true
+  xy: 2, 436
+  size: 40, 45
+  orig: 40, 45
+  offset: 0, 0
+  index: -1
+cape_down
+  rotate: false
+  xy: 2, 303
+  size: 150, 98
+  orig: 150, 98
+  offset: 0, 0
+  index: -1
+cape_line
+  rotate: true
+  xy: 159, 472
+  size: 22, 202
+  orig: 22, 202
+  offset: 0, 0
+  index: -1
+cape_up
+  rotate: true
+  xy: 154, 248
+  size: 137, 167
+  orig: 137, 167
+  offset: 0, 0
+  index: -1
+circle
+  rotate: true
+  xy: 49, 428
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1
+hairL
+  rotate: true
+  xy: 82, 473
+  size: 21, 75
+  orig: 21, 75
+  offset: 0, 0
+  index: -1
+hairR
+  rotate: true
+  xy: 82, 473
+  size: 21, 75
+  orig: 21, 75
+  offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 323, 240
+  size: 171, 145
+  orig: 171, 145
+  offset: 0, 0
+  index: -1
+hat_accL
+  rotate: true
+  xy: 42, 478
+  size: 16, 38
+  orig: 16, 38
+  offset: 0, 0
+  index: -1
+hat_accR
+  rotate: true
+  xy: 2, 479
+  size: 15, 38
+  orig: 15, 38
+  offset: 0, 0
+  index: -1
+sleeve_down
+  rotate: true
+  xy: 363, 464
+  size: 30, 78
+  orig: 30, 78
+  offset: 0, 0
+  index: -1
+sleeve_up
+  rotate: true
+  xy: 95, 403
+  size: 67, 107
+  orig: 67, 107
+  offset: 0, 0
+  index: -1
+wand
+  rotate: true
+  xy: 204, 387
+  size: 75, 219
+  orig: 75, 219
+  offset: 0, 0
+  index: -1

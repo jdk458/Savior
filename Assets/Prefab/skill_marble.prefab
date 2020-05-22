@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6821543686171286639}
   - component: {fileID: 1260958256029277367}
   - component: {fileID: 6266080219179927383}
-  - component: {fileID: 8166362331330267388}
   - component: {fileID: 8503336777210963454}
+  - component: {fileID: 1402757543}
   m_Layer: 0
   m_Name: skill_marble
   m_TagString: Skill_Item
@@ -100,19 +100,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8166362331330267388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3499713862769409287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ff503e46c6daa446b54c29b7e23df71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skill_num: 0
 --- !u!50 &8503336777210963454
 Rigidbody2D:
   serializedVersion: 4
@@ -134,3 +121,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1402757543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499713862769409287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c881a68f997821498befe008409695c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillname: Water00
