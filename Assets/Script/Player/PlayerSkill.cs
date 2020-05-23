@@ -22,17 +22,14 @@ public class PlayerSkill : MonoBehaviour
     public int max_target = 3;
     void Attack()
     {
-        if (!atkspeed_flag)
+        if (!atkspeed_flag && nomal_atk.activeSelf)
         {
-            atkspeed_flag = true;
-
+            StartCoroutine(Atkspeed_Flag_Coroutine());
 
             List<float> enemy_distance_list = new List<float>();
-            float angle = 0;
-
             RaycastHit2D[] enemies = Physics2D.CircleCastAll(this.transform.position, GetComponent<PlayerController>().range, Vector2.zero);
-
             List<RaycastHit2D> enemy_list = new List<RaycastHit2D>();
+
             for (int i = 0; i < enemies.Length; i++)
             {
                 if (enemies[i].transform.gameObject.tag.Contains("Enemy"))
@@ -40,8 +37,15 @@ public class PlayerSkill : MonoBehaviour
                     enemy_list.Add(enemies[i]);
                 }
             }
-            if (enemy_list.Count > 0 && max_target > 0)
+            if (enemy_list.Count > 0 )
             {
+                GameObject ob = ObjectPoolingManager.instance.GetQueue(ObjectKind.ob);
+                ob.transform.position = nomal_atk.transform.position;
+                nomal_atk.SetActive(false);
+                ob.GetComponent<Ob_nomal>().player_status = this.GetComponent<PlayerController>();
+                Transform tmepEnemy_transform = this.transform;
+
+                List<Transform> temp_list = new List<Transform>();
                 for (int i = 0; i < enemy_list.Count; i++)
                 {
                     if (enemy_list[i])
@@ -52,43 +56,48 @@ public class PlayerSkill : MonoBehaviour
                 enemy_distance_list.Sort();
                 for (int i = 0; i < enemy_distance_list.Count; i++)
                 {
-                    for (int j = i; j < enemy_list.Count; j++)
+                    if (Vector2.Distance(this.transform.position, enemy_list[i].transform.position) ==
+                      enemy_distance_list[0])
                     {
-                        if (Vector2.Distance(this.transform.position, enemy_list[j].transform.position) ==
-                        enemy_distance_list[i])
+                        ob.GetComponent<Ob_nomal>().targetList.Add(enemy_list[i].transform);
+                        temp_list.Add(enemy_list[i].transform);
+                    }
+                }
+
+                for (int i = 1; i < this.GetComponent<PlayerController>().attack_lv_count; i++)
+                {
+                    enemy_distance_list.Clear();
+                    enemy_list.Clear();
+                    enemies = Physics2D.CircleCastAll(temp_list[i - 1].position, GetComponent<PlayerController>().range, Vector2.zero);
+
+                    for (int j = 0; j < enemies.Length; j++)
+                    {
+                        if (enemies[j].transform.gameObject.tag.Contains("Enemy") && !temp_list.Contains(enemies[j].transform))
                         {
-                            RaycastHit2D temp = enemy_list[j];
-                            enemy_list[j] = enemy_list[i];
-                            enemy_list[i] = temp;
+                            enemy_list.Add(enemies[j]);
+                        }
+                    }
+
+                    if (enemy_list.Count < 1)
+                        break;
+
+                    for (int j = 0; j < enemy_list.Count; j++)
+                    {
+                        enemy_distance_list.Add(Vector2.Distance(temp_list[i - 1].position, enemy_list[j].transform.position));
+                    }
+                    enemy_distance_list.Sort();
+
+                    for (int j = 0; j < enemy_distance_list.Count; j++)
+                    {
+                        if (Vector2.Distance(temp_list[i - 1].position, enemy_list[j].transform.position) ==
+                          enemy_distance_list[0])
+                        {
+                            ob.GetComponent<Ob_nomal>().targetList.Add(enemy_list[j].transform);
+                            temp_list.Add(enemy_list[j].transform);
                         }
                     }
                 }
-                //Vector3 target_pos = enemy_list[enemy_index].transform.position;
-
-                //Vector3 dir = target_pos - this.transform.position;
-                //angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + -90f;
-
-                //GameObject ob = ObjectPoolingManager.instance.GetQueue(ObjectKind.ob);
-                //ob.transform.position = this.transform.position;
-                //ob.transform.rotation = Quaternion.Euler(0, 0, angle);
-                //ob.GetComponent<Ob_nomal>().player_status = this.GetComponent<PlayerController>();
-
-                int target_num = enemy_list.Count;
-                if (target_num > max_target)
-                    target_num = max_target;
-
-                Sequence atk_sequence = DOTween.Sequence();
-
-                for (int i = 0; i < target_num - 1; i++)
-                {
-                    atk_sequence.Append(nomal_atk.transform.DOMove(enemy_list[i].transform.position, 0.3f).SetEase(Ease.Linear));
-                }
-                Debug.Log(enemy_list[target_num - 1].transform.name);
-                atk_sequence.Append(nomal_atk.transform.DOMove(enemy_list[target_num - 1].transform.position, 0.3f).SetEase(Ease.Linear)).OnComplete(()=>
-                {
-                    nomal_atk.SetActive(false);
-                    StartCoroutine(Atkspeed_Flag_Coroutine());
-                });
+                
             }
 
         }
@@ -99,6 +108,7 @@ public class PlayerSkill : MonoBehaviour
     bool atkspeed_flag;
     IEnumerator Atkspeed_Flag_Coroutine()
     {
+        atkspeed_flag = true;
         yield return new WaitForSeconds(GetComponent<PlayerController>().atkspeed);
         nomal_atk.SetActive(true);
         nomal_atk.transform.localPosition = origin_nomal_atk_Pos;

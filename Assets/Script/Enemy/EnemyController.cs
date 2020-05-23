@@ -27,10 +27,6 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void test()
-    {
-        ObjectPoolingManager.instance.InsertQueue(this.gameObject, ObjectKind.enemy );
-    }
 
     private void OnDisable()
     {

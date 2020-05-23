@@ -78,11 +78,24 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         current_hp = max_hp;
-        lv_up.text = "LV"+ player_lv;
+        lv_up.text = "LV" + player_lv;
         hp_image.fillAmount = current_hp / max_hp;
         rigidbody2D = GetComponent<Rigidbody2D>();
-        exp_full.fillAmount = (float)player_exp/10;
+        exp_full.fillAmount = (float)player_exp / 10;
+
+        character_lv_hp = 1;
+        character_lv_speed = 1;
+        character_lv_exp = 1;
+
+        attack_lv_atk = 1;
+        attack_lv_speed = 1;
+        attack_lv_count = 3;
+
+        skill_lv_atk = 1;
+        skill_lv_cooltime = 1;
+        skill_lv_getcount = 1;
     }
+
 
     private void FixedUpdate()
     {

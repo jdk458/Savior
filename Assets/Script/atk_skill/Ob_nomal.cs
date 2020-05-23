@@ -10,20 +10,33 @@ public class Ob_nomal : MonoBehaviour
 
     [HideInInspector]
     public PlayerController player_status;
+    [HideInInspector]
+    public List<Transform> targetList = new List<Transform>();
+    int iCount;
 
     private void FixedUpdate()
     {
-        this.transform.Translate(Vector2.up * Time.deltaTime * speed);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag.Contains("Enemy"))
+        if (targetList.Count < 1)
         {
-            collision.GetComponent<EnemyController>().Hit((int)(player_status.atk * atk));
             Destroy();
+            return;
+        }
+
+
+        this.transform.position = Vector2.MoveTowards(this.transform.position, targetList[iCount].position, 0.3f);
+        if (Vector2.Distance(transform.position, targetList[iCount].position) == 0)
+        {
+            targetList[iCount].GetComponent<EnemyController>().Hit((int)(player_status.atk * atk));
+            iCount++;
+            if (iCount == targetList.Count)
+            {
+                iCount = 0;
+                Destroy();
+            }
         }
     }
+
+  
 
     private void OnEnable()
     {
