@@ -10476,6 +10476,7 @@ GameObject:
   - component: {fileID: 2073598523}
   - component: {fileID: 2073598524}
   - component: {fileID: 2073598525}
+  - component: {fileID: 2073598526}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10511,6 +10512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userinfo: {fileID: 2073598524}
   audioManager: {fileID: 2073598525}
+  monsterManager: {fileID: 2073598526}
 --- !u!114 &2073598524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10559,6 +10561,40 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: f456e691fe3a58b48974dc2380aadc0e, type: 3}
   - audioName: "\uBCF4\uC2A4\uD14C\uB9C8"
     audioClip: {fileID: 8300000, guid: efe06f48328faa14ab130daf20df7198, type: 3}
+--- !u!114 &2073598526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073598521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb7a55c73c9ea541be6dbd4460dc3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MonsterList:
+  - name: "\uC57D\uACE0\uBE14\uB9B0"
+    stage: 0
+    monsterType: 0
+    rigidTime: 1
+    atk: 3
+    hp: 30
+    speed: 5
+  - name: "\uC911\uACE0\uBE14\uB9B0"
+    stage: 0
+    monsterType: 1
+    rigidTime: 1
+    atk: 4
+    hp: 30
+    speed: 6.5
+  - name: "\uAC15\uACE0\uBE14\uB9B0"
+    stage: 0
+    monsterType: 2
+    rigidTime: 0.65
+    atk: 5
+    hp: 50
+    speed: 5
 --- !u!1 &2127960784
 GameObject:
   m_ObjectHideFlags: 0

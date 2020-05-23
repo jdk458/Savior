@@ -8,8 +8,6 @@ public class ObjectPoolingManager : MonoBehaviour
 
     [Header("아이템")]
     public Transform instantiate_pos;  
-    public GameObject enemy_prefab = null;
-    public Queue<GameObject> enemy_queue = new Queue<GameObject>();
     public GameObject ob_prefab = null;
     public Queue<GameObject> ob_queue = new Queue<GameObject>();
     public GameObject smoke_prefab = null;
@@ -37,17 +35,18 @@ public class ObjectPoolingManager : MonoBehaviour
     public GameObject up_ver = null;
     public Queue<GameObject> up_ver_queue = new Queue<GameObject>();
 
+    [Header("몬스터")]
+    public GameObject monster_stage01_01_pripab = null;
+    public Queue<GameObject> monster_stage01_01_queue = new Queue<GameObject>();
+    public GameObject monster_stage01_02_pripab = null;
+    public Queue<GameObject> monster_stage01_02_queue = new Queue<GameObject>();
+    public GameObject monster_stage01_03_pripab = null;
+    public Queue<GameObject> monster_stage01_03_queue = new Queue<GameObject>();
+
     private void Awake()
     {
         instance = this;
 
-        // enemy  
-        for (int i = 0; i < 100; i++)
-        {
-            GameObject t_object = Instantiate(enemy_prefab, new Vector2(3000,3000), Quaternion.identity, instantiate_pos);
-            enemy_queue.Enqueue(t_object);
-            t_object.SetActive(false);
-        }
         // ob  
         for (int i = 0; i < 100; i++)
         {
@@ -132,13 +131,32 @@ public class ObjectPoolingManager : MonoBehaviour
             up_ver_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
+        // monster_stage01_01
+        for (int i = 0; i < 150; i++)
+        {
+            GameObject t_object = Instantiate(monster_stage01_01_pripab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            monster_stage01_01_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // monster_stage01_02
+        for (int i = 0; i < 150; i++)
+        {
+            GameObject t_object = Instantiate(monster_stage01_02_pripab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            monster_stage01_02_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // monster_stage01_03
+        for (int i = 0; i < 150; i++)
+        {
+            GameObject t_object = Instantiate(monster_stage01_03_pripab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            monster_stage01_03_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
     }
 
     // 사용한 오브젝트를 다시 큐에 집어 넣는 함수
     public void InsertQueue(GameObject p_object, ObjectKind obj)
     {
-        if(obj == ObjectKind.enemy)
-            enemy_queue.Enqueue(p_object);
 
         if (obj == ObjectKind.ob)
             ob_queue.Enqueue(p_object);
@@ -176,6 +194,15 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.up_ver)
             up_ver_queue.Enqueue(p_object);
 
+        if (obj == ObjectKind.monster_stage01_01)
+            monster_stage01_01_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.monster_stage01_02)
+            monster_stage01_02_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.monster_stage01_03)
+            monster_stage01_03_queue.Enqueue(p_object);
+
         p_object.SetActive(false);
     }
 
@@ -183,9 +210,6 @@ public class ObjectPoolingManager : MonoBehaviour
     public GameObject GetQueue(ObjectKind obj)
     {
         GameObject t_object = null;
-
-        if (obj == ObjectKind.enemy)
-            t_object = enemy_queue.Dequeue();
 
         if (obj == ObjectKind.ob)
             t_object = ob_queue.Dequeue();
@@ -223,6 +247,15 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.up_ver)
             t_object = up_ver_queue.Dequeue();
 
+        if (obj == ObjectKind.monster_stage01_01)
+            t_object = monster_stage01_01_queue.Dequeue();
+
+        if (obj == ObjectKind.monster_stage01_02)
+            t_object = monster_stage01_02_queue.Dequeue();
+
+        if (obj == ObjectKind.monster_stage01_03)
+            t_object = monster_stage01_03_queue.Dequeue();
+
         t_object.SetActive(true);
         return t_object;
     }
@@ -230,7 +263,6 @@ public class ObjectPoolingManager : MonoBehaviour
 
 public enum ObjectKind
 {
-    enemy,
     ob,
     smoke,
     nomal_damage,
@@ -242,5 +274,8 @@ public enum ObjectKind
     down_ver,
     ver,
     up,
-    up_ver
+    up_ver,
+    monster_stage01_01,
+    monster_stage01_02,
+    monster_stage01_03
 }

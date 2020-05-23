@@ -18,10 +18,10 @@ public class EnemyManager : MonoBehaviour
 
     void Spawn()
     {
-        GameObject enemy_obj = ObjectPoolingManager.instance.GetQueue(ObjectKind.enemy);
-        enemy_obj.GetComponent<EnemyController>().player_transform = player_transform;
+     //   GameObject enemy_obj = ObjectPoolingManager.instance.GetQueue(ObjectKind.enemy);
+     //   enemy_obj.GetComponent<EnemyController>().player_transform = player_transform;
         int rand_pos_num = Random.RandomRange(0, enemy_spawn.childCount);
-        enemy_obj.transform.position = enemy_spawn.GetChild(rand_pos_num).transform.position;
+//        enemy_obj.transform.position = enemy_spawn.GetChild(rand_pos_num).transform.position;
 
         Invoke("Spawn", spawn_time);
        // spawn_time -= 0.01f;

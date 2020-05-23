@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public Transform player_transform;
     [Header("속도")]
-    public float speed = 0.035f;
+    public float speed = 5f;
     [Header("체력")] public int max_hp;
     int current_hp;
 
@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     {
         if (!hit_flag)
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, player_transform.position, speed);
+            this.transform.position = Vector2.MoveTowards(this.transform.position, player_transform.position, speed / 120f);
         }
     }
 
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
         {
             GameObject smoke = ObjectPoolingManager.instance.GetQueue(ObjectKind.smoke);
             smoke.transform.position = this.transform.position;
-            ObjectPoolingManager.instance.InsertQueue(this.gameObject, ObjectKind.enemy);
+           // ObjectPoolingManager.instance.InsertQueue(this.gameObject, ObjectKind.enemy);
         }
 
         else
