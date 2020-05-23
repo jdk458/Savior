@@ -34,12 +34,14 @@ public class PlayerController : MonoBehaviour
     GameObject skill_item_obj;
 
     [Header("UI")]
-    public GameObject ui_canvas;
     public Text lv_up;
     public Image exp_full;
     [Header("UI2")]
     public UI2_Manager uI2_Manager;
 
+    [Header("오디오")]
+    public AudioSource dash_AudioSource;
+    public AudioSource levelUp_AudioSource;
 
     /// <summary>
     ///  스파인
@@ -297,6 +299,8 @@ public class PlayerController : MonoBehaviour
     {
         dash_flag = true;
 
+        GameManager.instance.audioManager.EnvironVolume_Play(dash_AudioSource);
+
         if (joystic_localpos.x > 45)
             this.transform.DOMoveX(this.transform.position.x + dash_move, 0.1f).SetEase(Ease.Linear);
         if (joystic_localpos.x < -45)
@@ -445,6 +449,7 @@ public class PlayerController : MonoBehaviour
             player_exp = 0;
             player_lv++;
             lv_up.text = "LV" + player_lv;
+            GameManager.instance.audioManager.EnvironVolume_Play(levelUp_AudioSource);
         }
         exp_full.fillAmount = (float)player_exp / 100;
     }

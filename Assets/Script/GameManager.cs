@@ -6,16 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [HideInInspector]
     public UserInfoManager userinfo;
+    public AudioManager audioManager;
     void Awake()
     {
         instance = this;
     }
 
-    private void Start()
-    {
-        userinfo = GetComponent<UserInfoManager>();
-    }
+   
 
 }

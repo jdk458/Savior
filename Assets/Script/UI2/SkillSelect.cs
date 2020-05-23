@@ -30,27 +30,33 @@ public class SkillSelect : MonoBehaviour
                 {
                     case "캐릭터패시브":
                         select_num01 = 1;
+                        hit.transform.GetComponent<Animator>().SetBool("click", true);
                         StartCoroutine(Ani_Coroutine("SkillSelect01_FadeOut", .9F, Select01Btn));
                         break;
                     case "공격패시브 ":
                         select_num01 = 2;
+                        hit.transform.GetComponent<Animator>().SetBool("click", true);
                         StartCoroutine(Ani_Coroutine("SkillSelect01_FadeOut", .9F, Select01Btn));
                         break;
                     case "스킬패시브":
                         select_num01 = 3;
+                        hit.transform.GetComponent<Animator>().SetBool("click", true);
                         StartCoroutine(Ani_Coroutine("SkillSelect01_FadeOut", .9F, Select01Btn));
                         break;
                     case "능력치선택1":
                         select_num02 = 1;
-                        Select02Btn();
+                        hit.transform.GetComponent<Animator>().SetBool("click", true);
+                        Invoke("Select02Btn", 0.35f);
                         break;
                     case "능력치선택2":
                         select_num02 = 2;
-                        Select02Btn();
+                        hit.transform.GetComponent<Animator>().SetBool("click", true);
+                        Invoke("Select02Btn", 0.35f);
                         break;
                     case "능력치선택3":
                         select_num02 = 3;
-                        Select02Btn();
+                        hit.transform.GetComponent<Animator>().SetBool("click", true);
+                        Invoke("Select02Btn", 0.35f);
                         break;
                     default:
                         break;
