@@ -20,7 +20,6 @@ ScriptsOnlyBuild:
     - CoolJoystick.SpeedometerIndicator
     - CountdownManager
     - Damage
-    - EnemyController
     - EnemyManager
     - Exp_Up
     - GameManager
@@ -28,7 +27,10 @@ ScriptsOnlyBuild:
     - Hp_Recovery
     - Item
     - Item_Manager
+    - Loding
     - MainSceneManager
+    - MonsterController
+    - MonsterManager
     - Ob_nomal
     - ObjectPoolingManager
     - PlayerController
@@ -75,12 +77,14 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
     spine-unity.dll:
     - Spine.Unity.SkeletonAnimation
     - Spine.Unity.SkeletonDataAsset
     - Spine.Unity.SpineAtlasAsset
   sceneClasses:
-    Assets/Scenes/Battle.unity:
+    Assets/Scenes/Chapter01.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -127,8 +131,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11278}
     - Class: 114
       Script: {instanceID: 11482}
-    - Class: 114
-      Script: {instanceID: 11604}
     - Class: 114
       Script: {instanceID: 11654}
     - Class: 114
@@ -182,21 +184,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14296}
     - Class: 114
-      Script: {instanceID: 14462}
+      Script: {instanceID: 14464}
     - Class: 114
-      Script: {instanceID: 14504}
+      Script: {instanceID: 14506}
     - Class: 114
-      Script: {instanceID: 14862}
+      Script: {instanceID: 14864}
     - Class: 114
-      Script: {instanceID: 14920}
+      Script: {instanceID: 14922}
     - Class: 114
-      Script: {instanceID: 14924}
+      Script: {instanceID: 14926}
     - Class: 114
-      Script: {instanceID: 15042}
+      Script: {instanceID: 15044}
     - Class: 114
-      Script: {instanceID: 15110}
+      Script: {instanceID: 15112}
     - Class: 114
-      Script: {instanceID: 15178}
+      Script: {instanceID: 15180}
+    - Class: 114
+      Script: {instanceID: 23284}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -208,6 +212,63 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/LodingScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11278}
+    - Class: 114
+      Script: {instanceID: 11654}
+    - Class: 114
+      Script: {instanceID: 11718}
+    - Class: 114
+      Script: {instanceID: 12364}
+    - Class: 114
+      Script: {instanceID: 12506}
+    - Class: 114
+      Script: {instanceID: 12654}
+    - Class: 114
+      Script: {instanceID: 14296}
+    - Class: 114
+      Script: {instanceID: 14922}
+    - Class: 114
+      Script: {instanceID: 15044}
+    - Class: 114
+      Script: {instanceID: 15094}
+    - Class: 114
+      Script: {instanceID: 47662}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -279,6 +340,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12630}
     - Class: 114
+      Script: {instanceID: 12654}
+    - Class: 114
       Script: {instanceID: 13010}
     - Class: 114
       Script: {instanceID: 13218}
@@ -297,25 +360,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14296}
     - Class: 114
-      Script: {instanceID: 14462}
+      Script: {instanceID: 14312}
     - Class: 114
-      Script: {instanceID: 14638}
+      Script: {instanceID: 14464}
     - Class: 114
-      Script: {instanceID: 14920}
+      Script: {instanceID: 14640}
     - Class: 114
-      Script: {instanceID: 14960}
+      Script: {instanceID: 14922}
     - Class: 114
-      Script: {instanceID: 15042}
+      Script: {instanceID: 14962}
     - Class: 114
-      Script: {instanceID: 15092}
+      Script: {instanceID: 15044}
     - Class: 114
-      Script: {instanceID: 15130}
+      Script: {instanceID: 15094}
     - Class: 114
-      Script: {instanceID: 24746}
+      Script: {instanceID: 15132}
     - Class: 114
-      Script: {instanceID: 24752}
+      Script: {instanceID: 65734}
     - Class: 114
-      Script: {instanceID: 24754}
+      Script: {instanceID: 65740}
+    - Class: 114
+      Script: {instanceID: 65742}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -447,12 +512,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 12007b039e7278d4a07f237e00e9a082
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyController
   - hash:
       serializedVersion: 2
       Hash: e9b3996d819066e8c429ff528d6f88f2
@@ -821,7 +880,7 @@ ScriptsOnlyBuild:
     className: CameraResolution
   - hash:
       serializedVersion: 2
-      Hash: c5a9df3e8adc3e2a05ac592925f36ac8
+      Hash: 36c77373c6987aa7faa77016588e6542
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ObjectPoolingManager
@@ -1103,7 +1162,7 @@ ScriptsOnlyBuild:
     className: BoneFollower
   - hash:
       serializedVersion: 2
-      Hash: 0a26a20849e3b3b3b0794a4a54cb0594
+      Hash: c12742e64c85561534caf6982e6e6db6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1173,6 +1232,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 2d544b669031e78524faaf18e5700ff2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MonsterManager
   - hash:
       serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
@@ -1437,8 +1502,21 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SkillSelect
+  - hash:
+      serializedVersion: 2
+      Hash: 675fa8b897fedde4fd780da720981e4a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MonsterController
+  - hash:
+      serializedVersion: 2
+      Hash: 70998e8027d244a5a50838dcb52e5df0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Loding
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainScene.unity
-  - Assets/Scenes/Battle.unity
-  playerPath: C:/Users/tjdtj/OneDrive/Documents/GitHub/Temp_Savior/MasicServiver/MasicServiver/15.apk
+  - Assets/Scenes/LodingScene.unity
+  - Assets/Scenes/Chapter01.unity
+  playerPath: "C:/Users/tjdtj/OneDrive/\uBC14\uD0D5 \uD654\uBA74/test.apk"

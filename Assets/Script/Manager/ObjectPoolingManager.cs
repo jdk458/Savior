@@ -138,6 +138,7 @@ public class ObjectPoolingManager : MonoBehaviour
             monster_stage01_01_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
+        monster_stage01_01_pripab.SetActive(false);
         // monster_stage01_02
         for (int i = 0; i < 150; i++)
         {
@@ -145,6 +146,7 @@ public class ObjectPoolingManager : MonoBehaviour
             monster_stage01_02_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
+        monster_stage01_02_pripab.SetActive(false);
         // monster_stage01_03
         for (int i = 0; i < 150; i++)
         {
@@ -152,6 +154,7 @@ public class ObjectPoolingManager : MonoBehaviour
             monster_stage01_03_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
+        monster_stage01_03_pripab.SetActive(false);
     }
 
     // 사용한 오브젝트를 다시 큐에 집어 넣는 함수

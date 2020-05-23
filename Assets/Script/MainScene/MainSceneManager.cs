@@ -13,19 +13,19 @@ public class MainSceneManager : MonoBehaviour
     [Header("크레딧")] public GameObject Cradit_pannel;
 
     // 게임시작 
-    public void OnClickGameStart_Btn()
-    {
-        blackpannel.SetActive(true);
-        chapter_pannel.SetActive(true);
-    }
-    public void GameStart_Exit()
-    {
-        blackpannel.SetActive(false);
-        chapter_pannel.SetActive(false);
-    }
+    //public void OnClickGameStart_Btn()
+    //{
+    //    blackpannel.SetActive(true);
+    //    chapter_pannel.SetActive(true);
+    //}
+    //public void GameStart_Exit()
+    //{
+    //    blackpannel.SetActive(false);
+    //    chapter_pannel.SetActive(false);
+    //}
     public void GameStart()
     {
-        SceneManager.LoadScene("Battle");
+        SceneManager.LoadScene("LodingScene");
     }
 
     //케릭터

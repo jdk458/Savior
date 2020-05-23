@@ -11,20 +11,69 @@ public class EnemyManager : MonoBehaviour
     [Header("초기 스폰 타임")]
     public float spawn_time = 1f;
 
+    float middle = 35;
+    float strong = 15;
+
+    int currentStage;
+
     private void Start()
     {
+        currentStage = 1;
         Spawn();
     }
 
     void Spawn()
     {
-     //   GameObject enemy_obj = ObjectPoolingManager.instance.GetQueue(ObjectKind.enemy);
-     //   enemy_obj.GetComponent<EnemyController>().player_transform = player_transform;
+        MonsterType monsterType = MonsterType.약한객체;
+        int random = Random.RandomRange(0, 100);
+
+        if (random < strong)
+        {
+            monsterType = MonsterType.강한객체;
+        }
+        if (monsterType != MonsterType.강한객체 && random < middle)
+        {
+            monsterType = MonsterType.중간객체;
+        }
+
+        ObjectKind monster = ObjectKind.monster_stage01_01;
+
+        switch (currentStage)
+        {
+            case 1:
+                switch (monsterType)
+                {
+                    case MonsterType.약한객체:
+                        monster = ObjectKind.monster_stage01_01;
+                        break;
+                    case MonsterType.중간객체:
+                        monster = ObjectKind.monster_stage01_02;
+                        break;
+                    case MonsterType.강한객체:
+                        monster = ObjectKind.monster_stage01_03;
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            default:
+                break;
+        }
+
+        GameObject enemy_obj = ObjectPoolingManager.instance.GetQueue(monster);
         int rand_pos_num = Random.RandomRange(0, enemy_spawn.childCount);
-//        enemy_obj.transform.position = enemy_spawn.GetChild(rand_pos_num).transform.position;
+        enemy_obj.transform.position = enemy_spawn.GetChild(rand_pos_num).transform.position;
 
         Invoke("Spawn", spawn_time);
-       // spawn_time -= 0.01f;
+      // spawn_time -= 0.01f;
     }
 
 }

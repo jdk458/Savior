@@ -98,13 +98,14 @@
     <Compile Include="Assets\Script\Effect\Damage.cs" />
     <Compile Include="Assets\Script\Effect\Ghost.cs" />
     <Compile Include="Assets\Script\Effect\Smoke.cs" />
-    <Compile Include="Assets\Script\Enemy\EnemyController.cs" />
+    <Compile Include="Assets\Script\Enemy\MonsterController.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Item\Exp_Up.cs" />
     <Compile Include="Assets\Script\Item\Hp_Recovery.cs" />
     <Compile Include="Assets\Script\Item\Item.cs" />
     <Compile Include="Assets\Script\Item\Obstacle.cs" />
     <Compile Include="Assets\Script\Item\Skill_Item.cs" />
+    <Compile Include="Assets\Script\Loding.cs" />
     <Compile Include="Assets\Script\MainScene\MainSceneManager.cs" />
     <Compile Include="Assets\Script\MainScene\Research.cs" />
     <Compile Include="Assets\Script\MainScene\ResearchManager.cs" />
