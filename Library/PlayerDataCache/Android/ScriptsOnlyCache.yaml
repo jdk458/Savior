@@ -79,6 +79,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
+    spine-unity-editor.dll:
+    - Spine.Unity.Editor.SkeletonAnimationInspector
     spine-unity.dll:
     - Spine.Unity.SkeletonAnimation
     - Spine.Unity.SkeletonDataAsset
@@ -378,11 +380,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15134}
     - Class: 114
-      Script: {instanceID: 48632}
+      Script: {instanceID: 48816}
     - Class: 114
-      Script: {instanceID: 48638}
+      Script: {instanceID: 48822}
     - Class: 114
-      Script: {instanceID: 48640}
+      Script: {instanceID: 48824}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128

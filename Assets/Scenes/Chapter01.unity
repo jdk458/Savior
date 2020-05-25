@@ -10851,7 +10851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: 3b74cd48ded6d4548937e3b546f8ea0f, type: 2}
-  initialSkinName: character001_upL
+  initialSkinName: character001_upR
   initialFlipX: 0
   initialFlipY: 0
   separatorSlotNames: []
@@ -13224,7 +13224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040553995}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2000, y: 2000, z: 0}
+  m_LocalPosition: {x: 1998.41, y: 2000, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_Children: []
   m_Father: {fileID: 902702684}
