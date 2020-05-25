@@ -29,9 +29,12 @@ public class ResearchManager : MonoBehaviour
             {
                 circle[i].GetComponent<Research>().PointUpCircle();
                 circle[i].transform.GetChild(0).GetComponent<Image>().DOFade(0, 2f).OnComplete(()=> { circle[0].GetComponent<Research>().if_fill_flag = true; });
-                line[i - 1].GetComponent<Image>().fillAmount = 0;
                 circle[i].GetComponent<Research>().if_fill_flag = false;
                 circle[i].transform.GetComponent<Image>().fillAmount = 0;
+            }
+            for (int i = 0; i < line.Length; i++)
+            {
+                line[i].GetComponent<Image>().fillAmount = 0;
             }
             GameManager.instance.userinfo.research_level++;
             GameManager.instance.userinfo.hp_research = false;
