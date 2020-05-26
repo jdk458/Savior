@@ -9,6 +9,9 @@ public class CountdownManager : MonoBehaviour
     float tempTime = 0;
     private void FixedUpdate()
     {
+        if (TimeManager.instance.GetTime())
+            return;
+
         tempTime += Time.fixedDeltaTime;
 
         float remainTime = time - tempTime;
@@ -19,6 +22,7 @@ public class CountdownManager : MonoBehaviour
         {
             Debug.Log("타임셋");
             tempTime = 0;
+            StageManager.instance.NextStage();
         }
     }
 }

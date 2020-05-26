@@ -117,6 +117,8 @@
     <Compile Include="Assets\Script\Manager\MonsterManager.cs" />
     <Compile Include="Assets\Script\Manager\ObjectPoolingManager.cs" />
     <Compile Include="Assets\Script\Manager\Sound_Manager.cs" />
+    <Compile Include="Assets\Script\Manager\StageManager.cs" />
+    <Compile Include="Assets\Script\Manager\TimeManager.cs" />
     <Compile Include="Assets\Script\Manager\UserInfoManager.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
     <Compile Include="Assets\Script\Player\PlayerSkill.cs" />

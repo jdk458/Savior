@@ -22,6 +22,12 @@ public class PlayerSkill : MonoBehaviour
     public int max_target = 3;
     void Attack()
     {
+        if (TimeManager.instance.GetTime())
+        {
+            Invoke("Attack", 0.1f);
+            return;
+        }
+
         if (!atkspeed_flag && nomal_atk.activeSelf)
         {
             StartCoroutine(Atkspeed_Flag_Coroutine());
@@ -131,6 +137,12 @@ public class PlayerSkill : MonoBehaviour
 
     public void Water00()
     {
+        if (TimeManager.instance.GetTime())
+        {
+            Invoke("Water00", 0.1f);
+            return;
+        }
+
         if (!water00_flag)
         {
             StartCoroutine(Water00_Flag_Coroutine());

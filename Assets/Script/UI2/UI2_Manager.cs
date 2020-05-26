@@ -17,6 +17,7 @@ public class UI2_Manager : MonoBehaviour
 
     public void SkillSelect_Exit()
     {
+        TimeManager.instance.SetTime(false);
         blackpannel.SetActive(false);
         skillSelect.SetActive(false);
     }

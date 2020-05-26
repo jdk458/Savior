@@ -6,7 +6,7 @@ public class MonsterController : MonoBehaviour
 {
     [Header("몬스터 정보")]
     public string name;
-    ObjectKind objectKind;
+    public ObjectKind objectKind;
     Stage stage;
     MonsterType monsterType;
     [Range(0, 1)] float rigidTime;
@@ -40,6 +40,9 @@ public class MonsterController : MonoBehaviour
     bool hit_flag;
     private void FixedUpdate()
     {
+        if (TimeManager.instance.GetTime())
+            return;
+
         if (!hit_flag)
         {
             this.transform.position = Vector2.MoveTowards(this.transform.position, player_transform.position, speed / 120f);
@@ -48,6 +51,9 @@ public class MonsterController : MonoBehaviour
 
     public void Hit(int damage)
     {
+        if (TimeManager.instance.GetTime())
+            return;
+
         current_hp -= damage;
         if (current_hp <= 0)
         {
@@ -81,6 +87,9 @@ public class MonsterController : MonoBehaviour
 
         if (collision.transform.tag.Contains("Player"))
         {
+            if (TimeManager.instance.GetTime())
+                return;
+
             collision.transform.GetComponent<PlayerController>().Hit(atk, gameObject);
             rigidbody2D.velocity = Vector2.zero;
         }

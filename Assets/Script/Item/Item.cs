@@ -16,6 +16,9 @@ public class Item : MonoBehaviour
 
     private void Update()
     {
+        if (TimeManager.instance.GetTime())
+            return;
+
         RaycastHit2D hit = Physics2D.CircleCast(this.transform.position, search_range, Vector2.zero);
         if (hit && hit.transform.tag.Contains("Player"))
         {

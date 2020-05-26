@@ -101,7 +101,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        if (TimeManager.instance.GetTime())
+            return;
+
+
         joystic_localpos = joystic_foreground.GetComponent<RectTransform>().localPosition;
 
         if (joystic_localpos != Vector2.zero)
@@ -153,6 +156,8 @@ public class PlayerController : MonoBehaviour
     string currentSkinName;
     void Spine_Ani(AniKind ani)
     {
+      
+
         string aniName = "";
         switch (ani)
         {
@@ -302,7 +307,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnClick_Dash()
     {
-     
+        if (TimeManager.instance.GetTime())
+            return;
+
+
         if (Mathf.Abs(joystic_localpos.x) < 45 && Mathf.Abs(joystic_localpos.y) < 45)
         {
             return;
@@ -379,6 +387,10 @@ public class PlayerController : MonoBehaviour
     bool obstacle_flag;
     public void OnClick_Obstacle()
     {
+        if (TimeManager.instance.GetTime())
+            return;
+
+
         if (obstacle_flag)
             return;
 
@@ -397,6 +409,9 @@ public class PlayerController : MonoBehaviour
     bool hit_flag;
     public void Hit(int damage, GameObject enemy)
     {
+        if (TimeManager.instance.GetTime())
+            return;
+
         if (hit_flag)
             return;
 
@@ -447,6 +462,9 @@ public class PlayerController : MonoBehaviour
 
     public void Hp_Recovery(int up)
     {
+        if (TimeManager.instance.GetTime())
+            return;
+
         current_hp += up;
         if (max_hp < current_hp)
             current_hp = max_hp;
@@ -456,6 +474,9 @@ public class PlayerController : MonoBehaviour
 
     public void Exp_Up(int up)
     {
+        if (TimeManager.instance.GetTime())
+            return;
+
         player_exp += up;
         if (player_exp >= 10)
         {
@@ -464,6 +485,7 @@ public class PlayerController : MonoBehaviour
             player_lv++;
             lv_up.text = "LV" + player_lv;
             GameManager.instance.audioManager.EnvironVolume_Play(levelUp_AudioSource);
+            TimeManager.instance.SetTime(true);
         }
         exp_full.fillAmount = (float)player_exp / 100;
     }
@@ -471,6 +493,9 @@ public class PlayerController : MonoBehaviour
     bool skill_item_flag = false;
     public void OnClick_SkillItem()
     {
+        if (TimeManager.instance.GetTime())
+            return;
+
         if (skill_item_flag)
             return;
 
