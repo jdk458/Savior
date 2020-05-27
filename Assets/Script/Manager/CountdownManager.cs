@@ -20,7 +20,6 @@ public class CountdownManager : MonoBehaviour
         this.GetComponent<Text>().text = minuteString + " : " + secondString;
         if (tempTime >= time)
         {
-            Debug.Log("타임셋");
             tempTime = 0;
             StageManager.instance.NextStage();
         }

@@ -33,7 +33,8 @@ public class StageManager : MonoBehaviour
 
     public void NextStage_Start()
     {
-
+        //장애물 없애고, 배경바꾸고, 몬스터, 아이템 바꾸고, 타임 시작, 체력 유지, 경험치 유지
+        enemyManager.NextStage();
     }
 
     public void NextStage_End()

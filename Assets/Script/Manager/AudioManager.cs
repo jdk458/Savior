@@ -5,8 +5,9 @@ using System;
 public class AudioManager : MonoBehaviour
 {
     [Range(0,1)] public float entireVolume;
-    [Range(0, 1)] public float BgmVolune;
+    [Range(0, 1)] public float BgmVolume;
     [Range(0, 1)] public float environVolume;
+
 
     [Serializable]
     public struct AudioStruct
@@ -37,8 +38,9 @@ public class AudioManager : MonoBehaviour
     }
     public void Bgm_Play(AudioSource AS)
     {
-        float sound = entireVolume * BgmVolune;
+        float sound = entireVolume * BgmVolume;
         AS.volume = sound;
         AS.Play();
     }
+
 }
