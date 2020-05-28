@@ -34,7 +34,7 @@ public class Item_Manager : MonoBehaviour
         float X = Random.Range(background.position.x - 100, background.position.x + 100);
         float Y = Random.Range(background.position.y - 100, background.position.y + 100);
         rand_lv_num = Random.RandomRange(1, 4);
-        exp_marble.transform.position = new Vector3(X, Y, 0);
+        exp_marble.transform.position = new Vector3(X,Y,0);
         Invoke("exp_marble_Spawn", spawn_time);
     }
 

@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     [Header("오디오")]
     public AudioSource dash_AudioSource;
     public AudioSource levelUp_AudioSource;
+    public AudioSource move_AudioSource;
 
     /// <summary>
     ///  스파인
@@ -109,6 +110,9 @@ public class PlayerController : MonoBehaviour
 
         if (joystic_localpos != Vector2.zero)
         {
+            if (!move_AudioSource.isPlaying)
+                GameManager.instance.audioManager.EnvironVolume_Play(move_AudioSource);
+
             if (!obstacle_flag)
             {
                 if (!dash_flag) // 대쉬중에는 막아둔다
@@ -125,13 +129,13 @@ public class PlayerController : MonoBehaviour
 
                 if (angle > 337.5f && angle <= 360 || angle > 0 && angle <= 22.5f) // 오
                     Spine_Ani(AniKind.right);
-                if (angle > 22.5f && angle <= 67.5f) //위_왼
+                if (angle > 22.5f && angle <= 67.5f) // 위_왼
                     Spine_Ani(AniKind.up_right);
                 if (angle > 67.5f && angle <= 112.5f) // 위
                     Spine_Ani(AniKind.up);
                 if (angle > 112.5f && angle <= 157.5f) // 위_오
                     Spine_Ani(AniKind.up_left);
-                if (angle > 157.5f && angle <= 202.5f) // 왼 
+                if (angle > 157.5f && angle <= 202.5f) // 왼
                     Spine_Ani(AniKind.left);
                 if (angle > 202.5f && angle <= 247.5f) // 아래_오른쪽
                     Spine_Ani(AniKind.down_left);
@@ -145,6 +149,9 @@ public class PlayerController : MonoBehaviour
         {
             // idle
             Spine_Ani(AniKind.idle);
+
+            if (move_AudioSource.isPlaying)
+                move_AudioSource.Stop();
         }
         //new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z);
         // 카메라 플레이어 따라가기 
@@ -202,10 +209,10 @@ public class PlayerController : MonoBehaviour
                 idle_down.transform.localPosition = new Vector2(2000, 2000); down_ver.transform.localPosition = new Vector2(2000, 2000); ver.transform.localPosition = new Vector2(2000, 2000); up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = Vector2.zero;
                 up_ver.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0, "character001_move_upR", true);
                 currentAniName = "character001_move_upR";
+                currentSkinName = "character001_upR";
                 up_ver.GetComponent<SkeletonAnimation>().Skeleton.SetSkin("character001_upR");
                 up_ver.GetComponent<SkeletonAnimation>().skeleton.SetSlotsToSetupPose();
                 up_ver.GetComponent<SkeletonAnimation>().LateUpdate();
-                currentSkinName = "character001_upR";
                 up_ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
                 break;
             case AniKind.left:
@@ -254,7 +261,7 @@ public class PlayerController : MonoBehaviour
                 idle_down.transform.localPosition = new Vector2(2000, 2000); down_ver.transform.localPosition = Vector2.zero; ver.transform.localPosition = new Vector2(2000, 2000); up.transform.localPosition = new Vector2(2000, 2000); up_ver.transform.localPosition = new Vector2(2000, 2000);
                 down_ver.GetComponent<SkeletonAnimation>().Skeleton.SetSkin("character001_downleft");
                 currentSkinName = "character001_downleft";
-                down_ver.GetComponent<SkeletonAnimation>().AnimationName = aniName;
+                down_ver.GetComponent<SkeletonAnimation>().AnimationState.SetAnimation(0,"character001_move_downleft",true);
                 down_ver.GetComponent<SkeletonAnimation>().skeleton.SetSlotsToSetupPose();
                 down_ver.GetComponent<SkeletonAnimation>().LateUpdate();
                 currentAniName = "character001_move_downleft";

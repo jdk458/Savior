@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B0C52BA7-86B0-D62D-2688-70496152CB97}</ProjectGuid>
+    <ProjectGuid>{F1F8F5E3-5C0F-3BFD-40D5-7EB253EF4619}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -70,16 +70,6 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Demo\Scripts\All1ShaderDemoController.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Demo\Scripts\Demo2AutoScroll.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Demo\Scripts\DemoCamera.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Demo\Scripts\DemoCircleExpositor.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Demo\Scripts\DemoItem.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Demo\Scripts\DemoRandomColorSwap.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Scripts\AllIn1Shader.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Scripts\AllIn1ShaderWindow.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Scripts\RandomSeed.cs" />
-    <Compile Include="Assets\Resources\AllIn1SpriteShader\Scripts\SetAtlasUvs.cs" />
     <Compile Include="Assets\Resources\Battle_scene_UI\Cool Joystick\Assets\Scripts\CustomEffectExample\AddRotationByDelta.cs" />
     <Compile Include="Assets\Resources\Battle_scene_UI\Cool Joystick\Assets\Scripts\CustomEffectExample\Arrow.cs" />
     <Compile Include="Assets\Resources\Battle_scene_UI\Cool Joystick\Assets\Scripts\CustomEffectExample\ChangeOutlineColorByDelta.cs" />
@@ -94,6 +84,16 @@
     <Compile Include="Assets\Resources\Battle_scene_UI\Cool Joystick\Assets\Scripts\Extensions\Singleton.cs" />
     <Compile Include="Assets\Resources\Battle_scene_UI\Cool Joystick\Assets\Scripts\Joystick.cs" />
     <Compile Include="Assets\Resources\Battle_scene_UI\Cool Joystick\Assets\Scripts\JoystickConfiguration.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Demo\Scripts\All1ShaderDemoController.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Demo\Scripts\Demo2AutoScroll.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Demo\Scripts\DemoCamera.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Demo\Scripts\DemoCircleExpositor.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Demo\Scripts\DemoItem.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Demo\Scripts\DemoRandomColorSwap.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Scripts\AllIn1Shader.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Scripts\AllIn1ShaderWindow.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Scripts\RandomSeed.cs" />
+    <Compile Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Scripts\SetAtlasUvs.cs" />
     <Compile Include="Assets\Script\CameraResolution.cs" />
     <Compile Include="Assets\Script\Effect\Damage.cs" />
     <Compile Include="Assets\Script\Effect\Ghost.cs" />
@@ -125,7 +125,7 @@
     <Compile Include="Assets\Script\Player\PlayerSkill.cs" />
     <Compile Include="Assets\Script\TestGit.cs" />
     <Compile Include="Assets\Script\UI2\SkillSelect.cs" />
-    <Compile Include="Assets\Script\UI2\StartCount.cs" />
+    <Compile Include="Assets\Script\UI2\Startcount.cs" />
     <Compile Include="Assets\Script\UI2\UI2_Manager.cs" />
     <Compile Include="Assets\Script\atk_skill\ActiveSkill.cs" />
     <Compile Include="Assets\Script\atk_skill\Ob_nomal.cs" />
@@ -137,117 +137,118 @@
     <Compile Include="Assets\Unity-Logs-Viewer\Reporter\Test\TestReporter.cs" />
     <None Include="Assets\Spine\version.txt" />
     <None Include="Assets\Animation\Player\Character01\Character001_up\Character001_up.atlas.txt" />
-    <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShader.shader" />
-    <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShaderScrollView.shader" />
+    <None Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Resources\AllIn1SpriteShader.shader" />
+    <None Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Resources\AllIn1SpriteShaderScrollView.shader" />
     <None Include="Assets\Animation\Player\Character01\Character001_upRL\Character001_upRL.atlas.txt" />
     <None Include="Assets\Animation\Player\Character01\Character001_downRL\Character001_downRL.atlas.txt" />
-    <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1SpriteShaderLight.shader" />
+    <None Include="Assets\Animation\Monster\Gobline_ABC-20200528T035141Z-001\Gobline_ABC\gobline_ABC.atlas.txt" />
+    <None Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Resources\AllIn1SpriteShaderLight.shader" />
     <None Include="Assets\Resources\Simple UI\Fonts\OFL.txt" />
     <None Include="Assets\Animation\Player\Character01\Character001_down\Character001_down.atlas.txt" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\Animation\Player\Character01\Character001_RL\Character001_RL.atlas.txt" />
-    <None Include="Assets\Resources\AllIn1SpriteShader\Resources\AllIn1OneShaderFunctions.cginc" />
+    <None Include="Assets\Resources\Simple UI\AllIn1SpriteShader\Resources\AllIn1OneShaderFunctions.cginc" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>C:/git/MasicServiver/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -421,13 +422,7 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>C:/git/MasicServiver/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+      <HintPath>C:/Users/tjdtj/OneDrive/Documents/GitHub/Savior2/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -786,11 +781,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="spine-unity.csproj">
-      <Project>{C585829F-37F4-0B1A-45A8-E53F6CC898A3}</Project>
+      <Project>{F571E3B6-20F1-5E18-D341-FF34F6240885}</Project>
       <Name>spine-unity</Name>
     </ProjectReference>
     <ProjectReference Include="spine-unity-editor.csproj">
-      <Project>{56F7DB5F-4123-8F28-52EC-851C65A365FE}</Project>
+      <Project>{1F650EAD-C602-7289-5EFC-E58E986B3D1E}</Project>
       <Name>spine-unity-editor</Name>
     </ProjectReference>
   </ItemGroup>

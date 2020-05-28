@@ -12,6 +12,8 @@ public class PlayerSkill : MonoBehaviour
     public GameObject[] waterSkill;
     [Header("현재 소지한 스킬")]
     public List<String> player_skill = new List<string>();
+
+
     private void Start()
     {
         origin_nomal_atk_Pos = nomal_atk.transform.position;
@@ -24,6 +26,7 @@ public class PlayerSkill : MonoBehaviour
     {
         if (TimeManager.instance.GetTime())
         {
+            CancelInvoke("Attack");
             Invoke("Attack", 0.1f);
             return;
         }
@@ -74,7 +77,7 @@ public class PlayerSkill : MonoBehaviour
                 {
                     enemy_distance_list.Clear();
                     enemy_list.Clear();
-                    enemies = Physics2D.CircleCastAll(temp_list[i - 1].position, GetComponent<PlayerController>().range, Vector2.zero);
+                    enemies = Physics2D.CircleCastAll(temp_list[i - 1].position, 1.5f, Vector2.zero);
 
                     for (int j = 0; j < enemies.Length; j++)
                     {
@@ -108,6 +111,7 @@ public class PlayerSkill : MonoBehaviour
 
         }
 
+        CancelInvoke("Attack");
         Invoke("Attack", 0.1f);
     }
 
