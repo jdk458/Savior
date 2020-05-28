@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Item_Manager : MonoBehaviour
 {
-    [Header("구슬 스폰")]
-    public Transform item_spawn;
-
     public Transform player;
+
+    public Transform background;
 
     [Header("초기 스폰 타임")]
     public float spawn_time = 3f;
@@ -32,9 +31,10 @@ public class Item_Manager : MonoBehaviour
     {
         exp_marble = ObjectPoolingManager.instance.GetQueue(ObjectKind.exp_marble);
         exp_marble.GetComponent<Item>().player = player;
-        int rand_pos_num = Random.RandomRange(0, item_spawn.childCount);
+        float X = Random.Range(background.position.x - 100, background.position.x + 100);
+        float Y = Random.Range(background.position.y - 100, background.position.y + 100);
         rand_lv_num = Random.RandomRange(1, 4);
-        exp_marble.transform.position = item_spawn.GetChild(rand_pos_num).transform.position;
+        exp_marble.transform.position = new Vector3(X,Y,0);
         Invoke("exp_marble_Spawn", spawn_time);
     }
 
@@ -42,9 +42,10 @@ public class Item_Manager : MonoBehaviour
     {
         hp_marble = ObjectPoolingManager.instance.GetQueue(ObjectKind.hp_marble);
         hp_marble.GetComponent<Item>().player = player;
-        int rand_pos_num = Random.RandomRange(0, item_spawn.childCount);
+        float X = Random.Range(background.position.x - 100, background.position.x + 100);
+        float Y = Random.Range(background.position.y - 100, background.position.y + 100);
         rand_lv_num = Random.RandomRange(1, 4);
-        hp_marble.transform.position = item_spawn.GetChild(rand_pos_num).transform.position;
+        hp_marble.transform.position = new Vector3(X, Y, 0);
         Invoke("hp_marble_Spawn", spawn_time);
     }
 }

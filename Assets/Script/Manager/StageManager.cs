@@ -33,7 +33,8 @@ public class StageManager : MonoBehaviour
 
     public void NextStage_Start()
     {
-
+        //장애물없애기, 배경 바꾸기, 몬스터 없애기, 몬스터 변경
+        enemyManager.NextStage();
     }
 
     public void NextStage_End()
