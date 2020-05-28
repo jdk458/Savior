@@ -85,6 +85,7 @@ public class EnemyManager : MonoBehaviour
     {
         currentStage++;
         RaycastHit2D[] enemy_hit_list = Physics2D.CircleCastAll(player_transform.position, 100, Vector2.zero);
+
         for (int i = 0; i < enemy_hit_list.Length; i++)
         {
             if (enemy_hit_list[i] && enemy_hit_list[i].transform.tag.Contains("Enemy"))

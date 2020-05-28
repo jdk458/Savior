@@ -41,7 +41,10 @@ public class MonsterController : MonoBehaviour
     private void FixedUpdate()
     {
         if (TimeManager.instance.GetTime())
+        {
             return;
+
+        }
 
         if (!hit_flag)
         {
