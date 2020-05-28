@@ -14664,7 +14664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entireVolume: 1
-  BgmVolume: 0
+  BgmVolume: 1
   environVolume: 1
   audio_list:
   - audioName: "\uBC84\uD2BC01"

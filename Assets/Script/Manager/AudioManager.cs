@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     [Range(0, 1)] public float BgmVolume;
     [Range(0, 1)] public float environVolume;
 
+
     [Serializable]
     public struct AudioStruct
     {
@@ -41,4 +42,5 @@ public class AudioManager : MonoBehaviour
         AS.volume = sound;
         AS.Play();
     }
+
 }

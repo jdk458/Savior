@@ -52,8 +52,8 @@ public class MonsterController : MonoBehaviour
     private void FixedUpdate()
     {
         if (TimeManager.instance.GetTime())
-            return;
-
+           return;
+           
         if (!hit_flag && !attack_flag)
         {
             this.transform.position = Vector2.MoveTowards(this.transform.position, player_transform.position, speed / 120f);
