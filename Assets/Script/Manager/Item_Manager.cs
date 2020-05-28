@@ -6,8 +6,6 @@ public class Item_Manager : MonoBehaviour
 {
     public Transform player;
 
-    public Transform background;
-
     [Header("초기 스폰 타임")]
     public float spawn_time = 3f;
 
@@ -29,11 +27,19 @@ public class Item_Manager : MonoBehaviour
 
     void exp_marble_Spawn()
     {
-        exp_marble = ObjectPoolingManager.instance.GetQueue(ObjectKind.exp_marble);
+        float marble_num = Random.value;
+        ObjectKind marble_type = ObjectKind.exp_marble_small;
+        if (marble_num < 0.1f)
+            marble_type = ObjectKind.exp_marble_large;
+        else if (marble_num < 0.3f)
+            marble_type = ObjectKind.exp_marble_middle;
+        else
+            marble_type = ObjectKind.exp_marble_small;
+
+        exp_marble = ObjectPoolingManager.instance.GetQueue(marble_type);
         exp_marble.GetComponent<Item>().player = player;
-        float X = Random.Range(background.position.x - 100, background.position.x + 100);
-        float Y = Random.Range(background.position.y - 100, background.position.y + 100);
-        rand_lv_num = Random.RandomRange(1, 4);
+        float X = Random.Range(player.position.x - 100, player.position.x + 100);
+        float Y = Random.Range(player.position.y - 100, player.position.y + 100);
         exp_marble.transform.position = new Vector3(X,Y,0);
         Invoke("exp_marble_Spawn", spawn_time);
     }
@@ -42,9 +48,8 @@ public class Item_Manager : MonoBehaviour
     {
         hp_marble = ObjectPoolingManager.instance.GetQueue(ObjectKind.hp_marble);
         hp_marble.GetComponent<Item>().player = player;
-        float X = Random.Range(background.position.x - 100, background.position.x + 100);
-        float Y = Random.Range(background.position.y - 100, background.position.y + 100);
-        rand_lv_num = Random.RandomRange(1, 4);
+        float X = Random.Range(player.position.x - 100, player.position.x + 100);
+        float Y = Random.Range(player.position.y - 100, player.position.y + 100);
         hp_marble.transform.position = new Vector3(X, Y, 0);
         Invoke("hp_marble_Spawn", spawn_time);
     }

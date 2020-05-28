@@ -138,11 +138,11 @@ public class PlayerController : MonoBehaviour
                 if (angle > 157.5f && angle <= 202.5f) // 왼
                     Spine_Ani(AniKind.left);
                 if (angle > 202.5f && angle <= 247.5f) // 아래_오른쪽
-                    Spine_Ani(AniKind.down_left);
+                    Spine_Ani(AniKind.down_right);
                 if (angle > 247.5f && angle <= 292.5f) // 아래 
                     Spine_Ani(AniKind.down);
                 if (angle > 292.5f && angle <= 337.5f) // 아래_왼쪽 
-                    Spine_Ani(AniKind.down_right);
+                    Spine_Ani(AniKind.down_left);
             }
         }
         else
@@ -266,7 +266,7 @@ public class PlayerController : MonoBehaviour
                 down_ver.GetComponent<SkeletonAnimation>().LateUpdate();
                 currentAniName = "character001_move_downleft";
 
-                down_ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
+                down_ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
                 break;
             case AniKind.down_right:
                 aniName = "character001_move_downright";
@@ -280,7 +280,7 @@ public class PlayerController : MonoBehaviour
                 down_ver.GetComponent<SkeletonAnimation>().LateUpdate();
                 currentAniName = "character001_move_downright";
 
-                down_ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+                down_ver.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
                 break;
             case AniKind.hit:
                 idle_down.SetActive(false); down_ver.SetActive(false); ver.SetActive(false); up.SetActive(false); up_ver.SetActive(false);
