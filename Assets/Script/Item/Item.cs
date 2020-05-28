@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class Item : MonoBehaviour
 {
     public Transform player;
+    public string marble_num;
 
     float search_range;
 
