@@ -423,11 +423,11 @@
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>C:/git/temp/Savior/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>C:/git/temp/Savior/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>C:/git/temp/Savior/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -791,14 +791,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="spine-unity.csproj">
-      <Project>{AE0F02A6-1630-6C47-7D8D-1453F2A3C295}</Project>
-      <Name>spine-unity</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity-editor.csproj">
-      <Project>{7D345FB6-5075-8E9D-9752-BFA7AF570C17}</Project>
-      <Name>spine-unity-editor</Name>
-    </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{8F124B41-DE5C-3F34-B571-4F3E2A4D0408}</Project>
       <Name>AstarPathfindingProject</Name>
@@ -807,9 +799,17 @@
       <Project>{C8A4F70E-AABF-0C5C-2306-4DE375357950}</Project>
       <Name>PackageToolsEditor</Name>
     </ProjectReference>
+    <ProjectReference Include="spine-unity.csproj">
+      <Project>{AE0F02A6-1630-6C47-7D8D-1453F2A3C295}</Project>
+      <Name>spine-unity</Name>
+    </ProjectReference>
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
       <Project>{D6D741D9-B089-4497-E6AB-17F7F6921E91}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-editor.csproj">
+      <Project>{7D345FB6-5075-8E9D-9752-BFA7AF570C17}</Project>
+      <Name>spine-unity-editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
