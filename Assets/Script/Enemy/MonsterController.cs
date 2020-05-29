@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
+using UnityEditorInternal;
+using System;
+using Spine.Unity.Editor;
 
 public class MonsterController : MonoBehaviour
 {
@@ -14,6 +18,7 @@ public class MonsterController : MonoBehaviour
     int atk;
     int hp; int current_hp;
     float speed;
+
     [Header("플레이어 정보")]
     public Transform player_transform;
     [Header("스파인 네임 정보")]
@@ -42,6 +47,8 @@ public class MonsterController : MonoBehaviour
         current_hp = hp;
     }
 
+
+
     private void OnDisable()
     {
         hit_flag = false;
@@ -49,14 +56,30 @@ public class MonsterController : MonoBehaviour
     }
 
     bool hit_flag;
+
     private void FixedUpdate()
     {
         if (TimeManager.instance.GetTime())
            return;
-           
+
         if (!hit_flag && !attack_flag)
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, player_transform.position, speed / 120f);
+            if (!obstacle_flag)
+            {
+                this.transform.position = Vector2.MoveTowards(this.transform.position, player_transform.position, speed / 120f);
+            }
+            else
+            {
+                if (obstacle_left_move)
+                    this.transform.position = new Vector2(this.transform.position.x - (Time.deltaTime * speed / 2), this.transform.position.y);
+                if (obstacle_right_move)
+                    this.transform.position = new Vector2(this.transform.position.x + (Time.deltaTime * speed / 2), this.transform.position.y);
+                if (obstacle_up_move)
+                    this.transform.position = new Vector2(this.transform.position.x , this.transform.position.y + (Time.deltaTime * speed / 2));
+                if (obstacle_down_move)
+                    this.transform.position = new Vector2(this.transform.position.x , this.transform.position.y - (Time.deltaTime * speed / 2));
+            }
+
 
             if (player_transform.position.x - this.transform.position.x > 0)
                 this.transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -71,6 +94,7 @@ public class MonsterController : MonoBehaviour
             }
         }
     }
+
 
     public void Hit(int damage, bool sound_flag = false)
     {
@@ -116,11 +140,18 @@ public class MonsterController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         rigidbody2D.velocity = Vector2.zero;
+        obstacle_flag = false;
     }
 
     bool attack_flag;
-    private void OnCollisionEnter2D(Collision2D collision) // 공격
+    bool obstacle_flag;
+    bool obstacle_left_move;
+    bool obstacle_right_move;
+    bool obstacle_up_move;
+    bool obstacle_down_move;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        // 공격
         if (collision.transform.tag.Contains("Player") && !attack_flag)
         {
             if (TimeManager.instance.GetTime())
@@ -136,6 +167,54 @@ public class MonsterController : MonoBehaviour
                 currentSpineName = attack;
                 skeletonAnimation.AnimationState.SetAnimation(0, attack, false);
                 skeletonAnimation.timeScale = 1;
+            }
+        }
+
+        if (collision.transform.tag.Contains("Obstacle") && !obstacle_flag)
+        {
+            // StartCoroutine(Obstacle_Coroutine());
+            obstacle_flag = true;
+            obstacle_left_move = false;
+            obstacle_right_move = false;
+            obstacle_up_move = false;
+            obstacle_down_move = false;
+
+            float left_distance = Vector2.Distance(new Vector2(this.transform.position.x - 1.5f, this.transform.position.y), collision.transform.position);
+            float right_distance = Vector2.Distance(new Vector2(this.transform.position.x + 1.5f, this.transform.position.y), collision.transform.position);
+            float up_distance = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y + 1.5f), collision.transform.position);
+            float down_distance = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y - 1.5f), collision.transform.position);
+
+            List<float> distance_list = new List<float>();
+            distance_list.Add(left_distance); distance_list.Add(right_distance); distance_list.Add(up_distance); distance_list.Add(down_distance);
+            distance_list.Sort();
+
+            if (distance_list[0] == left_distance)
+            {
+                if (player_transform.position.y - this.transform.position.y > 0)
+                    obstacle_up_move = true;
+                else
+                    obstacle_down_move = true;
+            }
+            if (distance_list[0] == right_distance)
+            {
+                if (player_transform.position.y - this.transform.position.y > 0)
+                    obstacle_up_move = true;
+                else
+                    obstacle_down_move = true;
+            }
+            if (distance_list[0] == up_distance)
+            {
+                if (player_transform.position.x - this.transform.position.x > 0)
+                    obstacle_right_move = true;
+                else
+                    obstacle_left_move = true;
+            }
+            if (distance_list[0] == down_distance)
+            {
+                if (player_transform.position.x - this.transform.position.x > 0)
+                    obstacle_right_move = true;
+                else
+                    obstacle_left_move = true;
             }
         }
     }

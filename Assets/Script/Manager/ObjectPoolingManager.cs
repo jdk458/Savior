@@ -44,6 +44,12 @@ public class ObjectPoolingManager : MonoBehaviour
     public Queue<GameObject> monster_stage01_02_queue = new Queue<GameObject>();
     public GameObject monster_stage01_03_pripab = null;
     public Queue<GameObject> monster_stage01_03_queue = new Queue<GameObject>();
+    public GameObject monster_stage02_01_pripab = null;
+    public Queue<GameObject> monster_stage02_01_queue = new Queue<GameObject>();
+    public GameObject monster_stage02_02_pripab = null;
+    public Queue<GameObject> monster_stage02_02_queue = new Queue<GameObject>();
+    public GameObject monster_stage02_03_pripab = null;
+    public Queue<GameObject> monster_stage02_03_queue = new Queue<GameObject>();
 
     [Header("경험치구슬")]
     public GameObject exp_marble_small_prefab = null;
@@ -186,6 +192,30 @@ public class ObjectPoolingManager : MonoBehaviour
             t_object.SetActive(false);
         }
         monster_stage01_03_pripab.SetActive(false);
+        // monster_stage02_01
+        for (int i = 0; i < 150; i++)
+        {
+            GameObject t_object = Instantiate(monster_stage02_01_pripab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            monster_stage02_01_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        monster_stage02_01_pripab.SetActive(false);
+        // monster_stage02_02
+        for (int i = 0; i < 150; i++)
+        {
+            GameObject t_object = Instantiate(monster_stage02_02_pripab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            monster_stage02_02_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        monster_stage02_02_pripab.SetActive(false);
+        // monster_stage02_03
+        for (int i = 0; i < 150; i++)
+        {
+            GameObject t_object = Instantiate(monster_stage02_03_pripab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            monster_stage02_03_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        monster_stage02_03_pripab.SetActive(false);
     }
 
     // 사용한 오브젝트를 다시 큐에 집어 넣는 함수
@@ -245,6 +275,15 @@ public class ObjectPoolingManager : MonoBehaviour
 
         if (obj == ObjectKind.monster_stage01_03)
             monster_stage01_03_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.monster_stage02_01)
+            monster_stage02_01_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.monster_stage02_02)
+            monster_stage02_02_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.monster_stage02_03)
+            monster_stage02_03_queue.Enqueue(p_object);
 
         p_object.SetActive(false);
     }
@@ -308,6 +347,15 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.monster_stage01_03)
             t_object = monster_stage01_03_queue.Dequeue();
 
+        if (obj == ObjectKind.monster_stage02_01)
+            t_object = monster_stage02_01_queue.Dequeue();
+
+        if (obj == ObjectKind.monster_stage02_02)
+            t_object = monster_stage02_02_queue.Dequeue();
+
+        if (obj == ObjectKind.monster_stage02_03)
+            t_object = monster_stage02_03_queue.Dequeue();
+
         t_object.SetActive(true);
         return t_object;
     }
@@ -332,5 +380,8 @@ public enum ObjectKind
     obstacle,
     monster_stage01_01,
     monster_stage01_02,
-    monster_stage01_03
+    monster_stage01_03,
+    monster_stage02_01,
+    monster_stage02_02,
+    monster_stage02_03
 }

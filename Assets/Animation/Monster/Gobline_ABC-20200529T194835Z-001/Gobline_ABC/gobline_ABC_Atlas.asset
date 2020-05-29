@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
   m_Name: gobline_ABC_Atlas
   m_EditorClassIdentifier: 
-  atlasFile: {fileID: 4900000, guid: c7a9e02e6f6099f42bb02c1406d69ad3, type: 3}
+  atlasFile: {fileID: 4900000, guid: 544c5511b171c10439b3ac98fbec091b, type: 3}
   materials:
-  - {fileID: 2100000, guid: 36b878c83e2b89845bce9ec20d0fa61e, type: 2}
+  - {fileID: 2100000, guid: bed822c5d0e40a849a20624e08f8b91b, type: 2}
