@@ -26,7 +26,6 @@ public class Research : MonoBehaviour
         explanation.transform.GetChild(1).GetComponent<Text>().text = "포인트 " + level_point(GameManager.instance.userinfo.research_level);
 
         Explanation();
-        Research_Level_Point.GetComponent<Image>().DOFade(1, .5F);
         Research_Level_Point.transform.GetChild(0).GetComponent<Text>().DOFade(1, .5F);
         Research_Level_Point.transform.GetChild(1).GetComponent<Text>().DOFade(1, .5F);
 
@@ -41,7 +40,6 @@ public class Research : MonoBehaviour
     {
         explanation.SetActive(false);
 
-        Research_Level_Point.GetComponent<Image>().DOFade(0, .5F);
         Research_Level_Point.transform.GetChild(0).GetComponent<Text>().DOFade(0, .5F);
         Research_Level_Point.transform.GetChild(1).GetComponent<Text>().DOFade(0, .5F);
 

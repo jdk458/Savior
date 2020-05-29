@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class BackgroundManager : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class BackgroundManager : MonoBehaviour
             right = temp_left;
             left = temp_middle;
             middle_horizontal = temp_right;
+
         }
         if (main_horizontal.x - (size * ((float)2 / 3)) > player_position.x)
         {
@@ -51,6 +53,8 @@ public class BackgroundManager : MonoBehaviour
             middle_horizontal = temp_left;
             right = temp_middle;
             left = temp_right;
+
+
         }
         if (main_vertical.y + (size * ((float)2 / 3)) < player_position.y)
         {
@@ -66,6 +70,8 @@ public class BackgroundManager : MonoBehaviour
             up = temp_down;
             down = temp_middle;
             middle_vertical = temp_up;
+
+
         }
         if (main_vertical.y - (size * ((float)2 / 3)) > player_position.y)
         {
@@ -81,6 +87,7 @@ public class BackgroundManager : MonoBehaviour
             middle_vertical = temp_down;
             up = temp_middle;
             down = temp_up;
+
         }
     }
 }
