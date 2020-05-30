@@ -19,8 +19,11 @@ public class ActiveSkill : MonoBehaviour
     {
         for (int i = 0; i < atk_num; i++)
         {
-            target.GetComponent<MonsterController>().Hit((int)(atk * skillDamage));
-            yield return new WaitForSeconds(0.1f);
+            if (target.activeInHierarchy == true)
+            {
+                target.GetComponent<MonsterController>().Hit((int)(atk * skillDamage));
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
 

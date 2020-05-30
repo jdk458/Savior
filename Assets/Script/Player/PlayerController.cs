@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
     public int player_lv;
     private void Start()
     {
+        player_exp = 90;
         current_hp = max_hp;
         lv_up.text = "LV" + player_lv;
         hp_image.fillAmount = current_hp / max_hp;

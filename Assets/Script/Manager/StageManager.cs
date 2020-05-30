@@ -6,6 +6,8 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager instance;
     public EnemyManager enemyManager;
+    public Background_StageManager background_stageManager;
+    public Obstacle_Manager obstacle_Manager;
 
     private void Awake()
     {
@@ -35,6 +37,8 @@ public class StageManager : MonoBehaviour
     {
         //장애물없애기, 배경 바꾸기, 몬스터 없애기, 몬스터 변경
         enemyManager.NextStage();
+        background_stageManager.NextStage();
+        obstacle_Manager.NextStage();
     }
 
     public void NextStage_End()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     bool istrue;
+    public ObjectKind objectKind;
 
     public void ObstacleHit()
     {
