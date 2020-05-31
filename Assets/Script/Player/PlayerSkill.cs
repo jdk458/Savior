@@ -17,11 +17,10 @@ public class PlayerSkill : MonoBehaviour
     private void Start()
     {
         origin_nomal_atk_Pos = nomal_atk.transform.position;
-        Attack();
+      //  Attack();
 
     }
     Vector2 origin_nomal_atk_Pos;
-    public int max_target = 3;
     void Attack()
     {
         if (TimeManager.instance.GetTime())
@@ -125,36 +124,29 @@ public class PlayerSkill : MonoBehaviour
         atkspeed_flag = false;
     }
 
-    bool water00_flag;
+
 
     public void Get(string skillname)
     {
-        //for (int i = 0; i < player_skill.Count; i++)
-        //{
-        //    if (player_skill[i].Contains(skillname))
-        //        return;
-        //}
         Invoke(skillname,0);
         player_skill.Add(skillname);
-
     }
 
-    public void Water00()
+    bool water01_flag;
+    public void Water01()
     {
         if (TimeManager.instance.GetTime())
         {
-            Invoke("Water00", 0.1f);
+            Invoke("Water01", 0.1f);
             return;
         }
 
-        if (!water00_flag)
+        if (!water01_flag)
         {
-            StartCoroutine(Water00_Flag_Coroutine());
+            StartCoroutine(Water01_Flag_Coroutine());
 
             List<float> enemy_distance_list = new List<float>();
-            float angle = 0;
-
-            RaycastHit2D[] enemies = Physics2D.CircleCastAll(this.transform.position, GetComponent<PlayerController>().range, Vector2.zero);
+            RaycastHit2D[] enemies = Physics2D.CircleCastAll(this.transform.position, waterSkill[1].GetComponent<ActiveSkill>().range, Vector2.zero);
 
             List<RaycastHit2D> enemy_list = new List<RaycastHit2D>();
             for (int i = 0; i < enemies.Length; i++)
@@ -187,17 +179,248 @@ public class PlayerSkill : MonoBehaviour
                 Vector3 target_pos = enemy_list[enemy_index].transform.position;
 
                 GameObject water00_obj = Instantiate(waterSkill[0], target_pos, Quaternion.identity);
-                water00_obj.GetComponent<ActiveSkill>().SkillCall(enemy_list[enemy_index].transform.gameObject, (int)GetComponent<PlayerController>().atk);
+                List<GameObject> enemy = new List<GameObject>();
+                enemy.Add(enemy_list[enemy_index].transform.gameObject);
+                water00_obj.GetComponent<ActiveSkill>().SkillCall(enemy, (int)(GetComponent<PlayerController>().skill_lv_atk * waterSkill[1].GetComponent<ActiveSkill>().lvOfDamage));
             }
 
         }
 
-        Invoke("Water00", 0.5f);
+        Invoke("Water01", 0.5f);
     }
-    IEnumerator Water00_Flag_Coroutine()
+    IEnumerator Water01_Flag_Coroutine()
     {
-        water00_flag = true;
+        water01_flag = true;
         yield return new WaitForSeconds(waterSkill[0].GetComponent<ActiveSkill>().colltime);
-        water00_flag = false;
+        water01_flag = false;
+    }
+
+    bool water02_flag;
+    public void Water02()
+    {
+        if (TimeManager.instance.GetTime())
+        {
+            Invoke("Water02", 0.1f);
+            return;
+        }
+
+        if (!water02_flag)
+        {
+            StartCoroutine(Water02_Flag_Coroutine());
+
+            List<float> enemy_distance_list = new List<float>();
+            RaycastHit2D[] enemies = Physics2D.CircleCastAll(this.transform.position, waterSkill[1].GetComponent<ActiveSkill>().range , Vector2.zero);
+
+            List<RaycastHit2D> enemy_list = new List<RaycastHit2D>();
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (enemies[i].transform.gameObject.tag.Contains("Enemy"))
+                {
+                    enemy_list.Add(enemies[i]);
+                }
+            }
+
+            if (enemy_list.Count > 0)
+            {
+                for (int i = 0; i < enemy_list.Count; i++)
+                {
+                    if (enemy_list[i])
+                    {
+                        enemy_distance_list.Add(Vector2.Distance(this.transform.position, enemy_list[i].transform.position));
+                    }
+                }
+                enemy_distance_list.Sort();
+                int enemy_index = 0;
+                for (int i = 0; i < enemy_list.Count; i++)
+                {
+                    if (Vector2.Distance(this.transform.position, enemy_list[i].transform.position) ==
+                           enemy_distance_list[0])
+                    {
+                        enemy_index = i;
+                    }
+                }
+                Vector3 target_pos = enemy_list[enemy_index].transform.position;
+
+                GameObject skillAactive = Instantiate(waterSkill[1], target_pos, Quaternion.identity);
+                List<GameObject> enemy = new List<GameObject>();
+                enemy.Add(enemy_list[enemy_index].transform.gameObject);
+                skillAactive.GetComponent<ActiveSkill>().SkillCall(enemy, (int)(GetComponent<PlayerController>().skill_lv_atk * waterSkill[1].GetComponent<ActiveSkill>().lvOfDamage));
+            }
+
+        }
+
+        Invoke("Water02", 0.5f);
+    }
+    IEnumerator Water02_Flag_Coroutine()
+    {
+        water02_flag = true;
+        yield return new WaitForSeconds(waterSkill[1].GetComponent<ActiveSkill>().colltime);
+        water02_flag = false;
+    }
+
+    bool water03_flag;
+    public void Water03()
+    {
+        if (TimeManager.instance.GetTime())
+        {
+            Invoke("Water03", 0.1f);
+            return;
+        }
+
+        if (!water03_flag)
+        {
+            StartCoroutine(Water03_Flag_Coroutine());
+
+            StartCoroutine(Water03_Coroutine());
+        }
+
+        Invoke("Water03", 0.5f);
+    }
+    IEnumerator Water03_Flag_Coroutine()
+    {
+        water03_flag = true;
+        yield return new WaitForSeconds(waterSkill[2].GetComponent<ActiveSkill>().colltime);
+        water03_flag = false;
+    }
+
+    IEnumerator Water03_Coroutine()
+    {
+        float time = 0.3f;
+
+        float width = 1;
+        float height = 1;
+
+        float length = 5;
+
+        Vector2 currentPos = this.transform.position;
+
+        Instantiate(waterSkill[2], currentPos, Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+
+        yield return new WaitForSeconds(time);
+
+        for (int i = 0; i < length; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                switch (j)
+                {
+                    case 0: // 오른쪽
+                        Instantiate(waterSkill[2], new Vector2(currentPos.x + (width * i) , currentPos.y ), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+                        break;
+                    case 1: // 왼쪽
+                        Instantiate(waterSkill[2], new Vector2(currentPos.x - (width * i), currentPos.y), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+                        break;
+                    case 2: // 위
+                        Instantiate(waterSkill[2], new Vector2(currentPos.x, currentPos.y + (height * i)), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+                        break;
+                    case 3: // 아래
+                        Instantiate(waterSkill[2], new Vector2(currentPos.x, currentPos.y - (height * i)), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+                        break;
+                }
+            }
+            yield return new WaitForSeconds(time);
+        }
+      
+    }
+
+
+    bool water04_flag;
+    public void Water04()
+    {
+        if (TimeManager.instance.GetTime())
+        {
+            Invoke("Water04", 0.1f);
+            return;
+        }
+
+        if (!water04_flag)
+        {
+            StartCoroutine(Water04_Flag_Coroutine());
+
+            List<float> enemy_distance_list = new List<float>();
+            RaycastHit2D[] enemies = Physics2D.CircleCastAll(this.transform.position, waterSkill[3].GetComponent<ActiveSkill>().range, Vector2.zero);
+
+            List<RaycastHit2D> enemy_list = new List<RaycastHit2D>();
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (enemies[i].transform.gameObject.tag.Contains("Enemy"))
+                {
+                    enemy_list.Add(enemies[i]);
+                }
+            }
+
+            if (enemy_list.Count > 0)
+            {
+                for (int i = 0; i < enemy_list.Count; i++)
+                {
+                    if (enemy_list[i])
+                    {
+                        enemy_distance_list.Add(Vector2.Distance(this.transform.position, enemy_list[i].transform.position));
+                    }
+                }
+                enemy_distance_list.Sort();
+                int enemy_index = 0;
+                for (int i = 0; i < enemy_list.Count; i++)
+                {
+                    if (Vector2.Distance(this.transform.position, enemy_list[i].transform.position) ==
+                           enemy_distance_list[0])
+                    {
+                        enemy_index = i;
+                    }
+                }
+                Vector3 target_pos = enemy_list[enemy_index].transform.position;
+
+                GameObject skillAactive = Instantiate(waterSkill[3], target_pos, Quaternion.identity);
+                skillAactive.GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
+            }
+
+        }
+
+        Invoke("Water04", 0.5f);
+    }
+    IEnumerator Water04_Flag_Coroutine()
+    {
+        water04_flag = true;
+        yield return new WaitForSeconds(waterSkill[3].GetComponent<ActiveSkill>().colltime);
+        water04_flag = false;
+    }
+
+    bool water05_flag;
+    public void Water05()
+    {
+        if (TimeManager.instance.GetTime())
+        {
+            Invoke("Water05", 0.1f);
+            return;
+        }
+
+        RaycastHit2D[] enemies = Physics2D.BoxCastAll(this.transform.position, new Vector2(16,9), 0,Vector2.zero);
+
+        List<GameObject> enemy_list = new List<GameObject>();
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (enemies[i].transform.gameObject.tag.Contains("Enemy"))
+            {
+                enemy_list.Add(enemies[i].transform.gameObject);
+            }
+        }
+
+        if (!water05_flag)
+        {
+            StartCoroutine(Water05_Flag_Coroutine());
+
+            GameObject activeSkill = Instantiate(waterSkill[4], this.transform.position, Quaternion.identity);
+            activeSkill.GetComponent<ActiveSkill>().UpdatePosSet(GetComponent<PlayerController>().theCam);
+            if (enemy_list.Count > 0)
+                activeSkill.GetComponent<ActiveSkill>().SkillCall(enemy_list, (int)(GetComponent<PlayerController>().skill_lv_atk * waterSkill[1].GetComponent<ActiveSkill>().lvOfDamage));
+        }
+
+        Invoke("Water05", 0.5f);
+    }
+    IEnumerator Water05_Flag_Coroutine()
+    {
+        water05_flag = true;
+        yield return new WaitForSeconds(waterSkill[4].GetComponent<ActiveSkill>().colltime);
+        water05_flag = false;
     }
 }

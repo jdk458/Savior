@@ -78,17 +78,10 @@ public class ObjectPoolingManager : MonoBehaviour
             t_object.SetActive(false);
         }
         // nomal_damage
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 100; i++)
         {
             GameObject t_object = Instantiate(nomal_damage_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
             nomal_damage_queue.Enqueue(t_object);
-            t_object.SetActive(false);
-        }
-        // critical_damage
-        for (int i = 0; i < 20; i++)
-        {
-            GameObject t_object = Instantiate(critical_damage_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
-            critical_damage_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
         // exp_marble_small
