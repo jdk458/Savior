@@ -164,6 +164,7 @@ public class PlayerSkill : MonoBehaviour
                     enemy_list.Add(enemies[i]);
                 }
             }
+
             if (enemy_list.Count > 0)
             {
                 for (int i = 0; i < enemy_list.Count; i++)
@@ -191,7 +192,7 @@ public class PlayerSkill : MonoBehaviour
 
         }
 
-        Invoke("Water00", 0.1f);
+        Invoke("Water00", 0.5f);
     }
     IEnumerator Water00_Flag_Coroutine()
     {

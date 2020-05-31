@@ -96,7 +96,6 @@ public class MonsterController : MonoBehaviour
     {
         if (TimeManager.instance.GetTime())
             return;
-
         current_hp -= damage;
         if (current_hp <= 0)
         {
