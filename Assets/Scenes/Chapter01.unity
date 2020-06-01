@@ -1452,6 +1452,18 @@ MonoBehaviour:
   - {fileID: 3999833648666710498, guid: f6d1503fbee01ec4c8de65481de5ae7f, type: 3}
   - {fileID: 3999833648666710498, guid: 83aec25ac68ddba46a4e0574ecbb5ff5, type: 3}
   - {fileID: 3999833648666710498, guid: 7b5e649d0d69773489b7a26994a235e3, type: 3}
+  fireSkill:
+  - {fileID: 1337658079287064594, guid: b55e7f11ee70f1245bcabd4663882d76, type: 3}
+  - {fileID: 774821804826955968, guid: bf977b1801a9d944eb68471813f06796, type: 3}
+  - {fileID: 8718685925386285115, guid: f5c852526db3fed4d99113ccfe7d52b7, type: 3}
+  - {fileID: 2245478941394848679, guid: 45e5b60f4ea1b794292e171065c08fe1, type: 3}
+  - {fileID: 6367248743829275744, guid: fd08e298fc3581c458857c3f6df3ed4f, type: 3}
+  lightSkill:
+  - {fileID: 10045035594843443, guid: 4fab2c510077f464986a8bc68662b08c, type: 3}
+  - {fileID: 3706584330715198892, guid: 7733ed091aedc4a42822a201178f5360, type: 3}
+  - {fileID: 8355337277529346157, guid: 3a3b55b27f24c594883699dfd68c1e5d, type: 3}
+  - {fileID: 5166439810421705400, guid: 865c8608f3fcb134ab0cd3b279c04802, type: 3}
+  - {fileID: 5706141735765460236, guid: be7dea803e6d6f242a65660e6f044946, type: 3}
   player_skill: []
 --- !u!114 &314764034
 MonoBehaviour:
@@ -2168,6 +2180,36 @@ MonoBehaviour:
   exp_marble_middle_prefab: {fileID: 819810550289506006, guid: 91c56170d844cdb4681703ec40f26710,
     type: 3}
   exp_marble_large_prefab: {fileID: 2375454349347441675, guid: 47b991a3cc678554894eccef57ea0c96,
+    type: 3}
+  skill_marble_water01: {fileID: 3499713862769409287, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
+    type: 3}
+  skill_marble_water02: {fileID: 3189760090722468980, guid: bf6b7e53d026d6c4fa2f67be6a10e0c9,
+    type: 3}
+  skill_marble_water03: {fileID: 2466795113422562001, guid: be79bb83177f2ae43b1f7c5f0d9afbc5,
+    type: 3}
+  skill_marble_water04: {fileID: 7946204278920655242, guid: 489d8608d9eaed24bb61f9fcfb8d5f03,
+    type: 3}
+  skill_marble_water05: {fileID: 5363921241176575069, guid: 8f92b66cbd3cdc649941ba45075ec83d,
+    type: 3}
+  skill_marble_fire01: {fileID: 5524462544663751584, guid: 4d1c4b16ec1f62848ab1bec624fa53d4,
+    type: 3}
+  skill_marble_fire02: {fileID: 3421212185909110400, guid: f6abe655acf4f7944a575781825797bd,
+    type: 3}
+  skill_marble_fire03: {fileID: 6891526346038173781, guid: 072f1abc2c8ec4c41ba2bd695ebd2cdc,
+    type: 3}
+  skill_marble_fire04: {fileID: 1427833933285351763, guid: 5df214c873486424d8f8fb7ea21e2be7,
+    type: 3}
+  skill_marble_fire05: {fileID: 2850027446960502079, guid: 186dc55d99e133c4ea95544cf00b27d2,
+    type: 3}
+  skill_marble_light01: {fileID: 5523380605081561379, guid: 1915c1c4bd2b5c44ea80732236c73fa0,
+    type: 3}
+  skill_marble_light02: {fileID: 5921333142497268078, guid: 239e16e95a10a314d99969ac29367f7c,
+    type: 3}
+  skill_marble_light03: {fileID: 2168063820789593802, guid: a18f251436ca2e64eba5f5036f1374eb,
+    type: 3}
+  skill_marble_light04: {fileID: 8857404441857932706, guid: 4afcf4d1444c808408b8955ec68c885c,
+    type: 3}
+  skill_marble_light05: {fileID: 5829327138672523258, guid: 5c28b483659018b4c9b3d6197e0f4e57,
     type: 3}
 --- !u!4 &371056463
 Transform:
@@ -3228,79 +3270,6 @@ Transform:
   m_Father: {fileID: 1313503990}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &482207668
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1402757543, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
-      propertyPath: skillname
-      value: Water04
-      objectReference: {fileID: 0}
-    - target: {fileID: 3499713862769409287, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_Name
-      value: skill_marble (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 40.057274
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
 --- !u!1 &485056547
 GameObject:
   m_ObjectHideFlags: 0
@@ -4034,152 +4003,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559858185}
   m_CullTransparentMesh: 0
---- !u!1001 &564758109
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1402757543, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
-      propertyPath: skillname
-      value: Water03
-      objectReference: {fileID: 0}
-    - target: {fileID: 3499713862769409287, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_Name
-      value: skill_marble (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 40.057274
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
---- !u!1001 &576490689
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1402757543, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
-      propertyPath: skillname
-      value: Water01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3499713862769409287, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_Name
-      value: skill_marble
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 40.057274
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
 --- !u!1 &609834184
 GameObject:
   m_ObjectHideFlags: 0
@@ -10177,79 +10000,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &891597351
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1402757543, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
-      propertyPath: skillname
-      value: Water02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3499713862769409287, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_Name
-      value: skill_marble (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 40.057274
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
 --- !u!1 &899126359
 GameObject:
   m_ObjectHideFlags: 0
@@ -12749,79 +12499,6 @@ Transform:
   m_Father: {fileID: 1500856594}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1305285974
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1402757543, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
-      propertyPath: skillname
-      value: Water05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3499713862769409287, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_Name
-      value: skill_marble (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 40.057274
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6821543686171286639, guid: b26f1d51557ee3a4a9ca87b8fbabebfa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b26f1d51557ee3a4a9ca87b8fbabebfa, type: 3}
 --- !u!21 &1306384662
 Material:
   serializedVersion: 6
@@ -13574,6 +13251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1459135569}
+  - component: {fileID: 1459135570}
   m_Layer: 5
   m_Name: "\uC804\uCCB4\uC2A4\uD0AC \uC704\uCE58"
   m_TagString: Untagged
@@ -13600,6 +13278,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1459135570
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459135568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e617988d2aa4fc4eb59b7d5b53e9828, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1468151911
 GameObject:
   m_ObjectHideFlags: 0
@@ -15260,8 +14957,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 8334651344603559088, guid: 0e27e38f4fe1d82469decfd7ccd6fae2,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
