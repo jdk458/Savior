@@ -165,19 +165,19 @@ public class MonsterController : MonoBehaviour
             }
         }
 
-        if (collision.transform.tag.Contains("Obstacle") && !obstacle_flag)
+        if (collision.transform.tag.Contains("Obstacle") && !obstacle_flag )
         {
-            // StartCoroutine(Obstacle_Coroutine());
+      
             obstacle_flag = true;
             obstacle_left_move = false;
             obstacle_right_move = false;
             obstacle_up_move = false;
             obstacle_down_move = false;
 
-            float left_distance = Vector2.Distance(new Vector2(this.transform.position.x - 1.5f, this.transform.position.y), collision.transform.position);
-            float right_distance = Vector2.Distance(new Vector2(this.transform.position.x + 1.5f, this.transform.position.y), collision.transform.position);
-            float up_distance = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y + 1.5f), collision.transform.position);
-            float down_distance = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y - 1.5f), collision.transform.position);
+            float left_distance = Vector2.Distance(new Vector2(this.transform.position.x - 0.2f, this.transform.position.y), collision.transform.position);
+            float right_distance = Vector2.Distance(new Vector2(this.transform.position.x + 0.2f, this.transform.position.y), collision.transform.position);
+            float up_distance = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y + .2f), collision.transform.position);
+            float down_distance = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y - .2f), collision.transform.position);
 
             List<float> distance_list = new List<float>();
             distance_list.Add(left_distance); distance_list.Add(right_distance); distance_list.Add(up_distance); distance_list.Add(down_distance);
@@ -213,7 +213,7 @@ public class MonsterController : MonoBehaviour
             }
         }
     }
-
+  
     IEnumerator Attack_Coroutine()
     {
         attack_flag = true;
