@@ -22,8 +22,6 @@ public class ObjectPoolingManager : MonoBehaviour
     public Queue<GameObject> critical_damage_queue = new Queue<GameObject>();
     public GameObject hp_marble_prefab = null;
     public Queue<GameObject> hp_marble_queue = new Queue<GameObject>();
-    public GameObject skill_marble_prefab = null;
-    public Queue<GameObject> skill_marble_queue = new Queue<GameObject>();  
   
     [Header("캐릭터대쉬")]
     public GameObject idle_down = null;
@@ -58,6 +56,42 @@ public class ObjectPoolingManager : MonoBehaviour
     public Queue<GameObject> exp_marble_middle_queue = new Queue<GameObject>();
     public GameObject exp_marble_large_prefab = null;
     public Queue<GameObject> exp_marble_large_queue = new Queue<GameObject>();
+
+    [Header("스킬구슬_물")]
+    public GameObject skill_marble_water01 = null;
+    public Queue<GameObject> skill_marble_water01_queue = new Queue<GameObject>();
+    public GameObject skill_marble_water02 = null;
+    public Queue<GameObject> skill_marble_water02_queue = new Queue<GameObject>();
+    public GameObject skill_marble_water03 = null;
+    public Queue<GameObject> skill_marble_water03_queue = new Queue<GameObject>();
+    public GameObject skill_marble_water04 = null;
+    public Queue<GameObject> skill_marble_water04_queue = new Queue<GameObject>();
+    public GameObject skill_marble_water05 = null;
+    public Queue<GameObject> skill_marble_water05_queue = new Queue<GameObject>();
+
+    [Header("스킬구슬_불")]
+    public GameObject skill_marble_fire01 = null;
+    public Queue<GameObject> skill_marble_fire01_queue = new Queue<GameObject>();
+    public GameObject skill_marble_fire02 = null;
+    public Queue<GameObject> skill_marble_fire02_queue = new Queue<GameObject>();
+    public GameObject skill_marble_fire03 = null;
+    public Queue<GameObject> skill_marble_fire03_queue = new Queue<GameObject>();
+    public GameObject skill_marble_fire04 = null;
+    public Queue<GameObject> skill_marble_fire04_queue = new Queue<GameObject>();
+    public GameObject skill_marble_fire05 = null;
+    public Queue<GameObject> skill_marble_fire05_queue = new Queue<GameObject>();
+
+    [Header("스킬구슬_전기")]
+    public GameObject skill_marble_light01 = null;
+    public Queue<GameObject> skill_marble_light01_queue = new Queue<GameObject>();
+    public GameObject skill_marble_light02 = null;
+    public Queue<GameObject> skill_marble_light02_queue = new Queue<GameObject>();
+    public GameObject skill_marble_light03 = null;
+    public Queue<GameObject> skill_marble_light03_queue = new Queue<GameObject>();
+    public GameObject skill_marble_light04 = null;
+    public Queue<GameObject> skill_marble_light04_queue = new Queue<GameObject>();
+    public GameObject skill_marble_light05 = null;
+    public Queue<GameObject> skill_marble_light05_queue = new Queue<GameObject>();
 
     private void Awake()
     {
@@ -112,11 +146,109 @@ public class ObjectPoolingManager : MonoBehaviour
             hp_marble_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
-        // skill_marble
+        // skill_marble_water01
         for (int i = 0; i < 50; i++)
         {
-            GameObject t_object = Instantiate(skill_marble_prefab, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
-            skill_marble_queue.Enqueue(t_object);
+            GameObject t_object = Instantiate(skill_marble_water01, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_water01_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_water02
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_water02, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_water02_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_water03
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_water03, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_water03_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_water04
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_water04, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_water04_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_water05
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_water05, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_water05_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_fire01
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_fire01, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_fire01_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_fire02
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_fire02, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_fire02_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_fire03
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_fire03, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_fire03_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_fire04
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_fire04, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_fire04_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_fire05
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_fire05, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_fire05_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_light01
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_light01, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_light01_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_light02
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_light02, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_light02_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_light03
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_light03, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_light03_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_light04
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_light04, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_light04_queue.Enqueue(t_object);
+            t_object.SetActive(false);
+        }
+        // skill_marble_light05
+        for (int i = 0; i < 50; i++)
+        {
+            GameObject t_object = Instantiate(skill_marble_light05, new Vector2(3000, 3000), Quaternion.identity, instantiate_pos);
+            skill_marble_light05_queue.Enqueue(t_object);
             t_object.SetActive(false);
         }
         // idle_down
@@ -239,8 +371,50 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.hp_marble)
             hp_marble_queue.Enqueue(p_object);
 
-        if (obj == ObjectKind.skill_marble)
-           skill_marble_queue.Enqueue(p_object);
+        if (obj == ObjectKind.skill_marble_water01)
+           skill_marble_water01_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_water02)
+            skill_marble_water02_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_water03)
+            skill_marble_water03_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_water04)
+            skill_marble_water04_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_water05)
+            skill_marble_water05_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_fire01)
+            skill_marble_fire01_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_fire02)
+            skill_marble_fire02_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_fire03)
+            skill_marble_fire03_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_fire04)
+            skill_marble_fire04_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_fire05)
+            skill_marble_fire05_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_light01)
+            skill_marble_light01_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_light02)
+            skill_marble_light02_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_light03)
+            skill_marble_light03_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_light04)
+            skill_marble_light04_queue.Enqueue(p_object);
+
+        if (obj == ObjectKind.skill_marble_light05)
+            skill_marble_light05_queue.Enqueue(p_object);
 
         if (obj == ObjectKind.idle_down)
             idle_queue.Enqueue(p_object);
@@ -310,8 +484,50 @@ public class ObjectPoolingManager : MonoBehaviour
         if (obj == ObjectKind.hp_marble)
             t_object = hp_marble_queue.Dequeue();
 
-        if (obj == ObjectKind.skill_marble)
-            t_object = skill_marble_queue.Dequeue();
+        if (obj == ObjectKind.skill_marble_water01)
+            t_object = skill_marble_water01_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_water02)
+            t_object = skill_marble_water02_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_water03)
+            t_object = skill_marble_water03_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_water04)
+            t_object = skill_marble_water04_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_water05)
+            t_object = skill_marble_water05_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_fire01)
+            t_object = skill_marble_fire01_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_fire02)
+            t_object = skill_marble_fire02_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_fire03)
+            t_object = skill_marble_fire03_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_fire04)
+            t_object = skill_marble_fire04_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_fire05)
+            t_object = skill_marble_fire05_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_light01)
+            t_object = skill_marble_light01_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_light02)
+            t_object = skill_marble_light02_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_light03)
+            t_object = skill_marble_light03_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_light04)
+            t_object = skill_marble_light04_queue.Dequeue();
+
+        if (obj == ObjectKind.skill_marble_light05)
+            t_object = skill_marble_light05_queue.Dequeue();
 
         if (obj == ObjectKind.idle_down)
             t_object = idle_queue.Dequeue();
@@ -363,7 +579,21 @@ public enum ObjectKind
     exp_marble_small,
     exp_marble_middle,
     exp_marble_large,
-    skill_marble,
+    skill_marble_water01,
+    skill_marble_water02,
+    skill_marble_water03,
+    skill_marble_water04,
+    skill_marble_water05,
+    skill_marble_fire01,
+    skill_marble_fire02,
+    skill_marble_fire03,
+    skill_marble_fire04,
+    skill_marble_fire05,
+    skill_marble_light01,
+    skill_marble_light02,
+    skill_marble_light03,
+    skill_marble_light04,
+    skill_marble_light05,
     hp_marble,
     idle_down,
     down_ver,

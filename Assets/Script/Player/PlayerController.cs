@@ -515,7 +515,8 @@ public class PlayerController : MonoBehaviour
         skill_item_flag = true;
         string skill_name = skill_item_obj.GetComponent<Skill_Item>().skillname;
         this.GetComponent<PlayerSkill>().Get(skill_name);
-        ObjectPoolingManager.instance.InsertQueue(skill_item_obj,ObjectKind.skill_marble);
+        ObjectKind skill_marble_type = obstacle_obj.GetComponent<Obstacle>().marble_type;
+        ObjectPoolingManager.instance.InsertQueue(skill_item_obj,skill_marble_type);
         yield return new WaitForSeconds(0.7f);
         skill_item_flag = false;
     }
