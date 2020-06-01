@@ -16,7 +16,7 @@ public class Exp_Up : MonoBehaviour
     {
         exp_small_amount = 1;
         exp_middle_amount = 2;
-        exp_large_amount = 3;
+        exp_large_amount = 30;
         exp_marble_num = gameObject.GetComponent<Item>().marble_num;    
     }
     private void OnTriggerEnter2D(Collider2D collision)

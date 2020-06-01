@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillSelect : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class SkillSelect : MonoBehaviour
     [Header("SelectPannel")]
     public GameObject select01;
     public GameObject select02;
+    public Transform select02_canvas;
+    [Header("02선택카드")]
+    public Sprite[] characterPassive;
+    public Sprite[] attackPassive;
+    public Sprite[] skillPassive;
 
     int select_num01;
     int select_num02;
@@ -20,7 +26,7 @@ public class SkillSelect : MonoBehaviour
     bool select_flag;
     public void Update()
     {
-        if (Input.GetMouseButtonUp(0) && !select_flag)
+        if (Input.GetMouseButtonDown(0) && !select_flag)
         {
             Vector2 mousePos = ui2_camera.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 10);
@@ -83,15 +89,35 @@ public class SkillSelect : MonoBehaviour
         switch (select_num01)
         {
             case 1:
+                for (int i = 0; i < 3; i++)
+                    select02.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = characterPassive[i];
+                select02_canvas.GetChild(0).GetComponent<Text>().text = "최대체력 n% 상승";
+                select02_canvas.GetChild(1).GetComponent<Text>().text = "이동속도 n% 상승";
+                select02_canvas.GetChild(2).GetComponent<Text>().text = "경험치 상승량 n% 상승";
                 break;
             case 2:
+                for (int i = 0; i < 3; i++)
+                    select02.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = attackPassive[i];
+                select02_canvas.GetChild(0).GetComponent<Text>().text = "기본 공격력 n% 상승";
+                select02_canvas.GetChild(1).GetComponent<Text>().text = "공격속도 n% 상승";
+                select02_canvas.GetChild(2).GetComponent<Text>().text = "타격횟수 증가";
                 break;
             case 3:
+                for (int i = 0; i < 3; i++)
+                    select02.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = skillPassive[i];
+                select02_canvas.GetChild(0).GetComponent<Text>().text = "스킬 공격력 n% 상승";
+                select02_canvas.GetChild(1).GetComponent<Text>().text = "스킬 쿨타임 n% 감소";
+                select02_canvas.GetChild(2).GetComponent<Text>().text = "스킬 소지개수 증가";
                 break;
         }
         select01.SetActive(false);
-        select02.SetActive(true);
+        Invoke("Select02BugInvoke", 0.15f);
         StartCoroutine(Ani_Coroutine("SkillSelect02_FadeIn", 1));
+    }
+
+    void Select02BugInvoke()
+    {
+        select02.SetActive(true);
     }
 
     void Select02Btn()
