@@ -28,9 +28,9 @@ public class PlayerController : MonoBehaviour
     public Image hp_image;
     [Header("대쉬, 장애물, 스킬아이템 버튼")]
     public GameObject dash_btn;
-    public GameObject obstacle_btn;
+    public GameObject treasure_btn;
     public GameObject skill_item_btn;
-    GameObject obstacle_obj;
+    GameObject treasure_obj;
     GameObject skill_item_obj;
 
     [Header("UI")]
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
             if (!move_AudioSource.isPlaying)
                 GameManager.instance.audioManager.EnvironVolume_Play(move_AudioSource);
 
-            if (!obstacle_flag)
+            if (!treasure_flag)
             {
                 if (!dash_flag) // 대쉬중에는 막아둔다
                 {
@@ -392,25 +392,25 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    bool obstacle_flag;
-    public void OnClick_Obstacle()
+    bool treasure_flag;
+    public void OnClick_Treasure()
     {
         if (TimeManager.instance.GetTime())
             return;
 
 
-        if (obstacle_flag)
+        if (treasure_flag)
             return;
 
-        StartCoroutine(Obstacle_Coroutine());
+        StartCoroutine(Treasure_Coroutine());
 
     }
-    IEnumerator Obstacle_Coroutine()
+    IEnumerator Treasure_Coroutine()
     {
-        obstacle_flag = true;
-        obstacle_obj.GetComponent<Obstacle>().ObstacleHit();
+        treasure_flag = true;
+        treasure_obj.GetComponent<Treasure>().TreasureOpen();
         yield return new WaitForSeconds(0.7f);
-        obstacle_flag = false;
+        treasure_flag = false;
     }
 
 
@@ -515,19 +515,18 @@ public class PlayerController : MonoBehaviour
         skill_item_flag = true;
         string skill_name = skill_item_obj.GetComponent<Skill_Item>().skillname;
         this.GetComponent<PlayerSkill>().Get(skill_name);
-        ObjectKind skill_marble_type = obstacle_obj.GetComponent<Obstacle>().marble_type;
-        ObjectPoolingManager.instance.InsertQueue(skill_item_obj,skill_marble_type);
+        Destroy(skill_item_obj);
         yield return new WaitForSeconds(0.7f);
         skill_item_flag = false;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.tag.Contains("Obstacle"))
+        if (collision.transform.tag.Contains("Treasure"))
         {
-            obstacle_obj = collision.gameObject;
+            treasure_obj = collision.gameObject;
             dash_btn.SetActive(false);
-            obstacle_btn.SetActive(true);
+            treasure_btn.SetActive(true);
         }
     }
     //스킬구슬 충돌
@@ -543,10 +542,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.transform.tag.Contains("Obstacle"))
+        if (collision.transform.tag.Contains("Treasure"))
         {
             dash_btn.SetActive(true);
-            obstacle_btn.SetActive(false);
+            treasure_btn.SetActive(false);
         }
 
         

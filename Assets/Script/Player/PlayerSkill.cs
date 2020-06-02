@@ -724,7 +724,7 @@ public class PlayerSkill : MonoBehaviour
     {
         if (TimeManager.instance.GetTime())
         {
-            Invoke("Fire01", 0.1f);
+            Invoke("Light01", 0.1f);
             return;
         }
 
