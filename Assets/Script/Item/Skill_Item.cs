@@ -5,6 +5,4 @@ using UnityEngine;
 public class Skill_Item : MonoBehaviour
 {
     public string skillname;
-
-
 }

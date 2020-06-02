@@ -14211,6 +14211,7 @@ GameObject:
   - component: {fileID: 2073598524}
   - component: {fileID: 2073598525}
   - component: {fileID: 2073598526}
+  - component: {fileID: 2073598527}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -14247,6 +14248,7 @@ MonoBehaviour:
   userinfo: {fileID: 2073598524}
   audioManager: {fileID: 2073598525}
   monsterManager: {fileID: 2073598526}
+  database: {fileID: 2073598527}
 --- !u!114 &2073598524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14307,49 +14309,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb7a55c73c9ea541be6dbd4460dc3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterList:
-  - name: "\uC57D\uACE0\uBE14\uB9B0"
-    stage: 0
-    monsterType: 0
-    rigidTime: 1
-    atk: 3
-    hp: 30
-    speed: 5
-  - name: "\uC911\uACE0\uBE14\uB9B0"
-    stage: 0
-    monsterType: 1
-    rigidTime: 1
-    atk: 4
-    hp: 30
-    speed: 6.5
-  - name: "\uAC15\uACE0\uBE14\uB9B0"
-    stage: 0
-    monsterType: 2
-    rigidTime: 0.65
-    atk: 5
-    hp: 50
-    speed: 5
-  - name: "\uC57D\uB291\uB300"
-    stage: 1
-    monsterType: 0
-    rigidTime: 0.65
-    atk: 5
-    hp: 50
-    speed: 5
-  - name: "\uC911\uB291\uB300"
-    stage: 1
-    monsterType: 1
-    rigidTime: 0.65
-    atk: 5
-    hp: 50
-    speed: 5
-  - name: "\uAC15\uB291\uB300"
-    stage: 1
-    monsterType: 2
-    rigidTime: 0.65
-    atk: 5
-    hp: 50
-    speed: 5
+  MonsterList: []
+--- !u!114 &2073598527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073598521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787411c702b55994b8c114cb5d144e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster_DB:
+    txt: {fileID: 4900000, guid: 3871e0e641e7ef545ab6b55a99eacb71, type: 3}
 --- !u!1 &2092812385
 GameObject:
   m_ObjectHideFlags: 0

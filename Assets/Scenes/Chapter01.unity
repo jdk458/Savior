@@ -314,51 +314,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!1 &85078527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 85078529}
-  - component: {fileID: 85078528}
-  m_Layer: 0
-  m_Name: Obstacle_Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &85078528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85078527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1513163446c08c8409afebe0816da8c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 314764031}
-  spawn_time: 3
---- !u!4 &85078529
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85078527}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &97580845
 Material:
   serializedVersion: 6
@@ -1544,7 +1499,7 @@ RectTransform:
   - {fileID: 190350081}
   - {fileID: 1459135569}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2006,7 +1961,7 @@ Transform:
   - {fileID: 902702684}
   - {fileID: 469410768}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &314764032
 AudioSource:
@@ -2124,17 +2079,17 @@ MonoBehaviour:
   - {fileID: 3999833648666710498, guid: 83aec25ac68ddba46a4e0574ecbb5ff5, type: 3}
   - {fileID: 3999833648666710498, guid: 7b5e649d0d69773489b7a26994a235e3, type: 3}
   fireSkill:
-  - {fileID: 1337658079287064594, guid: b55e7f11ee70f1245bcabd4663882d76, type: 3}
-  - {fileID: 774821804826955968, guid: bf977b1801a9d944eb68471813f06796, type: 3}
-  - {fileID: 8718685925386285115, guid: f5c852526db3fed4d99113ccfe7d52b7, type: 3}
-  - {fileID: 2245478941394848679, guid: 45e5b60f4ea1b794292e171065c08fe1, type: 3}
-  - {fileID: 6367248743829275744, guid: fd08e298fc3581c458857c3f6df3ed4f, type: 3}
+  - {fileID: 2923433807379968023, guid: 6fb5e3ba360255146a07c8b849bbb76a, type: 3}
+  - {fileID: 3635580825525176352, guid: 80fb1e44adc589f45a6b63eaba0adf09, type: 3}
+  - {fileID: 4592900467477531951, guid: 4b26f2d7738b9f844876dc5f58aa48b8, type: 3}
+  - {fileID: 5345676952957775744, guid: a3cbd84c134d97c428f1d71b87926531, type: 3}
+  - {fileID: 2239085283241589167, guid: e37db7e8e39b48d4cb04b1e6bdf60c21, type: 3}
   lightSkill:
-  - {fileID: 10045035594843443, guid: 4fab2c510077f464986a8bc68662b08c, type: 3}
-  - {fileID: 3706584330715198892, guid: 7733ed091aedc4a42822a201178f5360, type: 3}
-  - {fileID: 8355337277529346157, guid: 3a3b55b27f24c594883699dfd68c1e5d, type: 3}
-  - {fileID: 5166439810421705400, guid: 865c8608f3fcb134ab0cd3b279c04802, type: 3}
-  - {fileID: 5706141735765460236, guid: be7dea803e6d6f242a65660e6f044946, type: 3}
+  - {fileID: 5493251074576465281, guid: 26798944129f5424f8086a6e9f28cbf4, type: 3}
+  - {fileID: 8693291765431315596, guid: 62d8d1c640b93ad4bb69dd4ae2c892b0, type: 3}
+  - {fileID: 7279361083646380363, guid: f4eb0bf5f59352248ab4c43f08860ce3, type: 3}
+  - {fileID: 2692594870528883941, guid: 902eebd6f92e85345b679609547c7e35, type: 3}
+  - {fileID: 5449907962727524689, guid: b87b423db2f21ea479c72b95943cfc3b, type: 3}
   player_skill: []
 --- !u!114 &314764034
 MonoBehaviour:
@@ -2160,7 +2115,7 @@ MonoBehaviour:
   joystic_foreground: {fileID: 2667463744975630604}
   hp_image: {fileID: 212280795}
   dash_btn: {fileID: 1897212772}
-  obstacle_btn: {fileID: 1622519701}
+  treasure_btn: {fileID: 1622519701}
   skill_item_btn: {fileID: 1468151911}
   lv_up: {fileID: 437014237}
   exp_full: {fileID: 347992597}
@@ -2773,8 +2728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4069563eb11e6f44a98f24bfc3dbe63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\uC57D\uB291\uB300"
-  objectKind: 18
+  name: "\uD478\uB978\uD138\uB291\uB300"
+  objectKind_string: monster_stage02_01
   player_transform: {fileID: 314764031}
   move: wolfA_move
   hit: wolfA_hit
@@ -2939,8 +2894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5ad585f60bd9140bf928ecd0974a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle_prefab: {fileID: 808465299131821153, guid: fead0a6eb8c8c8c41b7af7013d529852,
-    type: 3}
   instantiate_pos: {fileID: 371056463}
   ob_prefab: {fileID: 1638408656}
   smoke_prefab: {fileID: 848229566667484839, guid: ded5dfbc00182e84b8491bce1b05123f,
@@ -2970,21 +2923,6 @@ MonoBehaviour:
     type: 3}
   exp_marble_large_prefab: {fileID: 2375454349347441675, guid: 47b991a3cc678554894eccef57ea0c96,
     type: 3}
-  skill_marble_water01: {fileID: 1518546115525777145}
-  skill_marble_water02: {fileID: 8743301363806962234}
-  skill_marble_water03: {fileID: 7484094822864555187}
-  skill_marble_water04: {fileID: 6854436823636324481}
-  skill_marble_water05: {fileID: 9061554606931048665}
-  skill_marble_fire01: {fileID: 5691600011506177557}
-  skill_marble_fire02: {fileID: 3579243195752297217}
-  skill_marble_fire03: {fileID: 5372127538878114307}
-  skill_marble_fire04: {fileID: 7406487171953234166}
-  skill_marble_fire05: {fileID: 1604755560809970700}
-  skill_marble_light01: {fileID: 2175021841594673730}
-  skill_marble_light02: {fileID: 7785767461539988838}
-  skill_marble_light03: {fileID: 1406388470120979762}
-  skill_marble_light04: {fileID: 4894391716100006951}
-  skill_marble_light05: {fileID: 8687978738804974493}
 --- !u!4 &371056463
 Transform:
   m_ObjectHideFlags: 0
@@ -3727,8 +3665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4069563eb11e6f44a98f24bfc3dbe63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\uC911\uB291\uB300"
-  objectKind: 19
+  name: "\uBD89\uC740\uD138\uB291\uB300"
+  objectKind_string: monster_stage02_02
   player_transform: {fileID: 314764031}
   move: wolfB_move
   hit: wolfB_hit
@@ -10887,7 +10825,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &754644992 stripped
 GameObject:
@@ -11066,7 +11004,7 @@ Transform:
   m_Children:
   - {fileID: 1638408659}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775948624
 GameObject:
@@ -11354,8 +11292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4069563eb11e6f44a98f24bfc3dbe63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\uC57D\uACE0\uBE14\uB9B0"
-  objectKind: 15
+  name: "\uACE0\uBE14\uB9B0"
+  objectKind_string: monster_stage01_01
   player_transform: {fileID: 314764031}
   move: goblineA_move
   hit: goblineA_hit
@@ -11772,7 +11710,7 @@ PrefabInstance:
     - target: {fileID: 4610961091570485002, guid: 47b991a3cc678554894eccef57ea0c96,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4610961091570485002, guid: 47b991a3cc678554894eccef57ea0c96,
         type: 3}
@@ -12535,6 +12473,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 314764031}
   spawn_time: 3
+  range: 50
+  treasure_obj: {fileID: 1781946809}
 --- !u!4 &974000848
 Transform:
   m_ObjectHideFlags: 0
@@ -12547,6 +12487,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2063968304}
+  - {fileID: 1781946808}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13187,7 +13128,7 @@ RectTransform:
   m_Children:
   - {fileID: 654244904}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14803,7 +14744,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1287904287
 GameObject:
@@ -14840,7 +14781,7 @@ Transform:
   - {fileID: 445256724}
   - {fileID: 1531013197}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1287904289
 MonoBehaviour:
@@ -15293,8 +15234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4069563eb11e6f44a98f24bfc3dbe63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\uAC15\uACE0\uBE14\uB9B0"
-  objectKind: 17
+  name: "\uACE0\uBE14\uB9B0\uB450\uBAA9"
+  objectKind_string: monster_stage01_03
   player_transform: {fileID: 314764031}
   move: goblineC_move
   hit: goblineC_hit
@@ -16343,7 +16284,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1496353240
 GameObject:
@@ -16571,8 +16512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4069563eb11e6f44a98f24bfc3dbe63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\uC911\uACE0\uBE14\uB9B0"
-  objectKind: 16
+  name: "\uACE0\uBE14\uB9B0\uC804\uC0AC"
+  objectKind_string: monster_stage01_02
   player_transform: {fileID: 314764031}
   move: goblineB_move
   hit: goblineB_hit
@@ -17074,7 +17015,7 @@ Transform:
   m_Children:
   - {fileID: 1624659542}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1527876596
 MonoBehaviour:
@@ -17090,7 +17031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 1287904289}
   background_stageManager: {fileID: 825228210}
-  obstacle_Manager: {fileID: 85078528}
+  item_Manager: {fileID: 974000847}
   currentStage: Stage01
 --- !u!95 &1527876597
 Animator:
@@ -17256,8 +17197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4069563eb11e6f44a98f24bfc3dbe63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\uAC15\uB291\uB300"
-  objectKind: 20
+  name: "\uB291\uB300\uC778\uAC04"
+  objectKind_string: monster_stage02_03
   player_transform: {fileID: 314764031}
   move: wolfC_move
   hit: wolfC_hit
@@ -17629,7 +17570,7 @@ GameObject:
   - component: {fileID: 1622519704}
   - component: {fileID: 1622519703}
   m_Layer: 5
-  m_Name: "\uC7A5\uC560\uBB3C\uBC84\uD2BC"
+  m_Name: "\uBCF4\uBB3C\uBC84\uD2BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17698,7 +17639,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 314764034}
-        m_MethodName: OnClick_Obstacle
+        m_MethodName: OnClick_Treasure
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18297,7 +18238,7 @@ Transform:
   m_Children:
   - {fileID: 766333057}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1696283177
 Animator:
@@ -18463,7 +18404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e10c9fb0f7edd498ec5855e3f4b5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 100
+  time: 30
 --- !u!114 &1730362285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18494,6 +18435,151 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!1001 &1781946807
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 974000848}
+    m_Modifications:
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[0]
+      value: 
+      objectReference: {fileID: 5691600011506177557}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[1]
+      value: 
+      objectReference: {fileID: 3579243195752297217}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[2]
+      value: 
+      objectReference: {fileID: 5372127538878114307}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[3]
+      value: 
+      objectReference: {fileID: 7406487171953234166}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[4]
+      value: 
+      objectReference: {fileID: 1604755560809970700}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[5]
+      value: 
+      objectReference: {fileID: 2175021841594673730}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[6]
+      value: 
+      objectReference: {fileID: 7785767461539988838}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[7]
+      value: 
+      objectReference: {fileID: 1406388470120979762}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[8]
+      value: 
+      objectReference: {fileID: 4894391716100006951}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[9]
+      value: 
+      objectReference: {fileID: 8687978738804974493}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[10]
+      value: 
+      objectReference: {fileID: 1518546115525777145}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[11]
+      value: 
+      objectReference: {fileID: 8743301363806962234}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[12]
+      value: 
+      objectReference: {fileID: 7484094822864555187}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[13]
+      value: 
+      objectReference: {fileID: 6854436823636324481}
+    - target: {fileID: 1724352846, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+      propertyPath: skillMable.Array.data[14]
+      value: 
+      objectReference: {fileID: 9061554606931048665}
+    - target: {fileID: 808465299131821153, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_Name
+      value: Treasure
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fead0a6eb8c8c8c41b7af7013d529852, type: 3}
+--- !u!4 &1781946808 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2510990353110649781, guid: fead0a6eb8c8c8c41b7af7013d529852,
+    type: 3}
+  m_PrefabInstance: {fileID: 1781946807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1781946809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 808465299131821153, guid: fead0a6eb8c8c8c41b7af7013d529852,
+    type: 3}
+  m_PrefabInstance: {fileID: 1781946807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!21 &1792698813
 Material:
   serializedVersion: 6
@@ -21667,7 +21753,7 @@ RectTransform:
   - {fileID: 2667619721960263046}
   - {fileID: 2744652615344400092}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

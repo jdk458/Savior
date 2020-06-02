@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public UserInfoManager userinfo;
     public AudioManager audioManager;
     public MonsterManager monsterManager;
+    public DatabaseManager database;
     void Awake()
     {
         instance = this;

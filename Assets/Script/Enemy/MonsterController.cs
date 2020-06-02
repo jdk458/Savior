@@ -1,4 +1,5 @@
 ﻿using Spine.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class MonsterController : MonoBehaviour
 {
     [Header("몬스터 정보")]
     public string name;
-    public ObjectKind objectKind;
+    public string objectKind_string;
     Stage stage;
     MonsterType monsterType;
     [Range(0, 1)] float rigidTime;
@@ -101,7 +102,7 @@ public class MonsterController : MonoBehaviour
         {
             GameObject smoke = ObjectPoolingManager.instance.GetQueue(ObjectKind.smoke);
             smoke.transform.position = this.transform.position;
-            ObjectPoolingManager.instance.InsertQueue(this.gameObject, objectKind);
+            ObjectPoolingManager.instance.InsertQueue(this.gameObject, (ObjectKind)Enum.Parse(typeof(ObjectKind), objectKind_string));
         }
 
         else

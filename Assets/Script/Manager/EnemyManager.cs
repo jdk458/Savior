@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -102,7 +103,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (enemy_hit_list[i] && enemy_hit_list[i].transform.tag.Contains("Enemy"))
             {
-                ObjectPoolingManager.instance.InsertQueue(enemy_hit_list[i].transform.gameObject, enemy_hit_list[i].transform.GetComponent<MonsterController>().objectKind);
+                ObjectPoolingManager.instance.InsertQueue(enemy_hit_list[i].transform.gameObject, (ObjectKind)System.Enum.Parse(typeof(ObjectKind), enemy_hit_list[i].transform.GetComponent<MonsterController>().objectKind_string));
             }
         }
     }
