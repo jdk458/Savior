@@ -119,7 +119,7 @@ MonoBehaviour:
   lvOfDamage: 1
   range: 5
   atk_num: 1
-  colltime: 2
+  colltime: 8
   playerInfo: {fileID: 0}
 --- !u!61 &7279361083646380372
 BoxCollider2D:
