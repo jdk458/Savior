@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour
     public GameObject up;
     public GameObject up_ver;
 
-
     //플레이어 레벨 업 변수 정보
     [HideInInspector] public int character_lv_hp;
     [HideInInspector] public int character_lv_speed;
@@ -67,6 +66,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public int skill_lv_atk;
     [HideInInspector] public int skill_lv_cooltime;
     [HideInInspector] public int skill_lv_getcount;
+
+    [HideInInspector] public bool bossstage;
 
     Rigidbody2D rigidbody2D;
     List<Transform> enemy_transform_list = new List<Transform>();
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
         skill_lv_atk = 1;
         skill_lv_cooltime = 1;
         skill_lv_getcount = 1;
+        bossstage = false;
     }
 
 
@@ -122,7 +124,13 @@ public class PlayerController : MonoBehaviour
                     this.transform.position = new Vector2(
                     this.transform.position.x + (joystic_localpos.x * Time.fixedDeltaTime * speed),
                     this.transform.position.y + (joystic_localpos.y * Time.fixedDeltaTime * speed));
-
+                    if (bossstage)
+                    {
+                        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+                        pos.x = Mathf.Clamp01(pos.x);
+                        pos.y = Mathf.Clamp01(pos.y);
+                        this.transform.position = Camera.main.ViewportToWorldPoint(pos);
+                    }
                 }
 
                 Vector2 dir = Vector2.zero - joystic_localpos;
@@ -156,7 +164,8 @@ public class PlayerController : MonoBehaviour
         }
         //new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z);
         // 카메라 플레이어 따라가기 
-        theCam.position = Vector3.SmoothDamp(theCam.position, new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z), ref velocity, 0.3f);
+        if(!bossstage)
+            theCam.position = Vector3.SmoothDamp(theCam.position, new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z), ref velocity, 0.3f);
     }
     Vector3 velocity = Vector3.zero;
 

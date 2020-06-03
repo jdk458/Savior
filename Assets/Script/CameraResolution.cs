@@ -26,4 +26,20 @@ public class CameraResolution : MonoBehaviour
     }
 
     void OnPreCull() => GL.Clear(true, true, Color.black);
+
+    public void Camera_Shake()
+    {
+        Vector3 originPos = Camera.main.transform.localPosition;
+        float duration = 4f;
+        float magnitude = 0.7f;
+        float elapsed = 0.0f;
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+            this.transform.position += new Vector3(x, y, originPos.z);
+            elapsed += Time.deltaTime;
+        }
+        this.transform.position = originPos;
+    }
 }
