@@ -872,42 +872,36 @@ public class PlayerSkill : MonoBehaviour
 
     IEnumerator Light03_Coroutine()
     {
-        float time = 0.3f;
+        float time = 0.1f;
 
         float width = 1;
         float height = 1;
 
         float length = 5;
 
-        Vector2 currentPos = this.transform.position;
+        List<Vector2> activeSkillPos = new List<Vector2>();
+        activeSkillPos.Add(new Vector2(transform.position.x - 2, transform.position.y + 2));
+        activeSkillPos.Add(new Vector2(transform.position.x + 2, transform.position.y - 3));
+        activeSkillPos.Add(new Vector2(transform.position.x + 1, transform.position.y - 1));
+        activeSkillPos.Add(new Vector2(transform.position.x - 3, transform.position.y - 1));
+        activeSkillPos.Add(new Vector2(transform.position.x + 1, transform.position.y + 2));
+        activeSkillPos.Add(new Vector2(transform.position.x + 2.5f, transform.position.y + 2.5f));
+        activeSkillPos.Add(new Vector2(transform.position.x - 4, transform.position.y + 2));
+        activeSkillPos.Add(new Vector2(transform.position.x, transform.position.y));
+        activeSkillPos.Add(new Vector2(transform.position.x - 1, transform.position.y + 1));
+        activeSkillPos.Add(new Vector2(transform.position.x + 2, transform.position.y - 3));
+        activeSkillPos.Add(new Vector2(transform.position.x - 2, transform.position.y));
+        activeSkillPos.Add(new Vector2(transform.position.x - 3, transform.position.y - 1));
+        activeSkillPos.Add(new Vector2(transform.position.x + 1, transform.position.y));
+        activeSkillPos.Add(new Vector2(transform.position.x + 1.5f, transform.position.y + 1.5f));
+        activeSkillPos.Add(new Vector2(transform.position.x, transform.position.y + 2));
+        activeSkillPos.Add(new Vector2(transform.position.x, transform.position.y));
 
-        Instantiate(lightSkill[2], currentPos, Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-
-        yield return new WaitForSeconds(time);
-
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < activeSkillPos.Count; i++)
         {
-            for (int j = 0; j < 4; j++)
-            {
-                switch (j)
-                {
-                    case 0: // 오른쪽
-                        Instantiate(lightSkill[2], new Vector2(currentPos.x + (width * i), currentPos.y), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-                        break;
-                    case 1: // 왼쪽
-                        Instantiate(lightSkill[2], new Vector2(currentPos.x - (width * i), currentPos.y), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-                        break;
-                    case 2: // 위
-                        Instantiate(lightSkill[2], new Vector2(currentPos.x, currentPos.y + (height * i)), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-                        break;
-                    case 3: // 아래
-                        Instantiate(lightSkill[2], new Vector2(currentPos.x, currentPos.y - (height * i)), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-                        break;
-                }
-            }
+            Instantiate(lightSkill[2], activeSkillPos[i], Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
             yield return new WaitForSeconds(time);
         }
-
     }
 
 

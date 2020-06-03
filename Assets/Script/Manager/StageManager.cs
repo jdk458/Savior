@@ -8,6 +8,7 @@ public class StageManager : MonoBehaviour
     public EnemyManager enemyManager;
     public Background_StageManager background_stageManager;
     public Item_Manager item_Manager;
+    public AudioSource next_audio;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class StageManager : MonoBehaviour
         {
             currentStage = "Stage0" + currentStageInt;
             this.GetComponent<Animator>().SetBool("Next", true);
+            GameManager.instance.audioManager.EnvironVolume_Play(next_audio);
         }
     }
 
