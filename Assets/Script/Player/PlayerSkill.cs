@@ -566,7 +566,9 @@ public class PlayerSkill : MonoBehaviour
         {
             StartCoroutine(Fire03_Flag_Coroutine());
 
-            StartCoroutine(Fire03_Coroutine());
+            Vector2 currentPos = this.transform.position;
+
+            Instantiate(fireSkill[2], currentPos, Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
         }
 
         Invoke("Fire03", 0.5f);
@@ -576,46 +578,6 @@ public class PlayerSkill : MonoBehaviour
         fire03_flag = true;
         yield return new WaitForSeconds(fireSkill[2].GetComponent<ActiveSkill>().colltime);
         fire03_flag = false;
-    }
-
-    IEnumerator Fire03_Coroutine()
-    {
-        float time = 0.3f;
-
-        float width = 1;
-        float height = 1;
-
-        float length = 5;
-
-        Vector2 currentPos = this.transform.position;
-
-        Instantiate(fireSkill[2], currentPos, Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-
-        yield return new WaitForSeconds(time);
-
-        for (int i = 0; i < length; i++)
-        {
-            for (int j = 0; j < 4; j++)
-            {
-                switch (j)
-                {
-                    case 0: // 오른쪽
-                        Instantiate(fireSkill[2], new Vector2(currentPos.x + (width * i), currentPos.y), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-                        break;
-                    case 1: // 왼쪽
-                        Instantiate(fireSkill[2], new Vector2(currentPos.x - (width * i), currentPos.y), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-                        break;
-                    case 2: // 위
-                        Instantiate(fireSkill[2], new Vector2(currentPos.x, currentPos.y + (height * i)), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-                        break;
-                    case 3: // 아래
-                        Instantiate(fireSkill[2], new Vector2(currentPos.x, currentPos.y - (height * i)), Quaternion.identity).GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
-                        break;
-                }
-            }
-            yield return new WaitForSeconds(time);
-        }
-
     }
 
 
@@ -665,7 +627,51 @@ public class PlayerSkill : MonoBehaviour
                 }
                 Vector3 target_pos = enemy_list[enemy_index].transform.position;
 
-                GameObject skillAactive = Instantiate(fireSkill[3], target_pos, Quaternion.identity);
+                Vector2 dir = this.transform.position - target_pos;
+                Quaternion quaternion = Quaternion.Euler(0, 0, 0);
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180f;
+
+                if (angle > 337.5f && angle <= 360 || angle > 0 && angle <= 22.5f)
+                {
+                    dir = new Vector2(transform.position.x + 4.22f, transform.position.y + 1.45f);
+                }
+                if (angle > 22.5f && angle <= 67.5f)
+                {
+                    dir = new Vector2(transform.position.x + 3.43f, transform.position.y + 3.15f);
+                    quaternion = Quaternion.Euler(0, 0, 17.551f);
+                }
+                if (angle > 67.5f && angle <= 112.5f)
+                {
+                    dir = new Vector2(transform.position.x, transform.position.y + 4.68f);
+                    quaternion = Quaternion.Euler(0, 0, 65f);
+                }
+                if (angle > 112.5f && angle <= 157.5f)
+                {
+                    dir = new Vector2(transform.position.x - 3.24f, transform.position.y + 3.2f);
+                    quaternion = Quaternion.Euler(0, 0, 111.39f);
+                }
+                if (angle > 157.5f && angle <= 202.5f)
+                {
+                    dir = new Vector2(transform.position.x - 4.34f, transform.position.y + 0.15f);
+                    quaternion = Quaternion.Euler(0, 0, 158.316f);
+                }
+                if (angle > 202.5f && angle <= 247.5f)
+                {
+                    dir = new Vector2(transform.position.x - 3.22f, transform.position.y - 2.93f);
+                    quaternion = Quaternion.Euler(0, 0, 201.75f);
+                }
+                if (angle > 247.5f && angle <= 292.5f)
+                {
+                    dir = new Vector2(transform.position.x - 0.28f, transform.position.y - 4.14f);
+                    quaternion = Quaternion.Euler(0, 0, 240);
+                }
+                if (angle > 292.5f && angle <= 337.5f)
+                {
+                    dir = new Vector2(transform.position.x + 3.25f, transform.position.y - 2.39f);
+                    quaternion = Quaternion.Euler(0, 0, 295.835f);
+                }
+
+                GameObject skillAactive = Instantiate(fireSkill[3], dir, quaternion);
                 skillAactive.GetComponent<ActiveSkill>().playerInfo = this.GetComponent<PlayerController>();
             }
 

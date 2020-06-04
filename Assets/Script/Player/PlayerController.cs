@@ -68,10 +68,19 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public int skill_lv_cooltime;
     [HideInInspector] public int skill_lv_getcount;
 
-    Rigidbody2D rigidbody2D;
-    List<Transform> enemy_transform_list = new List<Transform>();
+    //메인화면 마법진 정보 
+    [HideInInspector] public int masic_maxhp;
+    [HideInInspector] public int masic_atk;
+    [HideInInspector] public int masic_atkspeed;
+    [HideInInspector] public int masic_speed;
+    [HideInInspector] public int masic_itemdistance;
+    [HideInInspector] public int masic_sheild;
+    [HideInInspector] public int masic_recovery;
+    [HideInInspector] public int masic_skilldamage;
+    [HideInInspector] public int masic_exp;
+    [HideInInspector] public int masic_point;
 
-    bool isRun_flag;
+    Rigidbody2D rigidbody2D;
 
     [HideInInspector]
     public int player_exp;
@@ -98,6 +107,17 @@ public class PlayerController : MonoBehaviour
         skill_lv_atk = 1;
         skill_lv_cooltime = 1;
         skill_lv_getcount = 1;
+
+        masic_maxhp = GameManager.instance.userinfo.GetMasicMaxHP();
+        masic_atk = GameManager.instance.userinfo.GetMasicAtk();
+        masic_atkspeed = GameManager.instance.userinfo.GetMasicAtkspeed();
+        masic_speed = GameManager.instance.userinfo.GetMasicSpeed();
+        masic_itemdistance = GameManager.instance.userinfo.GetMasicItemDistance();
+        masic_sheild = GameManager.instance.userinfo.GetMasicShield();
+        masic_recovery = GameManager.instance.userinfo.GetMasicRecovery();
+        masic_skilldamage = GameManager.instance.userinfo.GetMasicSkillDamage();
+        masic_exp = GameManager.instance.userinfo.GetMasicExp();
+        masic_point = GameManager.instance.userinfo.GetMasicPoint();
     }
 
 
