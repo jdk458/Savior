@@ -14,6 +14,7 @@ public class StageManager : MonoBehaviour
     public AudioSource next_audio;
     public Text stagetext;
     public Text nexttext;
+    public CameraResolution camerasol;
     
     private void Awake()
     {
@@ -59,6 +60,8 @@ public class StageManager : MonoBehaviour
     {
         TimeManager.instance.SetTime(false);
         this.GetComponent<Animator>().SetBool("Next", false);
+        if (currentStageInt == 6)
+            StartCoroutine(camerasol.Camera_Shake());
     }
 
 }

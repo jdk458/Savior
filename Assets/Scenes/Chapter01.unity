@@ -3191,7 +3191,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ddd316c7a9a633d4493276297d058ce0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b7b7ce7005066fc43ad826111edf14e0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4464,7 +4464,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ddd316c7a9a633d4493276297d058ce0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b7b7ce7005066fc43ad826111edf14e0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -13098,7 +13098,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ddd316c7a9a633d4493276297d058ce0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b7b7ce7005066fc43ad826111edf14e0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -17815,6 +17815,9 @@ MonoBehaviour:
   camerasol: {fileID: 519420030}
   bosshpbar: {fileID: 419046090}
   boss_hp: {fileID: 1755053693}
+  background: {fileID: 234088265}
+  player: {fileID: 314764031}
+  wall: {fileID: 1383588219}
 --- !u!1 &1313503989
 GameObject:
   m_ObjectHideFlags: 0
@@ -17982,7 +17985,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ddd316c7a9a633d4493276297d058ce0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b7b7ce7005066fc43ad826111edf14e0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -19555,7 +19558,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ddd316c7a9a633d4493276297d058ce0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b7b7ce7005066fc43ad826111edf14e0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -20357,6 +20360,7 @@ MonoBehaviour:
   next_audio: {fileID: 1527876598}
   stagetext: {fileID: 1245455456}
   nexttext: {fileID: 1936974038}
+  camerasol: {fileID: 519420030}
   currentStage: Stage01
 --- !u!95 &1527876597
 Animator:
@@ -20521,7 +20525,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ddd316c7a9a633d4493276297d058ce0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b7b7ce7005066fc43ad826111edf14e0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -21577,7 +21581,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a4f0b67b8d986784890a628934430900, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8223456dfc667fb4395fe7b0e3810a88, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -22242,7 +22246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e10c9fb0f7edd498ec5855e3f4b5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 5
+  time: 30
   remainTime: 0
 --- !u!114 &1730362285
 MonoBehaviour:

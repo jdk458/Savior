@@ -14,12 +14,19 @@ public class BossStage : MonoBehaviour
     public GameObject bosshpbar;
     public Image boss_hp;
 
+    public GameObject background;
+
+    public Transform player;
+
+    public GameObject wall;
+
     MonsterController monstercontroller;
 
     private void Start()
     {
         countdown.time = 300;
-        camerasol.Camera_Shake();
+        wall.transform.position = player.position;
+        background.transform.position = player.position;
         bosshpbar.SetActive(true);
         monstercontroller = this.GetComponent<MonsterController>();
     }
