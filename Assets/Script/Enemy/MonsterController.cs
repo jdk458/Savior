@@ -13,7 +13,8 @@ public class MonsterController : MonoBehaviour
     MonsterType monsterType;
     [Range(0, 1)] float rigidTime;
     int atk;
-    int hp; int current_hp;
+    [HideInInspector] public int hp;
+    [HideInInspector] public int current_hp;
     float speed;
 
     [Header("플레이어 정보")]
