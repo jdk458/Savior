@@ -117,6 +117,7 @@ public class MonsterController : MonoBehaviour
             if (currentSpineName != hit) // 스파인
             {
                 currentSpineName = hit;
+                GetComponent<Animator>().SetTrigger("hit");
                 skeletonAnimation.AnimationState.SetAnimation(0, hit, false);
                 skeletonAnimation.timeScale = 1;
             }
