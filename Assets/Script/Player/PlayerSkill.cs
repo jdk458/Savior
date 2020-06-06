@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using System;
 
 public class PlayerSkill : MonoBehaviour
 {
@@ -12,16 +11,17 @@ public class PlayerSkill : MonoBehaviour
     public GameObject[] waterSkill;
     public GameObject[] fireSkill;
     public GameObject[] lightSkill;
+    [Header("스킬구슬 위치")]
+    public Transform skillMable;
 
     [Header("현재 소지한 스킬")]
-    public List<String> player_skill = new List<string>();
+    public List<System.String> player_skill = new List<string>();
 
 
     private void Start()
     {
         origin_nomal_atk_Pos = nomal_atk.transform.position;
         Attack();
-
     }
     Vector2 origin_nomal_atk_Pos;
     void Attack()
@@ -131,8 +131,42 @@ public class PlayerSkill : MonoBehaviour
 
     public void Get(string skillname)
     {
-        Invoke(skillname,0);
-        player_skill.Add(skillname);
+        if (GetComponent<PlayerController>().skill_lv_getcount > player_skill.Count)
+        {
+            Invoke(skillname, 0);
+            player_skill.Add(skillname);
+        }
+        else
+        {
+            GameObject skillMableObj = Instantiate(skillMable.Find(player_skill[0]).gameObject, this.transform.position, Quaternion.identity);
+            CancelInvoke(player_skill[0]);
+            float jumpPos = 2;
+            int a = Random.RandomRange(0, 6);
+            switch (a)
+            {
+                case 0: //왼쪽 위 
+                    skillMableObj.transform.DOJump(new Vector2(this.transform.position.x - jumpPos, this.transform.position.y + jumpPos), 1, 1, 0.5f);
+                    break;
+                case 1: // 왼쪽
+                    skillMableObj.transform.DOJump(new Vector2(this.transform.position.x - jumpPos, this.transform.position.y), 1, 1, 0.5f);
+                    break;
+                case 2: // 왼쪽 아래
+                    skillMableObj.transform.DOJump(new Vector2(this.transform.position.x - jumpPos, this.transform.position.y - jumpPos), 1, 1, 0.5f);
+                    break;
+                case 3: // 우측 위
+                    skillMableObj.transform.DOJump(new Vector2(this.transform.position.x + jumpPos, this.transform.position.y + jumpPos), 1, 1, 0.5f);
+                    break;
+                case 4: // 우측
+                    skillMableObj.transform.DOJump(new Vector2(this.transform.position.x + jumpPos, this.transform.position.y), 1, 1, 0.5f);
+                    break;
+                case 5: // 우측 아래
+                    skillMableObj.transform.DOJump(new Vector2(this.transform.position.x + jumpPos, this.transform.position.y - jumpPos), 1, 1, 0.5f);
+                    break;
+            }
+            player_skill.RemoveAt(0);
+            player_skill.Add(skillname);
+            Invoke(skillname, 0);
+        }
     }
 
     bool water01_flag;
