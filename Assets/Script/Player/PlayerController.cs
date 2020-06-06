@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour
     public GameObject up;
     public GameObject up_ver;
 
-
     //플레이어 레벨 업 변수 정보
     [HideInInspector] public int character_lv_hp;
     [HideInInspector] public int character_lv_speed;
@@ -68,6 +67,11 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public int skill_lv_cooltime;
     [HideInInspector] public int skill_lv_getcount;
 
+
+    [HideInInspector] public bool bossstage;
+
+    Rigidbody2D rigidbody2D;
+
     //메인화면 마법진 정보 
     [HideInInspector] public int masic_maxhp;
     [HideInInspector] public int masic_atk;
@@ -79,6 +83,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public int masic_skilldamage;
     [HideInInspector] public int masic_exp;
     [HideInInspector] public int masic_point;
+
 
     Rigidbody2D rigidbody2D;
 
@@ -108,6 +113,9 @@ public class PlayerController : MonoBehaviour
         skill_lv_cooltime = 1;
         skill_lv_getcount = 1;
 
+        bossstage = false;
+
+
         masic_maxhp = GameManager.instance.userinfo.GetMasicMaxHP();
         masic_atk = GameManager.instance.userinfo.GetMasicAtk();
         masic_atkspeed = GameManager.instance.userinfo.GetMasicAtkspeed();
@@ -118,6 +126,7 @@ public class PlayerController : MonoBehaviour
         masic_skilldamage = GameManager.instance.userinfo.GetMasicSkillDamage();
         masic_exp = GameManager.instance.userinfo.GetMasicExp();
         masic_point = GameManager.instance.userinfo.GetMasicPoint();
+
     }
 
 
@@ -142,7 +151,13 @@ public class PlayerController : MonoBehaviour
                     this.transform.position = new Vector2(
                     this.transform.position.x + (joystic_localpos.x * Time.fixedDeltaTime * speed),
                     this.transform.position.y + (joystic_localpos.y * Time.fixedDeltaTime * speed));
-
+                    if (bossstage)
+                    {
+                        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+                        pos.x = Mathf.Clamp01(pos.x);
+                        pos.y = Mathf.Clamp01(pos.y);
+                        this.transform.position = Camera.main.ViewportToWorldPoint(pos);
+                    }
                 }
 
                 Vector2 dir = Vector2.zero - joystic_localpos;
@@ -176,7 +191,8 @@ public class PlayerController : MonoBehaviour
         }
         //new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z);
         // 카메라 플레이어 따라가기 
-        theCam.position = Vector3.SmoothDamp(theCam.position, new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z), ref velocity, 0.3f);
+        if(!bossstage)
+            theCam.position = Vector3.SmoothDamp(theCam.position, new Vector3(this.transform.position.x, this.transform.position.y, theCam.position.z), ref velocity, 0.3f);
     }
     Vector3 velocity = Vector3.zero;
 
