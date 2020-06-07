@@ -24,7 +24,7 @@ public class Background_StageManager : MonoBehaviour
         //        Destroy(childList[i].gameObject);
         //    }
         //}
-        Destroy(background_list[currentStage - 1]);
+        background_list[currentStage - 1].SetActive(false);
         currentStage++;
         background_list[currentStage - 1].SetActive(true);
     }
