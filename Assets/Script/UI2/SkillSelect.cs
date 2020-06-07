@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -86,38 +87,67 @@ public class SkillSelect : MonoBehaviour
 
     void Select01Btn()
     {
+        select02_canvas.gameObject.SetActive(false);
+        for (int i = 0; i < 3; i++)
+        {
+            select02_canvas.GetChild(i).GetComponent<Text>().color = new Color(1, 1, 1, 0);
+            select02_canvas.GetChild(i).GetChild(0).GetComponent<Text>().color = new Color(1, 1, 1, 0);
+        }
+
         switch (select_num01)
         {
             case 1:
                 for (int i = 0; i < 3; i++)
                     select02.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = characterPassive[i];
-                select02_canvas.GetChild(0).GetComponent<Text>().text = "최대체력 n% 상승";
-                select02_canvas.GetChild(1).GetComponent<Text>().text = "이동속도 n% 상승";
-                select02_canvas.GetChild(2).GetComponent<Text>().text = "경험치 상승량 n% 상승";
+                select02_canvas.GetChild(0).GetComponent<Text>().text = "<color=#FFFC00>LV"+ playerController.character_lv_hp + "</color>" + "   체력";
+                select02_canvas.GetChild(0).GetChild(0).GetComponent<Text>().text = "캐릭터 최대 체력\n" + "<color=#2EFF00>n%" + "</color>" + " 증가";
+                select02_canvas.GetChild(1).GetComponent<Text>().text = "<color=#FFFC00>LV" + playerController.character_lv_speed + "</color>" + "   이동속도";
+                select02_canvas.GetChild(1).GetChild(0).GetComponent<Text>().text = "캐릭터 이동속도\n" + "<color=#2EFF00>n%" + "</color>" + " 증가";
+                select02_canvas.GetChild(2).GetComponent<Text>().text = "<color=#FFFC00>LV" + playerController.character_lv_exp + "</color>" + "   경험치상승";
+                select02_canvas.GetChild(2).GetChild(0).GetComponent<Text>().text = "캐릭터 경험치 상승량\n" + "<color=#2EFF00>n%" + "</color>" + " 증가";
                 break;
             case 2:
                 for (int i = 0; i < 3; i++)
                     select02.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = attackPassive[i];
-                select02_canvas.GetChild(0).GetComponent<Text>().text = "기본 공격력 n% 상승";
-                select02_canvas.GetChild(1).GetComponent<Text>().text = "공격속도 n% 상승";
-                select02_canvas.GetChild(2).GetComponent<Text>().text = "타격횟수 증가";
+                select02_canvas.GetChild(0).GetComponent<Text>().text = "<color=#FFFC00>LV" + playerController.attack_lv_atk + "</color>" + "   공격력";
+                select02_canvas.GetChild(0).GetChild(0).GetComponent<Text>().text = "일반 공격력 증가\n" + "<color=#2EFF00>n%" + "</color>" + " 증가";
+                select02_canvas.GetChild(1).GetComponent<Text>().text = "<color=#FFFC00>LV" + playerController.attack_lv_speed + "</color>" + "   공격속도";
+                select02_canvas.GetChild(1).GetChild(0).GetComponent<Text>().text = "일반 공격속도\n" + "<color=#2EFF00>n%" + "</color>" + " 감소";
+                select02_canvas.GetChild(2).GetComponent<Text>().text = "<color=#FFFC00>LV" + playerController.attack_lv_count + "</color>" + "   개체수 증가";
+                select02_canvas.GetChild(2).GetChild(0).GetComponent<Text>().text = "적 공격 개체수\n" + "<color=#2EFF00>n" + "</color>" + " 증가";
                 break;
             case 3:
                 for (int i = 0; i < 3; i++)
                     select02.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = skillPassive[i];
-                select02_canvas.GetChild(0).GetComponent<Text>().text = "스킬 공격력 n% 상승";
-                select02_canvas.GetChild(1).GetComponent<Text>().text = "스킬 쿨타임 n% 감소";
-                select02_canvas.GetChild(2).GetComponent<Text>().text = "스킬 소지개수 증가";
+                select02_canvas.GetChild(0).GetComponent<Text>().text = "<color=#FFFC00>LV" + playerController.skill_lv_atk + "</color>" + "   스킬공격력";
+                select02_canvas.GetChild(0).GetChild(0).GetComponent<Text>().text = "모든 스킬 공격력\n" + "<color=#2EFF00>n%" + "</color>" + " 증가";
+                select02_canvas.GetChild(1).GetComponent<Text>().text = "<color=#FFFC00>LV" + playerController.skill_lv_cooltime + "</color>" + "   쿨타임";
+                select02_canvas.GetChild(1).GetChild(0).GetComponent<Text>().text = "모든 스킬 쿨타임\n" + "<color=#2EFF00>n%" + "</color>" + " 감소";
+                select02_canvas.GetChild(2).GetComponent<Text>().text = "<color=#FFFC00>LV" + playerController.skill_lv_getcount + "</color>" + "   스킬 소지개수";
+                select02_canvas.GetChild(2).GetChild(0).GetComponent<Text>().text = "소지할 수 있는 스킬의 수\n" + "<color=#2EFF00>n" + "</color>" + " 증가";
                 break;
         }
+        
         select01.SetActive(false);
         Invoke("Select02BugInvoke", 0.15f);
+        Invoke("Select02CanvasColor", 0.6f);
         StartCoroutine(Ani_Coroutine("SkillSelect02_FadeIn", 1));
     }
 
     void Select02BugInvoke()
     {
         select02.SetActive(true);
+     
+    }
+
+    void Select02CanvasColor()
+    {
+        select02_canvas.gameObject.SetActive(true);
+        for (int i = 0; i < 3; i++)
+        {
+            select02_canvas.GetChild(i).GetComponent<Text>().DOFade(1, 1);
+            select02_canvas.GetChild(i).GetChild(0).GetComponent<Text>().DOFade(1, 1);
+        }
     }
 
     void Select02Btn()
