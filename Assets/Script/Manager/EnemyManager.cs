@@ -15,6 +15,8 @@ public class EnemyManager : MonoBehaviour
     float middle = 35;
     float strong = 15;
 
+    [HideInInspector] public bool bossstage;
+
     int currentStage;
 
     private void Start()
@@ -27,8 +29,11 @@ public class EnemyManager : MonoBehaviour
     {
         if (TimeManager.instance.GetTime())
         {
-            Invoke("Spawn", spawn_time);
-            return;
+            if (!bossstage)
+            {
+                Invoke("Spawn", spawn_time);
+                return;
+            }
         }
 
         MonsterType monsterType = MonsterType.약한객체;
@@ -91,7 +96,8 @@ public class EnemyManager : MonoBehaviour
         int rand_pos_num = Random.RandomRange(0, enemy_spawn.childCount);
         enemy_obj.transform.position = enemy_spawn.GetChild(rand_pos_num).transform.position;
 
-        Invoke("Spawn", spawn_time);
+        if(!bossstage)
+            Invoke("Spawn", spawn_time);
     }
 
     public void NextStage()
